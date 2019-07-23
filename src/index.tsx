@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import {readFile, writeFile} from 'fs';
 
 import Home from './pages/Home';
+import './styles/index.scss';
 
 const SITE_LAYOUT = {
   index: {

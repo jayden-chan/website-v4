@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const settings = {
   mode: 'development',
@@ -66,10 +67,62 @@ const settings = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              publicPath: '../',
+            },
+          },
+          {
+            loader: require.resolve('css-loader'),
+            options: {importLoaders: 2, sourceMap: false},
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('tailwindcss'),
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                }),
+                require('postcss-import'),
+              ],
+              sourceMap: false,
+            },
+          },
+          {
+            loader: require.resolve('sass-loader'),
+            options: {
+              sourceMap: false,
+            },
+          },
+        ],
+      },
     ],
 
     strictExportPresence: true,
   },
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
+  ],
 
   externals: {
     fs: 'commonjs fs',
@@ -85,7 +138,7 @@ const settings = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css', '.json'],
   },
 
   bail: true,
