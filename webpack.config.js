@@ -1,6 +1,8 @@
 const path = require('path');
+const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackHookPlugin = require('webpack-hook-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const settings = {
   module: {
@@ -137,6 +139,21 @@ const settings = {
 
 module.exports = env => {
   if (env === 'production') {
+    settings.plugins.push(
+      new PurgecssPlugin({
+        paths: [...glob.sync(`src/**/*`, {nodir: true})],
+        extractors: [
+          {
+            extractor: class {
+              static extract(content) {
+                return content.match(/[A-Za-z0-9-_:/]+/g) || [];
+              }
+            },
+            extensions: ['html', 'tsx'],
+          },
+        ],
+      }),
+    );
   } else {
     settings.mode = 'development';
     settings.watch = true;
