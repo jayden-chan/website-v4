@@ -3,6 +3,9 @@ import ReactDOMServer from 'react-dom/server';
 import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
 import {sync as rmdir} from 'rimraf';
 
+import {config} from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
+
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import './styles/index.scss';

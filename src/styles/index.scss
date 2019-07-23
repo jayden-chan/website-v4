@@ -1,9 +1,7 @@
 @import 'tailwindcss/base';
-
 @import 'tailwindcss/components';
-
 @import 'tailwindcss/utilities';
-
+@import 'node_modules/@fortawesome/fontawesome-svg-core/styles';
 @import './App.scss';
 
 body {
