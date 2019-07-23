@@ -53,7 +53,7 @@ const Resume: React.FC = () => {
       <div className="px-10 flex-shrink-0 lg:px-0">
         <h1 className={major}>
           <FontAwesomeIcon icon={faVoicemail} />
-          <text className={iconWordLarge}>Contact</text>
+          <span className={iconWordLarge}>Contact</span>
         </h1>
 
         <div className="pb-6">
@@ -78,7 +78,7 @@ const Resume: React.FC = () => {
             </li>
             <li>
               <FontAwesomeIcon icon={faPhone} />
-              <text className={iconWord}>(403) 874-9705</text>
+              <span className={iconWord}>(403) 874-9705</span>
             </li>
             <li>References available upon request</li>
           </ul>
@@ -87,7 +87,7 @@ const Resume: React.FC = () => {
         <div>
           <h2 className={major}>
             <FontAwesomeIcon icon={faWrench} />
-            <text className={iconWordLarge}>Skills</text>
+            <span className={iconWordLarge}>Skills</span>
           </h2>
 
           <ul className="pb-10">
@@ -120,7 +120,7 @@ const Resume: React.FC = () => {
       <div className="px-10 lg:pr-10 lg:pl-0">
         <h1 className={major}>
           <FontAwesomeIcon icon={faSuitcase} />
-          <text className={iconWordLarge}>Experience</text>
+          <span className={iconWordLarge}>Experience</span>
         </h1>
 
         {resume.experience.map((job, idx) => {
@@ -131,7 +131,7 @@ const Resume: React.FC = () => {
                   <h3 className={minor + ' inline-block'}>{job.title}</h3>
                   <span className="lg:float-right block">
                     <FontAwesomeIcon icon={faMapMarkerAlt} />
-                    <text className={iconWord}>{job.location}</text>
+                    <span className={iconWord}>{job.location}</span>
                   </span>
                 </div>
                 <div className="pb-4">
@@ -153,7 +153,7 @@ const Resume: React.FC = () => {
 
         <h1 className={major}>
           <FontAwesomeIcon icon={faFolderOpen} />
-          <text className={iconWordLarge}>Projects</text>
+          <span className={iconWordLarge}>Projects</span>
         </h1>
 
         {resume.projects.map((proj, idx) => {
@@ -182,7 +182,7 @@ const Resume: React.FC = () => {
 
         <h1 className={major}>
           <FontAwesomeIcon icon={faGraduationCap} />
-          <text className={iconWordLarge}>Education</text>
+          <span className={iconWordLarge}>Education</span>
         </h1>
         <section className="block pb-10">
           <header>
@@ -192,7 +192,7 @@ const Resume: React.FC = () => {
               </h3>
               <span className="lg:float-right block">
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
-                <text className={iconWord}>Victoria, Canada</text>
+                <span className={iconWord}>Victoria, Canada</span>
               </span>
             </div>
             <div className="pb-4">
@@ -215,7 +215,7 @@ const Resume: React.FC = () => {
 
         <h1 className={major}>
           <FontAwesomeIcon icon={faTrophy} />
-          <text className={iconWordLarge}>Awards</text>
+          <span className={iconWordLarge}>Awards</span>
         </h1>
 
         {resume.awards.map((award, idx) => {
