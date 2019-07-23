@@ -1,0 +1,11 @@
+{
+  "name": "website",
+  "version": "3.0.0",
+  "description": "Personal Website",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jayden Chan <jaydencn7@gmail.com>",
+  "license": "MIT"
+}
