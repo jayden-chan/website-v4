@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress"
+    "build": "webpack --progress -p --env=production",
+    "build:watch": "webpack --progress --env=dev"
   },
   "author": "Jayden Chan <jaydencn7@gmail.com>",
   "license": "MIT",

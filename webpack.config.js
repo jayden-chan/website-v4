@@ -3,19 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackHookPlugin = require('webpack-hook-plugin');
 
 const settings = {
-  mode: 'development',
-  watch: true,
-  watchOptions: {
-    poll: true,
-    ignored: /node_modules/,
-  },
-
-  optimization: {
-    removeAvailableModules: false,
-    removeEmptyChunks: false,
-    splitChunks: false,
-  },
-
   module: {
     rules: [
       {
@@ -149,5 +136,20 @@ const settings = {
 };
 
 module.exports = env => {
+  if (env === 'production') {
+  } else {
+    settings.mode = 'development';
+    settings.watch = true;
+    settings.watchOptions = {
+      poll: true,
+      ignored: /node_modules/,
+    };
+
+    settings.optimization = {
+      removeAvailableModules: false,
+      removeEmptyChunks: false,
+      splitChunks: false,
+    };
+  }
   return settings;
 };
