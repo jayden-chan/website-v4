@@ -23,8 +23,8 @@ const wrapper = [
   'flex',
   'flex-col',
   'w-full',
-  'pt-10',
-  'pb-32',
+  'mt-10',
+  'mb-32',
   'items-center',
   'lg:items-start',
   'lg:flex-row-reverse',
@@ -34,7 +34,7 @@ const wrapper = [
 const major = [
   'text-3xl',
   'text-bold',
-  'py-2',
+  'my-2',
   'tracking-wider',
   'sm:tracking-widest',
   'uppercase',
@@ -43,20 +43,20 @@ const major = [
 
 const minor = ['text-xl', 'tracking-wider', 'uppercase', 'font-bold'].join(' ');
 
-const iconWord = 'pl-3';
-const iconWordLarge = 'pl-4';
-const skill = 'pt-1';
+const iconWord = 'ml-3';
+const iconWordLarge = 'ml-4';
+const skill = 'mt-1';
 
 const Resume: React.FC = () => {
   return (
     <div className={wrapper}>
-      <div className="px-10 flex-shrink-0 lg:px-0">
+      <div className="mx-10 flex-shrink-0 lg:mx-0">
         <h1 className={major}>
           <FontAwesomeIcon icon={faVoicemail} />
           <span className={iconWordLarge}>Contact</span>
         </h1>
 
-        <div className="pb-6">
+        <div className="mb-6">
           <ul>
             <li>
               <FontAwesomeIcon icon={faGithub} />
@@ -90,7 +90,7 @@ const Resume: React.FC = () => {
             <span className={iconWordLarge}>Skills</span>
           </h2>
 
-          <ul className="pb-10">
+          <ul className="mb-10">
             <h3 className={minor}>Langauges</h3>
             {resume.skills.lang.map((e, idx) => (
               <li className={skill} key={idx}>
@@ -98,7 +98,7 @@ const Resume: React.FC = () => {
               </li>
             ))}
           </ul>
-          <ul className="pb-10">
+          <ul className="mb-10">
             <h3 className={minor}>Tools</h3>
             {resume.skills.tools.map((e, idx) => (
               <li className={skill} key={idx}>
@@ -106,7 +106,7 @@ const Resume: React.FC = () => {
               </li>
             ))}
           </ul>
-          <ul className="pb-10">
+          <ul className="mb-10">
             <h3 className={minor}>Technologies</h3>
             {resume.skills.tech.map((e, idx) => (
               <li className={skill} key={idx}>
@@ -117,7 +117,7 @@ const Resume: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-10 lg:pr-10 lg:pl-0">
+      <div className="mx-10 lg:mr-10 lg:ml-0">
         <h1 className={major}>
           <FontAwesomeIcon icon={faSuitcase} />
           <span className={iconWordLarge}>Experience</span>
@@ -125,7 +125,7 @@ const Resume: React.FC = () => {
 
         {resume.experience.map((job, idx) => {
           return (
-            <section className="block pb-10" key={idx}>
+            <section className="block mb-10" key={idx}>
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{job.title}</h3>
@@ -134,14 +134,14 @@ const Resume: React.FC = () => {
                     <span className={iconWord}>{job.location}</span>
                   </span>
                 </div>
-                <div className="pb-4">
+                <div className="mb-4">
                   <span>{job.company}</span>
                   <span className="lg:float-right block time">{job.time}</span>
                 </div>
               </header>
 
               <div>
-                <ul className="list-disc pl-5">
+                <ul className="list-disc ml-5">
                   {job.roles.map((r, idx) => (
                     <li key={idx}>{r}</li>
                   ))}
@@ -158,19 +158,19 @@ const Resume: React.FC = () => {
 
         {resume.projects.map((proj, idx) => {
           return (
-            <section className="block pb-10" key={idx}>
+            <section className="block mb-10" key={idx}>
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{proj.title}</h3>
                 </div>
-                <div className="pb-4">
+                <div className="mb-4">
                   <span>{proj.stack}</span>
                   <span className="lg:float-right block">{proj.time}</span>
                 </div>
               </header>
 
               <div>
-                <ul className="list-disc pl-5">
+                <ul className="list-disc ml-5">
                   {proj.roles.map((r, idx) => (
                     <li key={idx}>{r}</li>
                   ))}
@@ -184,7 +184,7 @@ const Resume: React.FC = () => {
           <FontAwesomeIcon icon={faGraduationCap} />
           <span className={iconWordLarge}>Education</span>
         </h1>
-        <section className="block pb-10">
+        <section className="block mb-10">
           <header>
             <div>
               <h3 className={minor + ' inline-block'}>
@@ -195,7 +195,7 @@ const Resume: React.FC = () => {
                 <span className={iconWord}>Victoria, Canada</span>
               </span>
             </div>
-            <div className="pb-4">
+            <div className="mb-4">
               <span>Candidate for Bachelor of Software Engineering</span>
               <span className="lg:float-right block time">
                 2017 - 2022 (expected)
@@ -204,7 +204,7 @@ const Resume: React.FC = () => {
           </header>
 
           <div>
-            <ul className="list-disc pl-5">
+            <ul className="list-disc ml-5">
               <li>
                 Finished in top 10% of students enrolled in first year Computer
                 Science courses
@@ -220,7 +220,7 @@ const Resume: React.FC = () => {
 
         {resume.awards.map((award, idx) => {
           return (
-            <section className="block pb-3" key={idx}>
+            <section className="block mb-3" key={idx}>
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{award.result}</h3>
