@@ -50,14 +50,13 @@ export default function main() {
   console.log('Clearing old files');
   rmdir('./build');
 
-  console.log('Creating new files');
-
-  mkdirSync('build');
-  mkdirSync('build/resume');
+  console.log('Rendering...');
 
   Object.entries(SITE_LAYOUT).forEach(([key, value]) => {
-    const path =
-      key === 'index' ? `build/index.html` : `build/${key}/index.html`;
+    const dir = key === 'index' ? 'build' : `build/${key}`;
+    const path = `${dir}/index.html`;
+
+    mkdirSync(dir, {recursive: true});
 
     renderPage({
       path,
