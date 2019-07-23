@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
-import {readFile, writeFile} from 'fs';
+import {readFile, writeFile, copyFileSync} from 'fs';
 
 import Home from './pages/Home';
 import './styles/index.scss';
@@ -24,7 +24,7 @@ function renderPage(page: {
       throw err;
     }
 
-    const html = ReactDOMServer.renderToString(<page.component />);
+    const html = ReactDOMServer.renderToStaticMarkup(<page.component />);
     writeFile(
       page.path,
       data.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
@@ -45,3 +45,5 @@ Object.entries(SITE_LAYOUT).forEach(([key, value]) => {
     title: value.title,
   });
 });
+
+copyFileSync('dist/index.css', 'build/styles.css');
