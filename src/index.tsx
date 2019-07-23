@@ -1,8 +1,10 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import {readFile, writeFile, copyFileSync} from 'fs';
+import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
+import {sync as rmdir} from 'rimraf';
 
 import Home from './pages/Home';
+import Resume from './pages/Resume';
 import './styles/index.scss';
 
 const SITE_LAYOUT = {
@@ -10,6 +12,11 @@ const SITE_LAYOUT = {
     title: 'Jayden Chan',
     template: './templates/index.html',
     component: Home,
+  },
+  resume: {
+    title: 'Resume - Jayden Chan',
+    template: './templates/index.html',
+    component: Resume,
   },
 };
 
@@ -35,15 +42,30 @@ function renderPage(page: {
   });
 }
 
-Object.entries(SITE_LAYOUT).forEach(([key, value]) => {
-  const path = key === 'index' ? `build/index.html` : `build/${key}/index.html`;
+export default function main() {
+  console.log('Building website...');
+  console.log('Clearing old files');
+  rmdir('./build');
 
-  renderPage({
-    path,
-    template: value.template,
-    component: value.component,
-    title: value.title,
+  console.log('Creating new files');
+
+  mkdirSync('build');
+  mkdirSync('build/resume');
+
+  Object.entries(SITE_LAYOUT).forEach(([key, value]) => {
+    const path =
+      key === 'index' ? `build/index.html` : `build/${key}/index.html`;
+
+    renderPage({
+      path,
+      template: value.template,
+      component: value.component,
+      title: value.title,
+    });
   });
-});
 
-copyFileSync('dist/index.css', 'build/styles.css');
+  copyFileSync('dist/index.css', 'build/styles.css');
+  console.log('Finished.');
+}
+
+main();

@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackHookPlugin = require('webpack-hook-plugin');
 
 const settings = {
   mode: 'development',
@@ -121,6 +122,9 @@ const settings = {
       filename: '[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
+    new WebpackHookPlugin({
+      onBuildExit: ['node dist/index.js'],
     }),
   ],
 
