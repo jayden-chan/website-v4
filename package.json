@@ -4,7 +4,8 @@
   "description": "Personal Website",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress"
   },
   "author": "Jayden Chan <jaydencn7@gmail.com>",
   "license": "MIT",

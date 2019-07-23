@@ -17,8 +17,11 @@ const Home: React.FC = () => {
       <a href={GITHUB} className={iconLinkStyle}>
         github
       </a>
-      <a href="/resume" className={iconLinkStyle}>
+      <a href="resume" className={iconLinkStyle}>
         resume
+      </a>
+      <a href="cheat" className={iconLinkStyle}>
+        cheat
       </a>
     </div>
   );

@@ -77,11 +77,11 @@ const settings = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
   },
 
   entry: {
-    bundle: ['./src/index.tsx'],
+    index: ['./src/index.tsx'],
   },
 
   resolve: {
