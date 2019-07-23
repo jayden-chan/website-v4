@@ -87,6 +87,7 @@ const settings = {
                   stage: 3,
                 }),
                 require('postcss-import'),
+                require('postcss-clean'),
               ],
               sourceMap: false,
             },
