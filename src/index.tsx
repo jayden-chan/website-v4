@@ -34,10 +34,21 @@ function renderPage(page: {
       throw err;
     }
 
-    const html = ReactDOMServer.renderToStaticMarkup(<page.component />);
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <header className="App-header">
+        <page.component />
+      </header>,
+    );
+
     writeFile(
       page.path,
-      data.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
+      data
+        .replace(/{{content}}/, html)
+        .replace(/{{title}}/, page.title)
+        .replace(
+          /{{styles}}/,
+          page.path === 'build/index.html' ? 'styles.css' : '../styles.css',
+        ),
       err => {
         if (err) throw err;
       },

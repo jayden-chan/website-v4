@@ -28,17 +28,20 @@ const wrapper = [
   'items-center',
   'lg:items-start',
   'lg:flex-row-reverse',
-  'lg:w-4/5',
+  'lg:w-5/6',
 ].join(' ');
 
 const major = [
+  'major',
   'text-3xl',
   'text-bold',
-  'my-2',
+  'pb-2',
+  'my-8',
   'tracking-wider',
-  'sm:tracking-widest',
   'uppercase',
   'font-bold',
+  'resume-major',
+  'sm:tracking-widest',
 ].join(' ');
 
 const minor = ['text-xl', 'tracking-wider', 'uppercase', 'font-bold'].join(' ');

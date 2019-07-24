@@ -87,7 +87,7 @@ const settings = {
                   stage: 3,
                 }),
                 require('postcss-import'),
-                require('postcss-clean'),
+                // require('postcss-clean'),
               ],
               sourceMap: false,
             },
@@ -142,7 +142,10 @@ module.exports = env => {
   if (env === 'production') {
     settings.plugins.push(
       new PurgecssPlugin({
-        paths: [...glob.sync(`src/**/*`, {nodir: true})],
+        paths: [
+          ...glob.sync(`src/**/*`, {nodir: true}),
+          './templates/index.html',
+        ],
         extractors: [
           {
             extractor: class {
