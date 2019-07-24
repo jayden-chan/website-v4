@@ -87,7 +87,7 @@ const settings = {
                   stage: 3,
                 }),
                 require('postcss-import'),
-                // require('postcss-clean'),
+                require('postcss-clean'),
               ],
               sourceMap: false,
             },
@@ -144,7 +144,17 @@ module.exports = env => {
       new PurgecssPlugin({
         paths: [
           ...glob.sync(`src/**/*`, {nodir: true}),
-          './templates/index.html',
+          ...glob.sync(`templates/**/*`, {nodir: true}),
+        ],
+        // fontawesome css
+        whitelistPatterns: [
+          /fa-/,
+          /fas-/,
+          /far-/,
+          /fal-/,
+          /fab-/,
+          /svg-/,
+          /sr-/,
         ],
         extractors: [
           {
@@ -153,7 +163,7 @@ module.exports = env => {
                 return content.match(/[A-Za-z0-9-_:/]+/g) || [];
               }
             },
-            extensions: ['html', 'tsx'],
+            extensions: ['html', 'tsx', 'scss'],
           },
         ],
       }),

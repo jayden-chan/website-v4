@@ -1,7 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'node_modules/@fortawesome/fontawesome-svg-core/styles';
+@import '@fortawesome/fontawesome-svg-core/styles';
+@import './animate.scss';
 
 body {
   margin: 0;
@@ -32,7 +33,7 @@ a {
   justify-content: center;
 
   @media (max-width: 1024px) {
-    font-size: calc(10px + 2vmin);
+    font-size: calc(13px + 2vmin);
   }
 }
 

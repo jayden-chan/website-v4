@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
 import {sync as rmdir} from 'rimraf';
@@ -14,19 +14,19 @@ const SITE_LAYOUT = {
   index: {
     title: 'Jayden Chan',
     template: './templates/landing.html',
-    component: Home,
+    component: <Home />,
   },
   resume: {
     title: 'Resume - Jayden Chan',
     template: './templates/resume.html',
-    component: Resume,
+    component: <Resume />,
   },
 };
 
 function renderPage(page: {
   path: string;
   template: string;
-  component: React.FC;
+  component: ReactElement;
   title: string;
 }): void {
   return readFile(page.template, {encoding: 'UTF-8'}, (err, data) => {
@@ -34,7 +34,7 @@ function renderPage(page: {
       throw err;
     }
 
-    const html = ReactDOMServer.renderToStaticMarkup(<page.component />);
+    const html = ReactDOMServer.renderToStaticMarkup(page.component);
 
     writeFile(
       page.path,
