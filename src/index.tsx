@@ -13,12 +13,12 @@ import './styles/index.scss';
 const SITE_LAYOUT = {
   index: {
     title: 'Jayden Chan',
-    template: './templates/index.html',
+    template: './templates/landing.html',
     component: Home,
   },
   resume: {
     title: 'Resume - Jayden Chan',
-    template: './templates/index.html',
+    template: './templates/resume.html',
     component: Resume,
   },
 };
@@ -34,11 +34,7 @@ function renderPage(page: {
       throw err;
     }
 
-    const html = ReactDOMServer.renderToStaticMarkup(
-      <header className="App-header">
-        <page.component />
-      </header>,
-    );
+    const html = ReactDOMServer.renderToStaticMarkup(<page.component />);
 
     writeFile(
       page.path,
