@@ -39,13 +39,7 @@ function renderPage(page: {
 
     writeFile(
       page.path,
-      data
-        .replace(/{{content}}/, html)
-        .replace(/{{title}}/, page.title)
-        .replace(
-          /{{styles}}/,
-          page.path === 'build/index.html' ? 'styles.css' : '../styles.css',
-        ),
+      data.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
       err => {
         if (err) throw err;
       },
