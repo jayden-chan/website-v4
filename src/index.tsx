@@ -70,7 +70,7 @@ export default function main() {
 
   copyFileSync('dist/index.css', 'build/styles.css');
   copyFileSync('templates/404.html', 'build/404.html');
-  console.log('Finished.');
+  console.log('Finished.\n');
 }
 
 main();

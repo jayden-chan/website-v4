@@ -63,7 +63,7 @@ const Resume: React.FC = () => {
         <div className="mb-6">
           <ul>
             <li>
-              <FontAwesomeIcon icon={faGithub} href="http://google.ca" />
+              <FontAwesomeIcon icon={faGithub} />
               <a href={GITHUB} className={iconWord}>
                 github.com/jayden-chan
               </a>

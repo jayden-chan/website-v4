@@ -1,9 +1,7 @@
 import React from 'react';
-
 import {GITHUB} from '../../content/urls.json';
 
 const iconLinkStyle = 'underline mr-4';
-
 const Home: React.FC = () => {
   return (
     <div className="fadein">
