@@ -1,6 +1,10 @@
 import React from 'react';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {GITHUB} from '../../content/urls.json';
+import * as resume from '../../content/resume.json';
+
 import {
   faEnvelope,
   faFolderOpen,
@@ -13,10 +17,6 @@ import {
   faVoicemail,
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
-
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {GITHUB} from '../../content/urls.json';
-import * as resume from '../../content/resume.json';
 
 const wrapper = [
   'fadein',
@@ -63,7 +63,7 @@ const Resume: React.FC = () => {
         <div className="mb-6">
           <ul>
             <li>
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} href="http://google.ca" />
               <a href={GITHUB} className={iconWord}>
                 github.com/jayden-chan
               </a>
@@ -166,6 +166,19 @@ const Resume: React.FC = () => {
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{proj.title}</h3>
+                  {(() => {
+                    if (proj.github) {
+                      return (
+                        <a
+                          href={`${GITHUB}${proj.github}`}
+                          className={iconWord}>
+                          <FontAwesomeIcon icon={faGithub} />
+                        </a>
+                      );
+                    } else {
+                      return <span className="time"> (closed source)</span>;
+                    }
+                  })()}
                 </div>
                 <div className="mb-4">
                   <span>{proj.stack}</span>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {GITHUB} from '../../content/urls.json';
-<img src="/public/images/demo.jpg" />;
 
 const iconLinkStyle = 'underline mr-4';
 

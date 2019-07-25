@@ -26,7 +26,7 @@
     },
     {
       "title": "Robotics Software Technician",
-      "location": "(remote)",
+      "location": "Calgary, Canada",
       "company": "Bickert Robotics",
       "time": "Apr 2018 - Sep 2018",
       "roles": [
@@ -53,6 +53,7 @@
     {
       "title": "Ray Tracer",
       "stack": "Rust",
+      "github": "raytracer",
       "time": "2019",
       "roles": [
         "Developed a simple uni-directional path tracer based on Peter Shirley's \"Ray Tracing in One Weekend\" book",
@@ -63,6 +64,7 @@
     {
       "title": "ESS Locker System",
       "stack": "Node / React / MySQL",
+      "github": "ess-lockers",
       "time": "2018 - present",
       "roles": [
         "Developed a web app for managing the UVic Engineering Student Society locker rental system",
@@ -86,6 +88,7 @@
     {
       "title": "UVic ENGR 120 Design Project",
       "stack": "C",
+      "github": "ENGR120-Vex",
       "time": "2018",
       "roles": [
         "Designed and built a small prototype robot for connecting wires on the ocean floor",
