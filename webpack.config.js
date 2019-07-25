@@ -146,16 +146,6 @@ module.exports = env => {
           ...glob.sync(`src/**/*`, {nodir: true}),
           ...glob.sync(`templates/**/*`, {nodir: true}),
         ],
-        // fontawesome css
-        whitelistPatterns: [
-          /fa-/,
-          /fas-/,
-          /far-/,
-          /fal-/,
-          /fab-/,
-          /svg-/,
-          /sr-/,
-        ],
         extractors: [
           {
             extractor: class {

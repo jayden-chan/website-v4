@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+
 import ReactDOMServer from 'react-dom/server';
 import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
 import {sync as rmdir} from 'rimraf';

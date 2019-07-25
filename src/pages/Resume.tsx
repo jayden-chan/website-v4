@@ -19,9 +19,7 @@ import {GITHUB} from '../../content/urls.json';
 import * as resume from '../../content/resume.json';
 
 const wrapper = [
-  'animated',
-  'fadeIn',
-  'slow',
+  'fadein',
   'resume',
   'flex',
   'flex-col',
