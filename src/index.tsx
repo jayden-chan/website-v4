@@ -1,5 +1,4 @@
-import React, {ReactElement} from 'react';
-
+import {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
 import {sync as rmdir} from 'rimraf';
@@ -7,41 +6,39 @@ import {sync as rmdir} from 'rimraf';
 import {config} from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
-import Home from './pages/Home';
-import Resume from './pages/Resume';
+import {SITE_LAYOUT} from './layout';
 import './styles/index.scss';
 
-const SITE_LAYOUT = {
-  index: {
-    title: 'Jayden Chan',
-    template: './templates/landing.html',
-    component: <Home />,
-  },
-  resume: {
-    title: 'Resume - Jayden Chan',
-    template: './templates/resume.html',
-    component: <Resume />,
-  },
-};
+const OUTPUT_DIR = './build';
 
-function renderPage(page: {
-  path: string;
+type Page = {
+  relPath: string;
+  title: string;
   template: string;
   component: ReactElement;
-  title: string;
-}): void {
-  return readFile(page.template, {encoding: 'UTF-8'}, (err, data) => {
+  subpages: Page[];
+};
+
+function render(page: Page, pathStack: string[]): void {
+  readFile(page.template, {encoding: 'UTF-8'}, (err, template) => {
     if (err) {
       throw err;
     }
 
     const html = ReactDOMServer.renderToStaticMarkup(page.component);
+    const outputPath = [...pathStack, page.relPath].join('');
+
+    mkdirSync(outputPath, {recursive: true});
 
     writeFile(
-      page.path,
-      data.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
+      `${outputPath}index.html`,
+      template.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
       err => {
         if (err) throw err;
+
+        page.subpages.forEach(subpage => {
+          render(subpage, [...pathStack, page.relPath]);
+        });
       },
     );
   });
@@ -50,23 +47,12 @@ function renderPage(page: {
 export default function main() {
   console.log('Building website...');
   console.log('Clearing old files');
-  rmdir('./build');
+  rmdir(OUTPUT_DIR);
 
   console.log('Rendering...');
 
-  Object.entries(SITE_LAYOUT).forEach(([key, value]) => {
-    const dir = key === 'index' ? 'build' : `build/${key}`;
-    const path = `${dir}/index.html`;
-
-    mkdirSync(dir, {recursive: true});
-
-    renderPage({
-      path,
-      template: value.template,
-      component: value.component,
-      title: value.title,
-    });
-  });
+  mkdirSync(OUTPUT_DIR);
+  render(SITE_LAYOUT, [OUTPUT_DIR]);
 
   copyFileSync('dist/index.css', 'build/styles.css');
   copyFileSync('templates/404.html', 'build/404.html');
