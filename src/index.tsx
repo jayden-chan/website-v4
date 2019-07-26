@@ -1,23 +1,24 @@
 import {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
+import {readFile, writeFile, copyFile, mkdir} from 'fs';
 import {sync as rmdir} from 'rimraf';
 
 import {config} from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
+import {throwIfErr, dirStat, templateReplace} from './utils';
 import {SITE_LAYOUT} from './layout';
 import './styles/index.scss';
 
 const OUTPUT_DIR = './build';
 
-const log = (...args: any[]) => {
+function log(...args: any[]): void {
   if (args.length === 0) {
     console.log();
   }
   args.forEach(a => console.log(`[rstatic]: ${a}`));
-};
+}
 
 type Page = {
   relativePath: string;
@@ -31,47 +32,74 @@ type Page = {
  * Recursively render the pages defined in the site layout into
  * static HTML
  */
-function render(page: Page, pathStack: string[]): void {
-  readFile(page.template, {encoding: 'UTF-8'}, (err, template) => {
-    if (err) {
-      throw err;
-    }
+async function render(page: Page, pathStack: string[]): Promise<void> {
+  return new Promise((resolve, reject) => {
+    readFile(page.template, {encoding: 'UTF-8'}, (err, template) => {
+      if (err) {
+        reject(err);
+      }
 
-    const html = ReactDOMServer.renderToStaticMarkup(page.component);
-    const outputPath = [...pathStack, page.relativePath].join('');
+      const html = ReactDOMServer.renderToStaticMarkup(page.component);
+      const outputPath = [...pathStack, page.relativePath].join('');
 
-    mkdirSync(outputPath, {recursive: true});
+      mkdir(outputPath, {recursive: true}, err => {
+        if (err) {
+          reject(err);
+        }
 
-    writeFile(
-      `${outputPath}index.html`,
-      template.replace(/{{content}}/, html).replace(/{{title}}/, page.title),
-      err => {
-        if (err) throw err;
+        writeFile(
+          `${outputPath}index.html`,
+          templateReplace(template, [
+            {
+              key: 'content',
+              content: html,
+            },
+            {
+              key: 'title',
+              content: page.title,
+            },
+          ]),
+          async err => {
+            if (err) {
+              reject(err);
+            }
 
-        page.subpages.forEach(subpage => {
-          render(subpage, [...pathStack, page.relativePath]);
-        });
-      },
-    );
+            const wg: Promise<void>[] = [];
+            page.subpages.forEach(subpage => {
+              wg.push(render(subpage, [...pathStack, page.relativePath]));
+            });
+
+            await Promise.all(wg);
+            resolve();
+          },
+        );
+      });
+    });
   });
 }
 
-export default function main() {
-  console.time('time');
-  log();
+export default async function main() {
+  console.time('Time');
   log('Building website');
   log('Clearing old files');
+
   rmdir(OUTPUT_DIR);
 
   log('Rendering');
+  await mkdir(OUTPUT_DIR, err => throwIfErr(err));
 
-  mkdirSync(OUTPUT_DIR);
-  render(SITE_LAYOUT, [OUTPUT_DIR]);
+  const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
-  copyFileSync('dist/index.css', 'build/styles.css');
-  copyFileSync('templates/404.html', 'build/404.html');
+  copyFile('dist/index.css', 'build/styles.css', err => throwIfErr(err));
+  copyFile('templates/404.html', 'build/404.html', err => throwIfErr(err));
+
+  await renderPromise;
+
   log('Finished.\n');
-  console.timeEnd('time');
+  console.timeEnd('Time');
+
+  log();
+  dirStat(OUTPUT_DIR);
   log();
 }
 

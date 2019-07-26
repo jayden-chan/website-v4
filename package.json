@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress -p --env=production && ls -lAh build",
+    "build": "webpack --progress -p --env=production",
     "build:watch": "webpack --progress --env=dev",
     "deploy": "surge build jayden-chan-staging.surge.sh"
   },
@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.5.5",
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
@@ -46,7 +47,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "chalk": "^2.4.2",
     "postcss-clean": "^1.1.0",
     "react": "^16.8.6",
     "react-animated-css": "^1.2.1",
