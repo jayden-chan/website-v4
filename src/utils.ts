@@ -40,7 +40,7 @@ function bold(s: string): string {
 function dirStatRecurse(dir: string, depth: number, s: DirStats): DirStats {
   const files = readdirSync(dir);
 
-  files.forEach(f => {
+  files.slice(0, depth === 0 ? files.length : 10).forEach(f => {
     const fullPath = `${dir}/${f}`;
     const stats = lstatSync(fullPath);
 
@@ -54,6 +54,12 @@ function dirStatRecurse(dir: string, depth: number, s: DirStats): DirStats {
       s.assets.push(`${' '.repeat(depth * 2)}${f}`);
     }
   });
+
+  if (files.length > 10) {
+    s.assets.push(`${' '.repeat(depth * 2)}... ${files.length - 10} hidden`);
+    s.sizes.push('');
+    s.times.push('');
+  }
 
   return s;
 }
@@ -85,10 +91,21 @@ export function dirStat(dir: string): void {
 
   const asset = bold('Asset'.padEnd(maxAssetWidth, ' '));
   const size = bold('Size'.padStart(maxSizeWidth, ' '));
-  const time = bold('Completed'.padEnd(maxTimeWidth, ' '));
-  const dirHeader = bold('Location'.padEnd(dir.length, ' '));
+  const time = bold('Last Modified'.padStart(maxTimeWidth, ' '));
+  const dirHeader = bold('Location'.padStart(dir.length, ' '));
 
   console.log(`${asset}  ${size}  ${time}  ${dirHeader}`);
+  console.log(
+    bold(
+      '\u2014'.repeat(
+        maxAssetWidth +
+          maxSizeWidth +
+          maxTimeWidth +
+          (dir.length > 8 ? dir.length : 8) +
+          6,
+      ),
+    ),
+  );
 
   for (let i = 0; i < stats.assets.length; i++) {
     const asset = stats.assets[i].padEnd(maxAssetWidth, ' ');
