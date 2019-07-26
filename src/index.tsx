@@ -17,7 +17,7 @@ function log(...args: any[]): void {
   if (args.length === 0) {
     console.log();
   }
-  args.forEach(a => console.log(`[rstatic]: ${a}`));
+  args.forEach(a => console.log(`[generator]: ${a}`));
 }
 
 type Page = {
