@@ -12,7 +12,7 @@ import './styles/index.scss';
 const OUTPUT_DIR = './build';
 
 type Page = {
-  relPath: string;
+  relativePath: string;
   title: string;
   template: string;
   component: ReactElement;
@@ -26,7 +26,7 @@ function render(page: Page, pathStack: string[]): void {
     }
 
     const html = ReactDOMServer.renderToStaticMarkup(page.component);
-    const outputPath = [...pathStack, page.relPath].join('');
+    const outputPath = [...pathStack, page.relativePath].join('');
 
     mkdirSync(outputPath, {recursive: true});
 
@@ -37,7 +37,7 @@ function render(page: Page, pathStack: string[]): void {
         if (err) throw err;
 
         page.subpages.forEach(subpage => {
-          render(subpage, [...pathStack, page.relPath]);
+          render(subpage, [...pathStack, page.relativePath]);
         });
       },
     );

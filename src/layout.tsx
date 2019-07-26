@@ -5,20 +5,20 @@ import Resume from './pages/Resume';
 import Cheat from './pages/cheat/Cheat';
 
 export const SITE_LAYOUT = {
-  relPath: '/',
+  relativePath: '/',
   title: 'Jayden Chan',
   template: './templates/landing.html',
   component: <Home />,
   subpages: [
     {
-      relPath: 'resume/',
+      relativePath: 'resume/',
       title: 'Resume - Jayden Chan',
       template: './templates/resume.html',
       component: <Resume />,
       subpages: [],
     },
     {
-      relPath: 'cheat/',
+      relativePath: 'cheat/',
       title: 'Cheatsheet',
       template: './templates/landing.html',
       component: <Cheat />,
