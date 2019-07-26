@@ -20,7 +20,7 @@ export const SITE_LAYOUT = {
     {
       relativePath: 'cheat/',
       title: 'Cheatsheet',
-      template: './templates/landing.html',
+      template: './templates/cheat.html',
       component: <Cheat />,
       subpages: [],
     },
