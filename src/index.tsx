@@ -1,20 +1,12 @@
 import {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import {
-  readFile,
-  writeFile,
-  copyFileSync,
-  mkdirSync,
-  lstatSync,
-  readdir,
-} from 'fs';
+import {readFile, writeFile, copyFileSync, mkdirSync} from 'fs';
 import {sync as rmdir} from 'rimraf';
 
 import {config} from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
-import {formatSize} from './utils';
 import {SITE_LAYOUT} from './layout';
 import './styles/index.scss';
 
