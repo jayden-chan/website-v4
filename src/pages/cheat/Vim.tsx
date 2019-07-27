@@ -59,7 +59,7 @@ class Vim extends Component<IProps, IState> {
 
   render() {
     return (
-      <div className="fadein mt-32 max-w-3xl m-4">
+      <div className="fadein mt-32 max-w-5xl m-4">
         <h1 className="text-5xl font-bold">Vim</h1>
         <div
           style={{
