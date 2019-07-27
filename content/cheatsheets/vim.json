@@ -1,0 +1,50 @@
+[
+  {
+    "title": "retain all lines matching pattern",
+    "body": "tthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddthis is great for removing massive amounts of text hehe xddhis is great for removing massive amounts of text hehe xdd",
+    "code": "const filteredItems = vim.filter(item => {\n  const st = value;\n  const matched =\n    item.title.includes(st) ||\n    // @ts-ignore\n    (item.body && item.body.includes(st)) ||\n    item.code.includes(st) ||\n    item.tags.some(tag => tag.includes(st));\n\n  return matched;\n});",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "retain all lines matching pattern",
+    "body": null,
+    "code": ":v/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  },
+  {
+    "title": "delete all lines matching pattern",
+    "body": null,
+    "code": ":g/pattern/d",
+    "tags": ["vim", "command", "pattern"]
+  }
+]

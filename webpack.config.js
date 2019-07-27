@@ -85,7 +85,7 @@ const settings = {
                   stage: 3,
                 }),
                 require('postcss-import'),
-                require('postcss-clean'),
+                // require('postcss-clean'),
               ],
               sourceMap: false,
             },
@@ -110,13 +110,15 @@ const settings = {
       ignoreOrder: false,
     }),
     new WebpackHookPlugin({
-      onBuildExit: ['node dist/index.js'],
+      onBuildExit: ['node dist/generator.js'],
     }),
   ],
 
   externals: {
     fs: 'commonjs fs',
     path: 'commonjs path',
+    // react: 'React',
+    // 'react-dom': 'ReactDOM',
   },
 
   output: {
@@ -124,7 +126,9 @@ const settings = {
   },
 
   entry: {
-    index: ['./src/index.tsx'],
+    cheat: ['./src/frontend_scripts/cheat.tsx'],
+    vim: ['./src/frontend_scripts/vim.tsx'],
+    generator: ['./src/generator.tsx'],
   },
 
   resolve: {

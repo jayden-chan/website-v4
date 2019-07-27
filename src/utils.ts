@@ -66,9 +66,9 @@ function dirStatRecurse(dir: string, depth: number, s: DirStats): DirStats {
 
 export function dirStat(dir: string): void {
   const stats = dirStatRecurse(dir, 0, {
-    assets: [],
-    sizes: [],
-    times: [],
+    assets: ['Asset'],
+    sizes: ['Size'],
+    times: ['Last Modified'],
   });
 
   const maxAssetWidth = stats.assets
@@ -89,9 +89,12 @@ export function dirStat(dir: string): void {
       return curr > prev ? curr : prev;
     });
 
-  const asset = bold('Asset'.padEnd(maxAssetWidth, ' '));
-  const size = bold('Size'.padStart(maxSizeWidth, ' '));
-  const time = bold('Last Modified'.padStart(maxTimeWidth, ' '));
+  // @ts-ignore -- shift() can never return null in this case
+  const asset = bold(stats.assets.shift().padEnd(maxAssetWidth, ' '));
+  // @ts-ignore -- shift() can never return null in this case
+  const size = bold(stats.sizes.shift().padStart(maxSizeWidth, ' '));
+  // @ts-ignore -- shift() can never return null in this case
+  const time = bold(stats.times.shift().padStart(maxTimeWidth, ' '));
   const dirHeader = bold('Location'.padStart(dir.length, ' '));
 
   console.log(`${asset}  ${size}  ${time}  ${dirHeader}`);
@@ -110,8 +113,8 @@ export function dirStat(dir: string): void {
   for (let i = 0; i < stats.assets.length; i++) {
     const asset = stats.assets[i].padEnd(maxAssetWidth, ' ');
     const size = stats.sizes[i].padStart(maxSizeWidth, ' ');
-    const time = stats.times[i].padEnd(maxTimeWidth, ' ');
+    const time = stats.times[i].padStart(maxTimeWidth, ' ');
 
-    console.log(`${asset}  ${size}  ${time}  ${dir}`);
+    console.log(`${asset}  ${size}  ${time}  ${dir.padStart(8)}`);
   }
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Cheat from './pages/cheat/Cheat';
+import Vim from './pages/cheat/Vim';
 
 export const SITE_LAYOUT = {
   relativePath: '/',
@@ -22,7 +23,17 @@ export const SITE_LAYOUT = {
       title: 'Cheatsheet',
       template: './templates/cheat.html',
       component: <Cheat />,
-      subpages: [],
+      reactsrc: '/js/cheat.js',
+      subpages: [
+        {
+          relativePath: 'vim/',
+          title: 'Cheatsheet - Vim',
+          template: './templates/cheat.html',
+          component: <Vim />,
+          reactsrc: '/js/vim.js',
+          subpages: [],
+        },
+      ],
     },
   ],
 };

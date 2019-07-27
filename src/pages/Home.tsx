@@ -5,7 +5,7 @@ const link = 'underline mr-4';
 const Home: React.FC = () => {
   return (
     <div className="fadein">
-      <h1 className="text-5xl">Jayden Chan</h1>
+      <h1 className="text-5xl font-bold">Jayden Chan</h1>
       <p className="text-3xl">
         2B Software Engineering |
         <a href="https://uvic.ca"> University of Victoria</a>
