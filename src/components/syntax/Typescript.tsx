@@ -11,7 +11,7 @@ class Typescript extends Component<IProps, IState> {
     return (
       <pre
         className={styles.className}
-        style={{backgroundColor: styles.backgroundColor}}
+        style={{backgroundColor: styles.backgroundColor, color: '#EBDBB2'}}
         dangerouslySetInnerHTML={computeHighlighting(this.props.code)}
       />
     );
@@ -28,7 +28,7 @@ function computeHighlighting(code: string) {
   const rules = [
     // word followed by colon
     {
-      regex: /(\s*)(\w+)(:)/g,
+      regex: /(\s*)(\w+)(\??:)/g,
       template: `$1${color('#8EC07C', 2)}$3`,
     },
     // strings in single/double quotes
@@ -39,7 +39,7 @@ function computeHighlighting(code: string) {
     // Promise followed by generic type
     {
       regex: /(Promise)(&lt;)/g,
-      template: `${color('#458588', 1)}$2`,
+      template: `${color('#83A598', 1)}$2`,
     },
     // new Promise
     {
@@ -61,14 +61,24 @@ function computeHighlighting(code: string) {
       regex: /(true|false)/g,
       template: color('#B16286', 1),
     },
+    // import export stuff
+    {
+      regex: /(import |export |from)/g,
+      template: color('#FE8019', 1),
+    },
+    // import as (thing)
+    {
+      regex: /( as )(\w+)/g,
+      template: `${color('#FE8019', 1)}${color('#83A598', 2)}`,
+    },
     // variable declarations
     {
       regex: /(const |let |var |new )/g,
-      template: color('#458588', 1),
+      template: color('#83A598', 1),
     },
     // other keywords
     {
-      regex: /(async |await |return |type |interface |if |else )/g,
+      regex: /(async |await |return |type |interface |if |else |default )/g,
       template: color('#FB4934', 1),
     },
     // function calls
@@ -85,6 +95,11 @@ function computeHighlighting(code: string) {
     {
       regex: /^(\s*)(\/\/.*$)/gm,
       template: `<i>$1${color('#7C6F64', 2)}</i>`,
+    },
+    // console
+    {
+      regex: /(console\.)/gm,
+      template: color('#8EC07C', 1),
     },
   ];
 

@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         <a href="https://uvic.ca"> University of Victoria</a>
       </p>
       <a href="about" className={link}>
-        about
+        blog
       </a>
       <a href={GITHUB} className={link}>
         github
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         resume
       </a>
       <a href="cheat" className={link}>
-        cheat
+        cheatsheets
       </a>
     </div>
   );

@@ -13,7 +13,7 @@ interface IState {}
 class CheatCard extends Component<IProps, IState> {
   render() {
     return (
-      <div className="rounded-lg bg-white p-8 mb-4" style={{color: '#1B1F22'}}>
+      <div className="rounded-lg bg-white p-8 mb-6" style={{color: '#1B1F22'}}>
         <h3 className="font-bold text-3xl">{this.props.title}</h3>
         <p className="text-lg">{this.props.body}</p>
 
