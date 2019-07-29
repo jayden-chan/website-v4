@@ -116,7 +116,7 @@ const Resume: React.FC = () => {
           </h2>
 
           <ul className="mb-10">
-            <h3 className={minor}>Langauges</h3>
+            <h3 className={minor}>Languages</h3>
             {resume.skills.lang.map((e, idx) => (
               <li className={skill} key={idx}>
                 {e}
