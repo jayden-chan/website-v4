@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 const h1 = ['text-5xl', 'font-bold'].join(' ');
 const h2 = ['text-3xl', 'mt-10'].join(' ');
 

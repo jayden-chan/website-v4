@@ -8,26 +8,26 @@ import Vim from './pages/cheat/Vim';
 export const SITE_LAYOUT = {
   relativePath: '/',
   title: 'Jayden Chan',
-  template: './templates/landing.html',
+  template: 'landing',
   component: <Home />,
   subpages: [
     {
       relativePath: 'resume/',
       title: 'Resume - Jayden Chan',
-      template: './templates/resume.html',
+      template: 'resume',
       component: <Resume />,
       subpages: [],
     },
     {
       relativePath: 'cheat/',
       title: 'Cheatsheet',
-      template: './templates/cheat.html',
+      template: 'cheat',
       component: <Cheat />,
       subpages: [
         {
           relativePath: 'vim/',
           title: 'Cheatsheet - Vim',
-          template: './templates/cheat.html',
+          template: 'cheat',
           component: <Vim />,
           subpages: [],
         },

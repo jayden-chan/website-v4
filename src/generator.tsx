@@ -35,53 +35,57 @@ type Page = {
  */
 async function render(page: Page, pathStack: string[]): Promise<void> {
   return new Promise((resolve, reject) => {
-    readFile(page.template, {encoding: 'UTF-8'}, (err, template) => {
-      if (err) {
-        reject(err);
-      }
-
-      const html = ReactDOMServer.renderToStaticMarkup(page.component);
-      const outputPath = [...pathStack, page.relativePath].join('');
-
-      mkdir(outputPath, {recursive: true}, err => {
+    readFile(
+      `./templates/${page.template}.html`,
+      {encoding: 'UTF-8'},
+      (err, template) => {
         if (err) {
           reject(err);
         }
 
-        const toReplace = [
-          {
-            key: '{{content}}',
-            content: html,
-          },
-          {
-            key: '{{title}}',
-            content: page.title,
-          },
-          {
-            key: '_onkeyup',
-            content: 'onkeyup',
-          },
-        ];
+        const html = ReactDOMServer.renderToStaticMarkup(page.component);
+        const outputPath = [...pathStack, page.relativePath].join('');
 
-        writeFile(
-          `${outputPath}index.html`,
-          templateReplace(template, toReplace),
-          async err => {
-            if (err) {
-              reject(err);
-            }
+        mkdir(outputPath, {recursive: true}, err => {
+          if (err) {
+            reject(err);
+          }
 
-            const wg: Promise<void>[] = [];
-            page.subpages.forEach(subpage => {
-              wg.push(render(subpage, [...pathStack, page.relativePath]));
-            });
+          const toReplace = [
+            {
+              key: '{{content}}',
+              content: html,
+            },
+            {
+              key: '{{title}}',
+              content: page.title,
+            },
+            {
+              key: '_onkeyup',
+              content: 'onkeyup',
+            },
+          ];
 
-            await Promise.all(wg);
-            resolve();
-          },
-        );
-      });
-    });
+          writeFile(
+            `${outputPath}index.html`,
+            templateReplace(template, toReplace),
+            async err => {
+              if (err) {
+                reject(err);
+              }
+
+              const wg: Promise<void>[] = [];
+              page.subpages.forEach(subpage => {
+                wg.push(render(subpage, [...pathStack, page.relativePath]));
+              });
+
+              await Promise.all(wg);
+              resolve();
+            },
+          );
+        });
+      },
+    );
   });
 }
 
