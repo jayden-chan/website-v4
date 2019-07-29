@@ -20,19 +20,32 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
+const PRINT_MODE = true;
+const plg = PRINT_MODE ? '' : 'lg:';
+
+const np = (text: string) => {
+  return !PRINT_MODE ? text : '';
+};
+
 const wrapper = [
   'fadein',
   'resume',
   'flex',
-  'flex-col',
+  np('flex-col'),
   'w-full',
-  'mt-10',
-  'mb-32',
-  'items-center',
-  'lg:items-start',
-  'lg:flex-row-reverse',
+  np('mt-10'),
+  np('mb-32'),
+  'pr-10',
+  'pl-10',
+  np('items-center'),
+  `${plg}items-start`,
+  `${plg}flex-row-reverse`,
+  `lg:pr-0`,
+  `lg:pl-0`,
   'lg:w-5/6',
 ].join(' ');
+
+console.log(wrapper);
 
 const major = [
   'major',
@@ -49,6 +62,7 @@ const major = [
 
 const minor = ['text-xl', 'tracking-wider', 'uppercase', 'font-bold'].join(' ');
 
+const rightFloat = [`${plg}float-right`, 'block'].join(' ');
 const iconWord = 'ml-3';
 const iconWordLarge = 'ml-4';
 const skill = 'mt-1';
@@ -56,7 +70,7 @@ const skill = 'mt-1';
 const Resume: React.FC = () => {
   return (
     <div className={wrapper}>
-      <div className="mx-10 flex-shrink-0 lg:mx-0">
+      <div className={`flex-shrink-0`}>
         <h1 className={major}>
           <FontAwesomeIcon icon={faVoicemail} />
           <span className={iconWordLarge}>Contact</span>
@@ -123,7 +137,7 @@ const Resume: React.FC = () => {
         </div>
       </div>
 
-      <div className="mx-10 lg:mr-10 lg:ml-0">
+      <div className={`${plg}mr-10`}>
         <h1 className={major}>
           <FontAwesomeIcon icon={faSuitcase} />
           <span className={iconWordLarge}>Experience</span>
@@ -135,14 +149,14 @@ const Resume: React.FC = () => {
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{job.title}</h3>
-                  <span className="lg:float-right block">
+                  <span className={rightFloat}>
                     <FontAwesomeIcon icon={faMapMarkerAlt} />
                     <span className={iconWord}>{job.location}</span>
                   </span>
                 </div>
                 <div className="mb-4">
                   <span>{job.company}</span>
-                  <span className="lg:float-right block time">{job.time}</span>
+                  <span className={`${rightFloat} time`}>{job.time}</span>
                 </div>
               </header>
 
@@ -184,7 +198,7 @@ const Resume: React.FC = () => {
                 </div>
                 <div className="mb-4">
                   <span>{proj.stack}</span>
-                  <span className="lg:float-right block">{proj.time}</span>
+                  <span className={rightFloat}>{proj.time}</span>
                 </div>
               </header>
 
@@ -209,14 +223,14 @@ const Resume: React.FC = () => {
               <h3 className={minor + ' inline-block'}>
                 University of Victoria
               </h3>
-              <span className="lg:float-right block">
+              <span className={rightFloat}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <span className={iconWord}>Victoria, Canada</span>
               </span>
             </div>
             <div className="mb-4">
               <span>Candidate for Bachelor of Software Engineering</span>
-              <span className="lg:float-right block time">
+              <span className={`${rightFloat} time`}>
                 2017 - 2022 (expected)
               </span>
             </div>
@@ -246,7 +260,7 @@ const Resume: React.FC = () => {
                 </div>
                 <div>
                   <span className="time">{award.desc}</span>
-                  <span className="lg:float-right block">{award.time}</span>
+                  <span className={rightFloat}>{award.time}</span>
                 </div>
               </header>
             </section>
