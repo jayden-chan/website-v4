@@ -8,6 +8,10 @@ const settings = {
   module: {
     rules: [
       {
+        test: /\.toml$/,
+        use: {loader: 'toml-loader'},
+      },
+      {
         test: /\.(js|jsx|ts|tsx)$/,
         include: [path.resolve(__dirname, 'src')],
         use: [

@@ -1,0 +1,31 @@
+[[cards]]
+title = "retain all lines matching a pattern"
+code = """
+:v/pattern/d
+"""
+tags = [ "vim", "command", "regex" ]
+
+[[cards]]
+title = "delete all lines matching pattern"
+code = """
+:g/pattern/d
+"""
+tags = [ "vim", "command", "regex" ]
+
+[[cards]]
+title = "first test of typescript syntac highlighting engine"
+body = "this is a test to see if this keyboard is any good lmao"
+code = """
+const filteredItems = vim.filter(item => {
+  const st = value;
+  const matched =
+    item.title.includes(st) ||
+    // @ts-ignore
+    (item.body && item.body.includes(st)) ||
+    item.code.includes(st) ||
+    item.tags.some(tag => tag.includes(st));
+
+  return matched;
+});
+"""
+tags = [ "test", "boi" ]

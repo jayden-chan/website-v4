@@ -1,10 +1,12 @@
 import React from 'react';
 import CheatPage from '../../components/CheatPage';
 
-import vim from '../../../content/cheatsheets/vim.json';
+// @ts-ignore
+import {cards} from '../../../content/cheatsheets/vim.toml';
+console.log(cards);
 
 const Vim: React.FC = () => {
-  return <CheatPage items={vim} />;
+  return <CheatPage items={cards} />;
 };
 
 export default Vim;

@@ -2,7 +2,9 @@ import React from 'react';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {GITHUB} from '../../content/urls.json';
+
+// @ts-ignore
+import {GITHUB} from '../../content/urls.toml';
 import * as resume from '../../content/resume.json';
 
 import {

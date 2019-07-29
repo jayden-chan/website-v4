@@ -2,7 +2,7 @@ import React from 'react';
 
 import Home from './pages/Home';
 import Resume from './pages/Resume';
-import Cheat from './pages/cheat/Cheat';
+import Cheat from './pages/cheat/index';
 import Vim from './pages/cheat/Vim';
 
 export const SITE_LAYOUT = {

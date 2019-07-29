@@ -1,5 +1,6 @@
 import React from 'react';
-import {GITHUB} from '../../content/urls.json';
+// @ts-ignore
+import {GITHUB} from '../../content/urls.toml';
 
 const link = 'underline mr-4';
 const Home: React.FC = () => {
