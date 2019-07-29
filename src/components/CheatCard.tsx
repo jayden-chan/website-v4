@@ -24,11 +24,14 @@ class CheatCard extends Component<IProps, IState> {
 
         <small>
           Tags:
-          {this.props.tags.map((t, idx) => (
-            <span key={idx} className="ml-2">
-              {t}
-            </span>
-          ))}
+          {this.props.tags.map((t, idx, all) => {
+            return (
+              <span key={idx} className="ml-2">
+                {t}
+                {idx === all.length - 1 ? '' : ','}
+              </span>
+            );
+          })}
         </small>
       </div>
     );
