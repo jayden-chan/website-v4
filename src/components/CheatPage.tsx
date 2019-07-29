@@ -10,18 +10,20 @@ interface CheatPageProps {
   }[];
 }
 
+const mx = 'mx-4';
+
 const CheatPage: React.FC<CheatPageProps> = props => {
   return (
-    <div className="fadein mt-32 max-w-5xl m-4">
-      <h1 className="text-5xl font-bold">Vim</h1>
+    <div className="fadein mt-32 w-full md:max-w-5xl">
+      <h1 className="text-5xl font-bold mx-4">Vim</h1>
       <div
         style={{
           borderBottomColor: 'white',
           borderBottomWidth: 1,
         }}
-        className="mb-6 min-w-full"
+        className="mb-6 mx-4"
       />
-      <form>
+      <form className={mx}>
         {/*
         // @ts-ignore */}
         <input
@@ -33,7 +35,7 @@ const CheatPage: React.FC<CheatPageProps> = props => {
           className="text-black min-w-full mb-6 p-2 rounded-lg"
         />
       </form>
-      <ul id="cheatPageListID">
+      <ul id="cheatPageListID" className={mx}>
         {props.items.map((card, idx) => {
           return (
             <li key={idx}>

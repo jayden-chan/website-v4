@@ -17,8 +17,11 @@ class CheatCard extends Component<IProps, IState> {
         <p className="text-lg">{this.props.body}</p>
 
         <pre
-          className="text-base my-4 rounded-lg p-3"
-          style={{backgroundColor: '#1D2021', color: '#EBDBB2'}}>
+          className="text-base my-4 rounded-lg p-3 overflow-x-auto"
+          style={{
+            backgroundColor: '#1D2021',
+            color: '#EBDBB2',
+          }}>
           {this.props.code}
         </pre>
 

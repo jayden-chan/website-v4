@@ -13,19 +13,26 @@ code = """
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
+title = "delete all lines matching pattern"
+code = """
+:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d
+"""
+tags = [ "vim", "command", "regex" ]
+
+[[cards]]
 title = "first test of typescript syntac highlighting engine"
 body = "this is a test to see if this keyboard is any good lmao"
 code = """
-const filteredItems = vim.filter(item => {
-  const st = value;
-  const matched =
-    item.title.includes(st) ||
-    // @ts-ignore
-    (item.body && item.body.includes(st)) ||
-    item.code.includes(st) ||
-    item.tags.some(tag => tag.includes(st));
-
-  return matched;
-});
+ccconst filteredItems = vim.filter(item => {  onst filteredItems = vim.filter(item => {  onst filteredItems = vim.filter(item => {
+    const st = value;                          const st = value;                          const st = value;
+    const matched =                            const matched =                            const matched =
+      item.title.includes(st) ||                 item.title.includes(st) ||                 item.title.includes(st) ||
+      // @ts-ignore                              // @ts-ignore                              // @ts-ignore
+      (item.body && item.body.includes(st)) ||   (item.body && item.body.includes(st)) ||   (item.body && item.body.includes(st)) ||
+      item.code.includes(st) ||                  item.code.includes(st) ||                  item.code.includes(st) ||
+      item.tags.some(tag => tag.includes(st));   item.tags.some(tag => tag.includes(st));   item.tags.some(tag => tag.includes(st));
+  
+    return matched;                            return matched;                            return matched;
+}}});                                         );                                         );
 """
 tags = [ "test", "boi" ]
