@@ -11,7 +11,7 @@ export function templateReplace(
   let output = template;
 
   fields.forEach(({key, content}) => {
-    output = output.replace(new RegExp(`{{${key}}}`, 'g'), content);
+    output = output.replace(new RegExp(key, 'g'), content);
   });
 
   return output;

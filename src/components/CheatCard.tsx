@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Typescript from './syntax/Typescript';
 
 interface IProps {
   title: string;
@@ -17,7 +16,11 @@ class CheatCard extends Component<IProps, IState> {
         <h3 className="font-bold text-3xl">{this.props.title}</h3>
         <p className="text-lg">{this.props.body}</p>
 
-        <Typescript code={this.props.code} />
+        <pre
+          className="text-base my-4 rounded-lg p-3"
+          style={{backgroundColor: '#1D2021', color: '#EBDBB2'}}>
+          {this.props.code}
+        </pre>
 
         <small>
           Tags:

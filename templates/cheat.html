@@ -15,18 +15,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
-    <script
-      crossorigin
-      src="https://unpkg.com/react@16/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
-    ></script>
+    <script>
+      function filterBySearchText() {
+        const input = document.getElementById('cheatPageInputID');
+        const text = input.value.toUpperCase();
+        const ul = document.getElementById('cheatPageListID');
+        const li = ul.getElementsByTagName('li');
+
+        let a, txtValue;
+        for (let i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName('h3')[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(text) > -1) {
+            li[i].style.display = '';
+          } else {
+            li[i].style.display = 'none';
+          }
+        }
+      }
+    </script>
   </head>
 
   <body>
-    <header id="root" class="centering-h base-wrapper">{{content}}</header>
-    <script src="{{reactsrc}}"></script>
+    <header class="centering-h base-wrapper">{{content}}</header>
   </body>
 </html>

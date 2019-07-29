@@ -40,7 +40,7 @@ async function render(page: Page, pathStack: string[]): Promise<void> {
         reject(err);
       }
 
-      const html = ReactDOMServer.renderToString(page.component);
+      const html = ReactDOMServer.renderToStaticMarkup(page.component);
       const outputPath = [...pathStack, page.relativePath].join('');
 
       mkdir(outputPath, {recursive: true}, err => {
@@ -50,21 +50,18 @@ async function render(page: Page, pathStack: string[]): Promise<void> {
 
         const toReplace = [
           {
-            key: 'content',
+            key: '{{content}}',
             content: html,
           },
           {
-            key: 'title',
+            key: '{{title}}',
             content: page.title,
           },
+          {
+            key: '_onkeyup',
+            content: 'onkeyup',
+          },
         ];
-
-        if (page.reactsrc) {
-          toReplace.push({
-            key: 'reactsrc',
-            content: page.reactsrc,
-          });
-        }
 
         writeFile(
           `${outputPath}index.html`,
@@ -97,13 +94,10 @@ export default async function main() {
 
   log('Rendering');
   await mkdir(OUTPUT_DIR, err => throwIfErr(err));
-  await mkdir(`${OUTPUT_DIR}/js`, err => throwIfErr(err));
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
   copyFile('dist/generator.css', 'build/styles.css', err => throwIfErr(err));
-  copyFile('dist/cheat.js', 'build/js/cheat.js', err => throwIfErr(err));
-  copyFile('dist/vim.js', 'build/js/vim.js', err => throwIfErr(err));
   copyFile('templates/404.html', 'build/404.html', err => throwIfErr(err));
 
   await renderPromise;

@@ -23,14 +23,12 @@ export const SITE_LAYOUT = {
       title: 'Cheatsheet',
       template: './templates/cheat.html',
       component: <Cheat />,
-      reactsrc: '/js/cheat.js',
       subpages: [
         {
           relativePath: 'vim/',
           title: 'Cheatsheet - Vim',
           template: './templates/cheat.html',
           component: <Vim />,
-          reactsrc: '/js/vim.js',
           subpages: [],
         },
       ],
