@@ -5,7 +5,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // @ts-ignore
 import {GITHUB} from '../../content/urls.toml';
-import * as resume from '../../content/resume.json';
+// import * as resume from '../../content/resume.json';
+
+// @ts-ignore
+import * as resume from '../../content/resume.toml';
 
 import {
   faEnvelope,
@@ -20,8 +23,10 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
-const PRINT_MODE = true;
+const PRINT_MODE = false;
 const plg = PRINT_MODE ? '' : 'lg:';
+
+const skipPrint = i => !PRINT_MODE || i.print === true;
 
 const np = (text: string) => {
   return !PRINT_MODE ? text : '';
@@ -38,9 +43,9 @@ const wrapper = [
   'pr-10',
   'pl-10',
   np('items-center'),
-  `${plg}items-start`,
+  `lg:items-start`,
   `${plg}flex-row-reverse`,
-  `lg:pr-0`,
+  `${plg}pr-0`,
   `lg:pl-0`,
   'lg:w-5/6',
 ].join(' ');
@@ -143,7 +148,7 @@ const Resume: React.FC = () => {
           <span className={iconWordLarge}>Experience</span>
         </h1>
 
-        {resume.experience.map((job, idx) => {
+        {resume.experience.filter(skipPrint).map((job, idx) => {
           return (
             <section className="block mb-10" key={idx}>
               <header>
@@ -176,7 +181,7 @@ const Resume: React.FC = () => {
           <span className={iconWordLarge}>Projects</span>
         </h1>
 
-        {resume.projects.map((proj, idx) => {
+        {resume.projects.filter(skipPrint).map((proj, idx) => {
           return (
             <section className="block mb-10" key={idx}>
               <header>
@@ -236,36 +241,54 @@ const Resume: React.FC = () => {
             </div>
           </header>
 
-          <div>
-            <ul className="list-disc ml-5">
-              <li>
-                Finished in top 10% of students enrolled in first year Computer
-                Science courses
-              </li>
-            </ul>
-          </div>
+          {(() => {
+            if (!PRINT_MODE) {
+              return (
+                <div>
+                  <ul className="list-disc ml-5">
+                    <li>
+                      Finished in top 10% of students enrolled in first year
+                      Computer Science courses
+                    </li>
+                  </ul>
+                </div>
+              );
+            }
+          })()}
         </section>
 
-        <h1 className={major}>
-          <FontAwesomeIcon icon={faTrophy} />
-          <span className={iconWordLarge}>Awards</span>
-        </h1>
+        {(() => {
+          if (!PRINT_MODE) {
+            return (
+              <h1 className={major}>
+                <FontAwesomeIcon icon={faTrophy} />
+                <span className={iconWordLarge}>Awards</span>
+              </h1>
+            );
+          }
+        })()}
 
-        {resume.awards.map((award, idx) => {
-          return (
-            <section className="block mb-3" key={idx}>
-              <header>
-                <div>
-                  <h3 className={minor + ' inline-block'}>{award.result}</h3>
-                </div>
-                <div>
-                  <span className="time">{award.desc}</span>
-                  <span className={rightFloat}>{award.time}</span>
-                </div>
-              </header>
-            </section>
-          );
-        })}
+        {(() => {
+          if (!PRINT_MODE) {
+            return resume.awards.map((award, idx) => {
+              return (
+                <section className="block mb-3" key={idx}>
+                  <header>
+                    <div>
+                      <h3 className={minor + ' inline-block'}>
+                        {award.result}
+                      </h3>
+                    </div>
+                    <div>
+                      <span className="time">{award.desc}</span>
+                      <span className={rightFloat}>{award.time}</span>
+                    </div>
+                  </header>
+                </section>
+              );
+            });
+          }
+        })()}
       </div>
     </div>
   );
