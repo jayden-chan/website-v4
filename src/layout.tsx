@@ -34,7 +34,7 @@ export const SITE_LAYOUT = {
           subpages: [],
         },
         {
-          relativePath: 'stupid/',
+          relativePath: 'struggle/',
           title: 'Cheatsheet - SETTMMTOHTS',
           template: 'cheat',
           component: <Struggle />,
