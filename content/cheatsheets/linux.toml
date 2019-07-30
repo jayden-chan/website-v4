@@ -5,6 +5,6 @@ yay -S cups
 systemctl enable org.cups.cupsd.service
 systemctl start org.cups.cupsd.service
 sudo usermod -a -G sys jayden
-xdg-open http://localhost:361
+xdg-open http://localhost:631
 """
 tags = [ "linux", "printing", "CUPS" ]
