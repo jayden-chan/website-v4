@@ -2,10 +2,10 @@ import React from 'react';
 import CheatPage from '../../components/CheatPage';
 
 // @ts-ignore
-import {cards} from '../../../content/cheatsheets/stupid.toml';
+import {cards} from '../../../content/cheatsheets/struggle.toml';
 
-const Stupid: React.FC = () => {
+const Struggle: React.FC = () => {
   return <CheatPage items={cards} />;
 };
 
-export default Stupid;
+export default Struggle;

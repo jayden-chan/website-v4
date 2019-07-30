@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Cheat from './pages/cheat/index';
 import Vim from './pages/cheat/Vim';
-import Stupid from './pages/cheat/Stupid';
+import Struggle from './pages/cheat/Struggle';
 import Linux from './pages/cheat/Linux';
 
 export const SITE_LAYOUT = {
@@ -37,7 +37,7 @@ export const SITE_LAYOUT = {
           relativePath: 'stupid/',
           title: 'Cheatsheet - SETTMMTOHTS',
           template: 'cheat',
-          component: <Stupid />,
+          component: <Struggle />,
           subpages: [],
         },
         {
