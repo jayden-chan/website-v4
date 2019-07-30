@@ -7,7 +7,6 @@ systemctl start org.cups.cupsd.service
 sudo usermod -a -G sys jayden
 xdg-open http://localhost:631
 """
-language = "bash"
 tags = [ "linux", "printing", "CUPS" ]
 
 [[cards]]

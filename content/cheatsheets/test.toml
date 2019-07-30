@@ -3,7 +3,6 @@ title = "retain all lines matching a pattern"
 code = """
 :v/pattern/d
 """
-language = "vim"
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
