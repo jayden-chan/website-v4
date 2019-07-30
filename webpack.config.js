@@ -140,24 +140,24 @@ const settings = {
 
 module.exports = env => {
   if (env === 'production') {
-    settings.plugins.push(
-      new PurgecssPlugin({
-        paths: [
-          ...glob.sync(`src/**/*`, {nodir: true}),
-          ...glob.sync(`templates/**/*`, {nodir: true}),
-        ],
-        extractors: [
-          {
-            extractor: class {
-              static extract(content) {
-                return content.match(/[A-Za-z0-9-_:/]+/g) || [];
-              }
-            },
-            extensions: ['html', 'tsx', 'scss'],
-          },
-        ],
-      }),
-    );
+    // settings.plugins.push(
+    //   new PurgecssPlugin({
+    //     paths: [
+    //       ...glob.sync(`src/**/*`, {nodir: true}),
+    //       ...glob.sync(`templates/**/*`, {nodir: true}),
+    //     ],
+    //     extractors: [
+    //       {
+    //         extractor: class {
+    //           static extract(content) {
+    //             return content.match(/[A-Za-z0-9-_:/]+/g) || [];
+    //           }
+    //         },
+    //         extensions: ['html', 'tsx', 'scss'],
+    //       },
+    //     ],
+    //   }),
+    // );
   } else {
     settings.mode = 'development';
     settings.watch = true;

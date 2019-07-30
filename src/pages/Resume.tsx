@@ -3,11 +3,10 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-// @ts-ignore
+// @ts-ignore -- complains about toml import
 import {GITHUB} from '../../content/urls.toml';
-// import * as resume from '../../content/resume.json';
 
-// @ts-ignore
+// @ts-ignore -- complains about toml import
 import * as resume from '../../content/resume.toml';
 
 import {
