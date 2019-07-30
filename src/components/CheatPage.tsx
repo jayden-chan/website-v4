@@ -2,11 +2,13 @@ import React from 'react';
 import CheatCard from './CheatCard';
 
 interface CheatPageProps {
+  title: string;
   items: {
     title: string;
     body: string | null;
     code: string;
     tags: string[];
+    language?: string;
   }[];
 }
 
@@ -15,7 +17,7 @@ const mx = 'mx-4';
 const CheatPage: React.FC<CheatPageProps> = props => {
   return (
     <div className="fadein mt-32 w-full md:max-w-5xl">
-      <h1 className="text-5xl font-bold mx-4">Vim</h1>
+      <h1 className="text-5xl font-bold mx-4">{props.title}</h1>
       <div
         style={{
           borderBottomColor: 'white',
