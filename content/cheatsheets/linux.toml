@@ -1,0 +1,10 @@
+[[cards]]
+title = "Setting up CUPS on Linux"
+code = """
+yay -S cups
+systemctl enable org.cups.cupsd.service
+systemctl start org.cups.cupsd.service
+sudo usermod -a -G sys jayden
+xdg-open http://localhost:361
+"""
+tags = [ "linux", "printing", "CUPS" ]
