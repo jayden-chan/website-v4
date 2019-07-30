@@ -4,20 +4,16 @@ const h2 = ['text-3xl', 'mt-10'].join(' ');
 
 const links = [
   {
-    title: 'Vim',
-    href: '/cheat/vim',
+    title: 'Test',
+    href: '/cheat/test',
   },
   {
     title: 'Linux',
     href: '/cheat/linux',
   },
   {
-    title: 'JavaScript / TypeScript',
-    href: '/cheat/jsts',
-  },
-  {
-    title: 'Rust',
-    href: '/cheat/rust',
+    title: 'One-liners',
+    href: '/cheat/oneliners',
   },
   {
     title: '"stupid errors that took me more than 1 hour to solve"',
