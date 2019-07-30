@@ -7,9 +7,11 @@ systemctl start org.cups.cupsd.service
 sudo usermod -a -G sys jayden
 xdg-open http://localhost:631
 """
+language = "bash"
 tags = [ "linux", "printing", "CUPS" ]
 
 [[cards]]
 title = "Show GPU information"
 code = "lspci -vnn | rg VGA -A 12"
+language = "bash"
 tags = [ "linux", "sysinfo" ]

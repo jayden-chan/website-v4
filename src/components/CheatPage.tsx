@@ -44,6 +44,7 @@ const CheatPage: React.FC<CheatPageProps> = props => {
                 body={card.body}
                 code={card.code}
                 tags={card.tags}
+                language={card.language}
               />
             </li>
           );

@@ -3,6 +3,7 @@ title = "retain all lines matching a pattern"
 code = """
 :v/pattern/d
 """
+language = "vim"
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
@@ -10,6 +11,7 @@ title = "delete all lines matching pattern"
 code = """
 :g/pattern/d
 """
+language = "vim"
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
@@ -17,6 +19,7 @@ title = "delete all lines matching pattern"
 code = """
 :g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d:g/pattern/d
 """
+language = "vim"
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]

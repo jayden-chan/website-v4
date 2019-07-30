@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import '../../node_modules/highlight.js/styles/gruvbox-dark.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', 'Segoe UI',
