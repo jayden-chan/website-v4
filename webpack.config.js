@@ -137,8 +137,8 @@ const settings = {
 };
 
 module.exports = env => {
+  settings.mode = 'development';
   if (env !== 'production') {
-    settings.mode = 'development';
     settings.watch = true;
     settings.watchOptions = {
       ignored: /node_modules/,

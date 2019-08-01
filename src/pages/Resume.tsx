@@ -22,7 +22,7 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
-const PRINT_MODE = false;
+const PRINT_MODE = true;
 const plg = PRINT_MODE ? '' : 'lg:';
 
 const skipPrint = i => !PRINT_MODE || i.print === true;
@@ -31,14 +31,18 @@ const np = (text: string) => {
   return !PRINT_MODE ? text : '';
 };
 
+const p = (print: string, noprint: string) => {
+  return PRINT_MODE ? print : noprint;
+};
+
 const wrapper = [
   'fadein',
   'resume',
   'flex',
   np('flex-col'),
   'w-full',
-  np('mt-10'),
-  np('mb-32'),
+  p('mt-5', 'mt-10'),
+  p('mb-64', 'mb-32'),
   'pr-10',
   'pl-10',
   np('items-center'),
@@ -53,10 +57,10 @@ console.log(wrapper);
 
 const major = [
   'major',
-  'text-3xl',
+  p('text-2xl', 'text-3xl'),
   'text-bold',
   'pb-2',
-  'my-8',
+  p('my-8', 'my-8'),
   'tracking-wider',
   'uppercase',
   'font-bold',
@@ -64,7 +68,14 @@ const major = [
   'sm:tracking-widest',
 ].join(' ');
 
-const minor = ['text-xl', 'tracking-wider', 'uppercase', 'font-bold'].join(' ');
+const minor = [
+  p('text-lg', 'text-xl'),
+  'tracking-wider',
+  'uppercase',
+  'font-bold',
+].join(' ');
+
+const section = ['block', p('mb-8', 'mb-10')].join(' ');
 
 const rightFloat = [`${plg}float-right`, 'block'].join(' ');
 const iconWord = 'ml-3';
@@ -149,7 +160,7 @@ const Resume: React.FC = () => {
 
         {resume.experience.filter(skipPrint).map((job, idx) => {
           return (
-            <section className="block mb-10" key={idx}>
+            <section className={section} key={idx}>
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{job.title}</h3>
@@ -182,7 +193,7 @@ const Resume: React.FC = () => {
 
         {resume.projects.filter(skipPrint).map((proj, idx) => {
           return (
-            <section className="block mb-10" key={idx}>
+            <section className={section} key={idx}>
               <header>
                 <div>
                   <h3 className={minor + ' inline-block'}>{proj.title}</h3>
@@ -221,7 +232,7 @@ const Resume: React.FC = () => {
           <FontAwesomeIcon icon={faGraduationCap} />
           <span className={iconWordLarge}>Education</span>
         </h1>
-        <section className="block mb-10">
+        <section className={section}>
           <header>
             <div>
               <h3 className={minor + ' inline-block'}>

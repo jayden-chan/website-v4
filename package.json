@@ -5,9 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress -p --env=production",
-    "build:watch": "webpack --progress --env=dev",
-    "build:resume": "npm run build && wkhtmltopdf -L 0 -R 0 -T 0 -B 0 build/resume/index.html build/resume.pdf",
+    "build": "webpack --progress --env=production",
+    "dev": "webpack --progress --env=dev",
     "clean-css": "postcss build/styles.css --replace",
     "deploy": "surge build jayden-chan-staging.surge.sh"
   },

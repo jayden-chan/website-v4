@@ -4,13 +4,24 @@
 
 @import '../../node_modules/highlight.js/styles/gruvbox-dark.css';
 
+// $background: #1B1F22;
+// $background: #e4e0dd; // for print mode
+$background: #e5ddd5;
+
+// $text-color: white;
+$text-color: black; // for print mode
+
 body {
+  @media print {
+    background: $background !important;
+  }
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }
 
 code {
@@ -21,12 +32,6 @@ code {
 a {
   outline: none;
 }
-
-$background: #1B1F22;
-// $background: #E4E0DD; // for print mode
-
-$text-color: white;
-// $text-color: black; // for print mode
 
 .base-wrapper {
   background-color: $background;

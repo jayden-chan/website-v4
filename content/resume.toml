@@ -18,9 +18,9 @@ company = "Referral SaaSquatch"
 time = "Jan 2019 - present"
 roles = [
   "Developed core logic for the SaaSquatch Growth Automation platform using Contentful and the Auth0 Extend serverless platform.",
+  "Implemented a new frontend build process from scratch using Babel & Webpack, enabling the use of TypeScript and reducing build times from ~2 minutes to 400 ms",
   "Custom-built a command line tool for easily deploying updates to the Contentful & Extend staging environments, as well as for performing monitoring and synchronization.",
-  "Helped migrate the SaaSquatch analytics engine backend from Keen to BigQuery, including data verification / validation and a custom query server to translate Keen API calls into BigQuery SQL queries.",
-  "Created a custom command line tool for compiling specification documents written in Gherkin language to JSON and XLSX formats for integration testing"
+  "Helped migrate the SaaSquatch analytics engine backend from Keen to BigQuery, including data verification / validation and a custom query server to translate Keen API calls into BigQuery SQL queries."
 ]
 
 [[experience]]
