@@ -28,8 +28,8 @@ export const SITE_LAYOUT = {
       component: <Cheat />,
       subpages: [
         {
-          relativePath: 'test/',
-          title: 'Cheatsheet - Test',
+          relativePath: 'programming/',
+          title: 'Cheatsheet - Programming',
           template: 'cheat',
           component: <Test />,
           subpages: [],

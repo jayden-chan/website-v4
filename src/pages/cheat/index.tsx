@@ -4,11 +4,11 @@ const h2 = ['text-3xl', 'mt-10'].join(' ');
 
 const links = [
   {
-    title: 'Test',
-    href: '/cheat/test',
+    title: 'Programming',
+    href: '/cheat/programming',
   },
   {
-    title: 'Linux',
+    title: 'Linux / Vim',
     href: '/cheat/linux',
   },
   {

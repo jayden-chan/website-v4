@@ -4,17 +4,8 @@ code = """
 yay -S cups
 systemctl enable org.cups.cupsd.service
 systemctl start org.cups.cupsd.service
-sudo usermod -a -G sys jayden
+sudo usermod -a -G sys jayden # Prevent forbidden errors
 xdg-open http://localhost:631
 """
-tags = [ "linux", "printing", "CUPS" ]
-
-[[cards]]
-title = "Setting up CUPS on Linux"
-code = """
-function test(mank, mank2) {
-  console.log('thisisiatesthere');
-}
-"""
-language = "javascript"
+language = "bash"
 tags = [ "linux", "printing", "CUPS" ]

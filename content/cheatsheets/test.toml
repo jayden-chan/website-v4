@@ -6,6 +6,23 @@ code = """
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
+title = "JavaScript get all regex matches"
+code = """
+const regex = /the_regex/g;
+
+let m;
+
+do {
+  m = regex.exec(str);
+  if (m) {
+    ...
+  }
+} while (m !== null);
+"""
+language = "javascript"
+tags = [ "js/ts", "regex" ]
+
+[[cards]]
 title = "delete all lines matching pattern"
 code = """
 :g/pattern/d
@@ -33,7 +50,7 @@ ccconst filteredItems = vim.filter(item => {  onst filteredItems = vim.filter(it
       (item.body && item.body.includes(st)) ||   (item.body && item.body.includes(st)) ||   (item.body && item.body.includes(st)) ||
       item.code.includes(st) ||                  item.code.includes(st) ||                  item.code.includes(st) ||
       item.tags.some(tag => tag.includes(st));   item.tags.some(tag => tag.includes(st));   item.tags.some(tag => tag.includes(st));
-  
+
     return matched;                            return matched;                            return matched;
 }}});                                         );                                         );
 """
