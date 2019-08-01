@@ -22,7 +22,7 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
-const PRINT_MODE = true;
+const PRINT_MODE = false;
 const plg = PRINT_MODE ? '' : 'lg:';
 
 const skipPrint = i => !PRINT_MODE || i.print === true;
