@@ -1,3 +1,5 @@
+title = "One-liners"
+
 [[cards]]
 title = "JavaScript array with numbers 0..n"
 code = "[...Array(n).keys()].map(e => ...)"

@@ -2,17 +2,24 @@ import React from 'react';
 const h1 = ['text-5xl', 'font-bold'].join(' ');
 const h2 = ['text-3xl', 'mt-10'].join(' ');
 
+// @ts-ignore
+import {title as linux} from '../../../content/cheatsheets/linux.toml';
+// @ts-ignore
+import {title as oneliners} from '../../../content/cheatsheets/oneliners.toml';
+// @ts-ignore
+import {title as programming} from '../../../content/cheatsheets/test.toml';
+
 const links = [
   {
-    title: 'Programming',
+    title: programming,
     href: '/cheat/programming',
   },
   {
-    title: 'Linux / Vim',
+    title: linux,
     href: '/cheat/linux',
   },
   {
-    title: 'One-liners',
+    title: oneliners,
     href: '/cheat/oneliners',
   },
   {
