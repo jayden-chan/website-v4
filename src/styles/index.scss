@@ -4,12 +4,9 @@
 
 @import '../../node_modules/highlight.js/styles/gruvbox-dark.css';
 
-$background: #1B1F22;
-// $background: #e4e0dd; // for print mode
-// $background: #e5ddd5; // for print mode
-
-$text-color: white;
-// $text-color: black; // for print mode
+// Webpack injected
+// $background: BACKGROUND_COLOR;
+// $text-color: TEXT_COLOR;
 
 body {
   @media print {
@@ -65,14 +62,14 @@ a {
   .time {
     font-weight: 300;
   }
+}
 
-  .major {
-    border-bottom: 1px solid $text-color;
-    width: -moz-max-content;
-    width: -webkit-max-content;
-    width: -ms-max-content;
-    width: max-content;
-  }
+.major {
+  border-bottom: 1px solid $text-color;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  width: -ms-max-content;
+  width: max-content;
 }
 
 .fadein {

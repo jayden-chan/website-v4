@@ -1,7 +1,10 @@
 const path = require('path');
 const glob = require('glob');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackHookPlugin = require('webpack-hook-plugin');
+
+const config = require('./config');
 
 const settings = {
   module: {
@@ -96,6 +99,7 @@ const settings = {
             loader: require.resolve('sass-loader'),
             options: {
               sourceMap: false,
+              data: `$background:${config.BACKGROUND_COLOR};$text-color:${config.TEXT_COLOR};`,
             },
           },
         ],
@@ -106,6 +110,7 @@ const settings = {
   },
 
   plugins: [
+    new webpack.DefinePlugin(config),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

@@ -1,3 +1,7 @@
+// Webpack injected variables
+declare const URL: string;
+declare const OUTPUT_DIR: string;
+
 import {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
 
@@ -9,6 +13,7 @@ import {
   copyFile,
   mkdir,
 } from 'fs';
+
 import {sync as rmdir} from 'rimraf';
 
 import {config} from '@fortawesome/fontawesome-svg-core';
@@ -17,9 +22,6 @@ config.autoAddCss = false;
 import {throwIfErr, dirStat, templateReplace} from './utils';
 import {SITE_LAYOUT} from './layout';
 import './styles/index.scss';
-
-const OUTPUT_DIR = './build';
-const URL = 'jayden-chan-staging.surge.sh';
 
 function log(...args: any[]): void {
   if (args.length === 0) {
@@ -123,6 +125,7 @@ export default async function main() {
     ]),
     err => throwIfErr(err),
   );
+
   copyFile('dist/generator.css', 'build/styles.css', err => throwIfErr(err));
   copyFile('templates/404.html', 'build/404.html', err => throwIfErr(err));
 

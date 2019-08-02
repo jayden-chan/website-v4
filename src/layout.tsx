@@ -2,6 +2,7 @@ import React from 'react';
 
 import Home from './pages/Home';
 import Resume from './pages/Resume';
+import About from './pages/About';
 import Cheat from './pages/cheat/index';
 import Test from './pages/cheat/Test';
 import Struggle from './pages/cheat/Struggle';
@@ -19,6 +20,13 @@ export const SITE_LAYOUT = {
       title: 'Resume - Jayden Chan',
       template: 'resume',
       component: <Resume />,
+      subpages: [],
+    },
+    {
+      relativePath: 'about/',
+      title: 'About - Jayden Chan',
+      template: 'about',
+      component: <About />,
       subpages: [],
     },
     {

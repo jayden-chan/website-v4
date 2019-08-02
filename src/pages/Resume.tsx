@@ -1,10 +1,13 @@
+// Webpack injected variables
+declare const PRINT_MODE: boolean;
+declare const URL: string;
+declare const GITHUB: string;
+declare const EMAIL: string;
+declare const PHONE: string;
+
 import React from 'react';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
-
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
-// @ts-ignore -- complains about toml import
-import {GITHUB} from '../../content/urls.toml';
 
 // @ts-ignore -- complains about toml import
 import * as resume from '../../content/resume.toml';
@@ -22,9 +25,7 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
-const PRINT_MODE = false;
 const plg = PRINT_MODE ? '' : 'lg:';
-
 const skipPrint = i => !PRINT_MODE || i.print === true;
 
 const np = (text: string) => {
@@ -52,8 +53,6 @@ const wrapper = [
   `lg:pl-0`,
   'lg:w-5/6',
 ].join(' ');
-
-console.log(wrapper);
 
 const major = [
   'major',
@@ -95,25 +94,25 @@ const Resume: React.FC = () => {
           <ul>
             <li>
               <FontAwesomeIcon icon={faGithub} />
-              <a href={GITHUB} className={iconWord}>
-                github.com/jayden-chan
+              <a href={`https://github.com/${GITHUB}`} className={iconWord}>
+                {`github.com/${GITHUB}`}
               </a>
             </li>
             <li>
               <FontAwesomeIcon icon={faEnvelope} />
-              <a href="mailto:jaydencn7@gmail.com" className={iconWord}>
-                jaydencn7@gmail.com
+              <a href={`mailto:${EMAIL}`} className={iconWord}>
+                {EMAIL}
               </a>
             </li>
             <li>
               <FontAwesomeIcon icon={faGlobeAmericas} />
-              <a href="https://jayden-chan.me" className={iconWord}>
-                jayden-chan.me
+              <a href={`https://${URL}`} className={iconWord}>
+                {URL}
               </a>
             </li>
             <li>
               <FontAwesomeIcon icon={faPhone} />
-              <span className={iconWord}>(403) 874-9705</span>
+              <span className={iconWord}>{PHONE}</span>
             </li>
             <li>References available upon request</li>
           </ul>
@@ -201,7 +200,7 @@ const Resume: React.FC = () => {
                     if (proj.github) {
                       return (
                         <a
-                          href={`${GITHUB}${proj.github}`}
+                          href={`https://github.com/${GITHUB}/${proj.github}`}
                           className={iconWord}>
                           <FontAwesomeIcon icon={faGithub} />
                         </a>

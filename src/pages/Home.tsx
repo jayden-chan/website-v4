@@ -1,6 +1,7 @@
+// Webpack injected
+declare const GITHUB: string;
+
 import React from 'react';
-// @ts-ignore
-import {GITHUB} from '../../content/urls.toml';
 
 const link = 'underline mr-4';
 const Home: React.FC = () => {
@@ -12,9 +13,9 @@ const Home: React.FC = () => {
         <a href="https://uvic.ca"> University of Victoria</a>
       </p>
       <a href="about" className={link}>
-        blog
+        about
       </a>
-      <a href={GITHUB} className={link}>
+      <a href={`https://github.com/${GITHUB}`} className={link}>
         github
       </a>
       <a href="resume" className={link}>
