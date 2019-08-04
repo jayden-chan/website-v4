@@ -95,13 +95,6 @@ const settings = {
               sourceMap: false,
             },
           },
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-              sourceMap: false,
-              data: `$background:${config.BACKGROUND_COLOR};$text-color:${config.TEXT_COLOR};`,
-            },
-          },
         ],
       },
     ],
@@ -110,7 +103,6 @@ const settings = {
   },
 
   plugins: [
-    new webpack.DefinePlugin(config),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
@@ -139,21 +131,39 @@ const settings = {
   },
 
   bail: true,
+  mode: 'development',
+  optimization: {
+    removeAvailableModules: false,
+    removeEmptyChunks: false,
+    splitChunks: false,
+  },
 };
 
 module.exports = env => {
-  settings.mode = 'development';
-  if (env !== 'production') {
-    settings.watch = true;
-    settings.watchOptions = {
-      ignored: /node_modules/,
-    };
-
-    settings.optimization = {
-      removeAvailableModules: false,
-      removeEmptyChunks: false,
-      splitChunks: false,
-    };
+  let PRINT_MODE = false;
+  switch (env) {
+    case 'resume':
+      PRINT_MODE = true;
+      break;
+    case 'dev':
+      settings.watch = true;
+      settings.watchOptions = {
+        ignored: /node_modules/,
+      };
+      break;
+    default:
   }
+
+  settings.plugins.unshift(new webpack.DefinePlugin(config(PRINT_MODE)));
+  settings.module.rules[2].use.push({
+    loader: require.resolve('sass-loader'),
+    options: {
+      sourceMap: false,
+      data: `$background:${config(PRINT_MODE).BACKGROUND_COLOR};$text-color:${
+        config(PRINT_MODE).TEXT_COLOR
+      };`,
+    },
+  });
+
   return settings;
 };
