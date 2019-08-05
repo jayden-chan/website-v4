@@ -29,7 +29,7 @@ function humanReadableSize(s: number): string {
   } else if (s < 1000000) {
     return `${(s / 1000).toFixed(1)} K`;
   } else {
-    return `${(s / 10000).toFixed(0)} M`;
+    return `${(s / 1000000).toFixed(1)} M`;
   }
 }
 
