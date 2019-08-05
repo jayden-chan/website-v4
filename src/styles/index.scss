@@ -4,10 +4,6 @@
 
 @import '../../node_modules/highlight.js/styles/gruvbox-dark.css';
 
-// Webpack injected
-// $background: BACKGROUND_COLOR;
-// $text-color: TEXT_COLOR;
-
 body {
   @media print {
     background: $background !important;

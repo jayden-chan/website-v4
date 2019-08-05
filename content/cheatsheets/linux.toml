@@ -6,9 +6,10 @@ code = """
 yay -S cups
 systemctl enable org.cups.cupsd.service
 systemctl start org.cups.cupsd.service
-sudo usermod -a -G sys jayden
+sudo usermod -a -G sys jayden # Prevent forbidden errors
 xdg-open http://localhost:631
 """
+language = "bash"
 tags = [ "linux", "printing", "CUPS" ]
 
 [[cards]]

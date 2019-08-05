@@ -128,6 +128,9 @@ export default async function main() {
 
   copyFile('dist/generator.css', 'build/styles.css', err => throwIfErr(err));
   copyFile('templates/404.html', 'build/404.html', err => throwIfErr(err));
+  copyFile('content/images/headshot.png', 'build/headshot.png', err =>
+    throwIfErr(err),
+  );
 
   const sitemap = await renderPromise;
   writeFileSync(
