@@ -1,6 +1,10 @@
+// Webpack injected
+declare const GITHUB: string;
+
 import React from 'react';
 
 const pStyle = 'mb-5';
+const aStyle = 'underline';
 
 const About: React.FC = () => {
   return (
@@ -16,16 +20,23 @@ const About: React.FC = () => {
           My name is Jayden Chan. I am a Software Engineering student at the
           University of Victoria with a passion for technology, design, and
           software development. In high school I got started with programming by
-          joining my school's robotics team, Alberta Tech Alliance. The
-          experience inspired me to pursue a career in Software Engineering, and
-          since then I have been working on developing my skill set through open
-          source projects and industry experience.
+          joining my school's robotics team,{' '}
+          <a className={aStyle} href="https://4334.ca">
+            Alberta Tech Alliance
+          </a>
+          . The experience inspired me to pursue a career in Software
+          Engineering, and since then I have been working on developing my skill
+          set through open source projects and industry experience.
         </p>
 
         <p className={pStyle}>
           I spend much of my free time designing, building, and testing personal
           and club-related projects. Most of them are open source and available
-          on my GitHub.
+          on my{' '}
+          <a className={aStyle} href={`https://github.com/${GITHUB}`}>
+            GitHub
+          </a>
+          .
         </p>
       </div>
     </div>
