@@ -18,6 +18,11 @@ code = "lspci -vnn | rg VGA -A 12"
 tags = [ "linux", "sysinfo" ]
 
 [[cards]]
+title = "[Git] Show the total number of commits"
+code = "git rev-list --count --all"
+tags = [ "git" ]
+
+[[cards]]
 title = "retain all lines matching a pattern"
 code = """
 :v/pattern/d
