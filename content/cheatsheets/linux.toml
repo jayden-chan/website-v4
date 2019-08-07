@@ -1,7 +1,7 @@
 title = "Linux / Vim"
 
 [[cards]]
-title = "Setting up CUPS on Linux"
+title = "[Linux] Setting up CUPS"
 code = """
 yay -S cups
 systemctl enable org.cups.cupsd.service
@@ -9,11 +9,12 @@ systemctl start org.cups.cupsd.service
 sudo usermod -a -G sys jayden # Prevent forbidden errors
 xdg-open http://localhost:631
 """
+struggle = true
 language = "bash"
 tags = [ "linux", "printing", "CUPS" ]
 
 [[cards]]
-title = "Show GPU information"
+title = "[Linux] Show GPU information"
 code = "lspci -vnn | rg VGA -A 12"
 tags = [ "linux", "sysinfo" ]
 
@@ -23,14 +24,14 @@ code = "git rev-list --count --all"
 tags = [ "git" ]
 
 [[cards]]
-title = "retain all lines matching a pattern"
+title = "[Vim] Retain all lines matching a pattern"
 code = """
 :v/pattern/d
 """
 tags = [ "vim", "command", "regex" ]
 
 [[cards]]
-title = "delete all lines matching pattern"
+title = "[Vim] Delete all lines matching pattern"
 code = """
 :g/pattern/d
 """
