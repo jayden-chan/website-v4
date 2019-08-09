@@ -6,7 +6,7 @@ import {cards as linux} from '../../../content/cheatsheets/linux.toml';
 // @ts-ignore
 import {cards as oneliners} from '../../../content/cheatsheets/oneliners.toml';
 // @ts-ignore
-import {cards as testing} from '../../../content/cheatsheets/test.toml';
+import {cards as testing} from '../../../content/cheatsheets/programming.toml';
 
 function cardFilter(card: any): boolean {
   return !!card.struggle;

@@ -1,0 +1,55 @@
+title = "Programming"
+
+[[cards]]
+title = "[JavaScript] Get all regex matches"
+code = """
+const regex = /the_regex/g;
+
+let m;
+
+do {
+  m = regex.exec(str);
+  if (m) {
+    ...
+  }
+} while (m !== null);
+"""
+language = "javascript"
+tags = [ "js/ts", "regex" ]
+
+[[cards]]
+title = "[Rust] Connect to a postgres db with SSL and an r2d2 connection pool"
+struggle = true
+code = """
+use openssl::ssl::{SslConnector, SslMethod};
+use postgres_openssl::MakeTlsConnector;
+use r2d2_postgres::PostgresConnectionManager;
+use std::thread;
+
+fn main() {
+    let mut builder = SslConnector::builder(SslMethod::tls()).unwrap();
+    builder.set_verify(openssl::ssl::SslVerifyMode::NONE);
+    let connector = MakeTlsConnector::new(builder.build());
+
+    let manager = PostgresConnectionManager::new(
+        "DATABASE_URL".parse().unwrap(),
+        connector,
+    );
+    let pool = r2d2::Pool::new(manager).unwrap();
+
+    let pool = pool.clone();
+    let join_handler = thread::spawn(move || {
+        println!("doing the stuff");
+        let mut client = pool.get().unwrap();
+        let results = client.query("SELECT * FROM test_data", &[]).unwrap();
+
+        println!("{:#?}", results[0].get::<usize, String>(0));
+    });
+
+    println!("waiting");
+    join_handler.join().unwrap();
+    println!("done");
+}
+"""
+language = "rust"
+tags = [ "SETTMMTOHTS", "rust", "postgres" ]

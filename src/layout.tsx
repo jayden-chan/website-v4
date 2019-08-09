@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Resume from './pages/Resume';
 import About from './pages/About';
 import Cheat from './pages/cheat/index';
-import Test from './pages/cheat/Test';
+import Programming from './pages/cheat/Programming';
 import Struggle from './pages/cheat/Struggle';
 import Linux from './pages/cheat/Linux';
 import OneLiners from './pages/cheat/OneLiners';
@@ -39,7 +39,7 @@ export const SITE_LAYOUT = {
           relativePath: 'programming/',
           title: 'Cheatsheet - Programming',
           template: 'cheat',
-          component: <Test />,
+          component: <Programming />,
           subpages: [],
         },
         {

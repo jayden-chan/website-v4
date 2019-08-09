@@ -7,7 +7,7 @@ import {title as linux} from '../../../content/cheatsheets/linux.toml';
 // @ts-ignore
 import {title as oneliners} from '../../../content/cheatsheets/oneliners.toml';
 // @ts-ignore
-import {title as programming} from '../../../content/cheatsheets/test.toml';
+import {title as programming} from '../../../content/cheatsheets/programming.toml';
 
 const links = [
   {
