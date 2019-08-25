@@ -36,3 +36,8 @@ code = """
 :g/pattern/d
 """
 tags = [ "vim", "command", "regex" ]
+
+[[cards]]
+title = "[Linux] Change the timezone"
+code = "timedatectl set-timezone Canada/Mountain"
+tags = [ "oneliners", "linux" ]
