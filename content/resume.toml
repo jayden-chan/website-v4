@@ -37,41 +37,29 @@ roles = [
   "Wrote embedded Python code to receive user input and autonomously pour drinks based on JSON recipe data"
 ]
 
-[[experience]]
-print = false
-title = "Programming Team Leader"
-location = "Calgary, Canada"
-company = "Alberta Tech Alliance Association"
-time = "Oct 2015 - Oct 2016"
-roles = [
-  "Led a team of developers in the creation of embedded robot code for the F.I.R.S.T Robotics Competition",
-  "Developed robust and performant software using Java, C# and the WPI robotics libraries",
-  "Participated in and won the annual China Robotics Challenge in 2016. Provided mentorship and advice to rookie Chinese teams before the competition"
-]
+# [[experience]]
+# print = false
+# title = "Programming Team Leader"
+# location = "Calgary, Canada"
+# company = "Alberta Tech Alliance Association"
+# time = "Oct 2015 - Oct 2016"
+# roles = [
+#   "Led a team of developers in the creation of embedded robot code for the F.I.R.S.T Robotics Competition",
+#   "Developed robust and performant software using Java, C# and the WPI robotics libraries",
+#   "Participated in and won the annual China Robotics Challenge in 2016. Provided mentorship and advice to rookie Chinese teams before the competition"
+# ]
 
 [[projects]]
 print = true
-title = "Ray Tracer"
+title = "YARR"
 stack = "Rust"
-github = "raytracer"
+github = "yarr"
 time = "2019"
 roles = [
-  "Developed a simple uni-directional path tracer based on Peter Shirley's \"Ray Tracing in One Weekend\" book",
-  "Supports diffuse, metal and dielectric materials",
-  "Supports parallel rendering and can be scaled to any number of cores"
-]
-
-[[projects]]
-print = true
-title = "ESS Locker System"
-stack = "Node / React / MySQL"
-github = "ess-lockers"
-time = "2018 - present"
-roles = [
-  "Developed a web app for managing the UVic Engineering Student Society locker rental system",
-  "Migrated 6 year-old legacy PHP code to Node.js and created a more secure, email-based authentication system for removing locker registrations",
-  "Modernized front-end interface with React + Bootstrap",
-  "Integrated Contentful with the backend to provide an ergonomic content management workflow for ESS executives"
+  "YARR is a physically-based raytracer built with Rust",
+  "A Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",
+  "Supports matte, reflective and glass surfaces",
+  "Axis-aligned bounding box-based BVH for accelerating collision detections"
 ]
 
 [[projects]]
@@ -85,6 +73,19 @@ roles = [
   "Created a simple analytics engine that monitors the moves of other snakes, looking for patterns in their behavior. The output of the engine is fed into the main simulation to increase its accuracy.",
   "Implemented a variety of other common algorithms to provide more realistic simulation branches for the main AI",
   "Created a simple HTTP server to respond to POST requests from the main game server"
+]
+
+[[projects]]
+print = true
+title = "ESS Locker System"
+stack = "Node / React / MySQL"
+github = "ess-lockers"
+time = "2018 - present"
+roles = [
+  "Developed a web app for managing the UVic Engineering Student Society locker rental system",
+  "Migrated 6 year-old legacy PHP code to Node.js and created a more secure, email-based authentication system for removing locker registrations",
+  "Modernized front-end interface with React + Bootstrap",
+  "Integrated Contentful with the backend to provide an ergonomic content management workflow for ESS executives"
 ]
 
 [[projects]]
@@ -102,12 +103,7 @@ roles = [
 
 [[awards]]
 result = "Winner"
-time = "2019"
-desc = "UVic Engineering Competition (Programming)"
-
-[[awards]]
-result = "Winner"
-time = "2018"
+time = "2018, 2019"
 desc = "UVic Engineering Competition (Programming)"
 
 [[awards]]

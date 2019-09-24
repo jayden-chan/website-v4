@@ -26,7 +26,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const plg = PRINT_MODE ? '' : 'lg:';
-const skipPrint = i => !PRINT_MODE || i.print === true;
+// const skipPrint = i => !PRINT_MODE || i.print === true;
+const skipPrint = i => true;
 
 const np = (text: string) => {
   return !PRINT_MODE ? text : '';
@@ -56,7 +57,7 @@ const wrapper = [
 
 const major = [
   'major',
-  p('text-2xl', 'text-3xl'),
+  p('text-3xl', 'text-3xl'),
   'text-bold',
   'pb-2',
   p('my-8', 'my-8'),
@@ -68,7 +69,7 @@ const major = [
 ].join(' ');
 
 const minor = [
-  p('text-lg', 'text-xl'),
+  p('text-xl', 'text-xl'),
   'tracking-wider',
   'uppercase',
   'font-bold',
@@ -76,8 +77,8 @@ const minor = [
 
 const section = ['block', p('mb-8', 'mb-10')].join(' ');
 
-const rightFloat = [`${plg}float-right`, 'block'].join(' ');
-const iconWord = 'ml-3';
+const rightFloat = [`${plg}float-right`, 'block', 'text-lg'].join(' ');
+const iconWord = 'text-xl ml-3';
 const iconWordLarge = 'ml-4';
 const skill = 'mt-1';
 
@@ -169,7 +170,7 @@ const Resume: React.FC = () => {
                   </span>
                 </div>
                 <div className="mb-4">
-                  <span>{job.company}</span>
+                  <span className="text-lg">{job.company}</span>
                   <span className={`${rightFloat} time`}>{job.time}</span>
                 </div>
               </header>
@@ -206,21 +207,31 @@ const Resume: React.FC = () => {
                         </a>
                       );
                     } else {
-                      return <span className="time"> (closed source)</span>;
+                      return (
+                        <span className="time text-lg"> (closed source)</span>
+                      );
                     }
                   })()}
                 </div>
                 <div className="mb-4">
-                  <span>{proj.stack}</span>
+                  <span className="text-lg">{proj.stack}</span>
                   <span className={rightFloat}>{proj.time}</span>
                 </div>
               </header>
 
               <div>
                 <ul className="list-disc ml-5">
-                  {proj.roles.map((r, idx) => (
-                    <li key={idx}>{r}</li>
-                  ))}
+                  {proj.roles.map((r, idx) => {
+                    if (r.startsWith('Designed a simulation')) {
+                      return (
+                        <li className="pb-20" key={idx}>
+                          {r}
+                        </li>
+                      );
+                    }
+
+                    return <li key={idx}>{r}</li>;
+                  })}
                 </ul>
               </div>
             </section>
@@ -243,31 +254,18 @@ const Resume: React.FC = () => {
               </span>
             </div>
             <div className="mb-4">
-              <span>Candidate for Bachelor of Software Engineering</span>
+              <span className="text-lg">
+                Candidate for Bachelor of Software Engineering
+              </span>
               <span className={`${rightFloat} time`}>
                 2017 - 2022 (expected)
               </span>
             </div>
           </header>
-
-          {(() => {
-            if (!PRINT_MODE) {
-              return (
-                <div>
-                  <ul className="list-disc ml-5">
-                    <li>
-                      Finished in top 10% of students enrolled in first year
-                      Computer Science courses
-                    </li>
-                  </ul>
-                </div>
-              );
-            }
-          })()}
         </section>
 
         {(() => {
-          if (!PRINT_MODE) {
+          if (true) {
             return (
               <h1 className={major}>
                 <FontAwesomeIcon icon={faTrophy} />
@@ -278,7 +276,7 @@ const Resume: React.FC = () => {
         })()}
 
         {(() => {
-          if (!PRINT_MODE) {
+          if (true) {
             return resume.awards.map((award, idx) => {
               return (
                 <section className="block mb-3" key={idx}>
@@ -289,7 +287,7 @@ const Resume: React.FC = () => {
                       </h3>
                     </div>
                     <div>
-                      <span className="time">{award.desc}</span>
+                      <span className={`time text-lg`}>{award.desc}</span>
                       <span className={rightFloat}>{award.time}</span>
                     </div>
                   </header>
