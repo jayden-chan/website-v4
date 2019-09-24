@@ -5,3 +5,8 @@ title = "[JavaScript] Array with numbers 0..n"
 code = "[...Array(n).keys()].map(e => ...)"
 language = "javascript"
 tags = [ "oneliners", "js/ts" ]
+
+[[cards]]
+title = "[Git] Show the total number of commits"
+code = "git rev-list --count --all"
+tags = [ "oneliners", "git" ]
