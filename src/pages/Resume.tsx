@@ -23,6 +23,7 @@ import {
   faTrophy,
   faVoicemail,
   faWrench,
+  faPaintBrush,
 } from '@fortawesome/free-solid-svg-icons';
 
 const plg = PRINT_MODE ? '' : 'lg:';
@@ -144,6 +145,21 @@ const Resume: React.FC = () => {
           <ul className="mb-10">
             <h3 className={minor}>Technologies</h3>
             {resume.skills.tech.map((e, idx) => (
+              <li className={skill} key={idx}>
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <h1 className={major}>
+          <FontAwesomeIcon icon={faPaintBrush} />
+          <span className={iconWordLarge}>Interests</span>
+        </h1>
+
+        <div className="mb-6">
+          <ul>
+            {resume.interests.map((e, idx) => (
               <li className={skill} key={idx}>
                 {e}
               </li>

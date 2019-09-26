@@ -1,3 +1,10 @@
+interests = [
+  "Cooking",
+  "Coffee",
+  "Mechanical Keyboards",
+  "Gaming",
+]
+
 [skills]
 lang = [ "JavaScript / TypeScript", "Rust", "Go", "C", "HTML / CSS / SCSS" ]
 tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
@@ -7,7 +14,7 @@ tech = [
   "Heroku",
   "Google Cloud Platform",
   "PostgreSQL / MySQL / MariaDB",
-  "REST / GraphQL"
+  "REST / GraphQL",
 ]
 
 [[experience]]
