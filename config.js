@@ -1,6 +1,6 @@
 const config = print_mode => {
   return {
-    URL: JSON.stringify('jayden-chan.github.io/website-tmp'),
+    URL: JSON.stringify('jayden-chan.me'),
     OUTPUT_DIR: JSON.stringify('./build'),
     PRINT_MODE: true,
     TEXT_COLOR: print_mode ? 'black' : 'white',
