@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://jayden-chan.github.io/website-tmp/sitemap.xml
+Sitemap: https://jayden-chan.me/sitemap.xml
