@@ -69,6 +69,10 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
               content: html,
             },
             {
+              key: '{{baseurl}}',
+              content: URL === '' ? '' : `https://${URL}`,
+            },
+            {
               key: '{{title}}',
               content: page.title,
             },
@@ -126,8 +130,15 @@ export default async function main() {
     err => throwIfErr(err),
   );
 
+  writeFile(
+    'build/404.html',
+    templateReplace(readFileSync('templates/404.html').toString(), [
+      {key: '{{baseurl}}', content: URL === '' ? '' : `https://${URL}`},
+    ]),
+    err => throwIfErr(err),
+  );
+
   copyFile('dist/generator.css', 'build/styles.css', err => throwIfErr(err));
-  copyFile('templates/404.html', 'build/404.html', err => throwIfErr(err));
   copyFile('content/images/headshot.png', 'build/headshot.png', err =>
     throwIfErr(err),
   );
