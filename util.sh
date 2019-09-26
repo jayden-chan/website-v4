@@ -19,6 +19,12 @@ case $1 in
         ;;
 
     deploy)
+        if [[ "$2" == "" ]]; then
+            echo "must specify a major/minor/patch version"
+            echo "./util.sh deploy patch"
+            exit 1
+        fi
+
         npm run build
         npm run clean-css
         ls -lAh build
@@ -26,6 +32,11 @@ case $1 in
         git checkout master
         rm -rf docs
         mv ../build ./docs
+        git add --all
+        git commit -m "JC: Deploy"
+        npm version $2
+        git push
+        git push --tags
         ;;
     *)
         echo "invalid command"
