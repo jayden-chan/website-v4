@@ -23,7 +23,7 @@ import {
   faTrophy,
   faVoicemail,
   faWrench,
-  faPaintBrush,
+  faMugHot,
 } from '@fortawesome/free-solid-svg-icons';
 
 const plg = PRINT_MODE ? '' : 'lg:';
@@ -153,7 +153,7 @@ const Resume: React.FC = () => {
         </div>
 
         <h1 className={major}>
-          <FontAwesomeIcon icon={faPaintBrush} />
+          <FontAwesomeIcon icon={faMugHot} />
           <span className={iconWordLarge}>Interests</span>
         </h1>
 
