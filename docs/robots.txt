@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://jayden-chan-staging.surge.sh/sitemap.xml
+Sitemap: https://jayden-chan.github.io/website-tmp/sitemap.xml
