@@ -8,7 +8,7 @@
     "build": "webpack --progress --env=production",
     "dev": "webpack --progress --env=dev",
     "clean-css": "postcss build/styles.css --replace",
-    "deploy": "surge build jayden-chan-staging.surge.sh"
+    "deploy-surge": "surge build jayden-chan-staging.surge.sh"
   },
   "author": "Jayden Chan <jaydencn7@gmail.com>",
   "license": "MIT",

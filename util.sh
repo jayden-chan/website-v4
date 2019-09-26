@@ -11,11 +11,20 @@ case $1 in
         pdftk build/temp.pdf cat 1-r$max_pages output build/resume.pdf
         rm build/temp.pdf
         ;;
+    deploy-surge)
+        npm run build
+        npm run clean-css
+        ls -lAh build
+        npm run deploy-surge
+        ;;
+
     deploy)
         npm run build
         npm run clean-css
         ls -lAh build
-        npm run deploy
+        mv build ..
+        git checkout master
+        mv ../build ./docs
         ;;
     *)
         echo "invalid command"
