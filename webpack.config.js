@@ -153,6 +153,8 @@ module.exports = env => {
       conf = config(false);
       break;
     default:
+      conf = config(false);
+      break;
   }
 
   settings.plugins.unshift(new webpack.DefinePlugin(conf));
