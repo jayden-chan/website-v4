@@ -1,6 +1,8 @@
 // Webpack injected variables
 declare const URL: string;
 declare const OUTPUT_DIR: string;
+declare const CSS_BASE: string;
+declare const R_CSS_BASE: string;
 
 import {ReactElement} from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -70,7 +72,11 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
             },
             {
               key: '{{baseurl}}',
-              content: URL === '' ? '' : `https://${URL}`,
+              content: CSS_BASE,
+            },
+            {
+              key: '{{resumecssbase}}',
+              content: R_CSS_BASE,
             },
             {
               key: '{{title}}',
@@ -133,7 +139,10 @@ export default async function main() {
   writeFile(
     'build/404.html',
     templateReplace(readFileSync('templates/404.html').toString(), [
-      {key: '{{baseurl}}', content: URL === '' ? '' : `https://${URL}`},
+      {
+        key: '{{baseurl}}',
+        content: CSS_BASE,
+      },
     ]),
     err => throwIfErr(err),
   );

@@ -140,28 +140,27 @@ const settings = {
 };
 
 module.exports = env => {
-  let PRINT_MODE = false;
+  let conf;
   switch (env) {
     case 'resume':
-      PRINT_MODE = true;
+      conf = config(true);
       break;
     case 'dev':
       settings.watch = true;
       settings.watchOptions = {
         ignored: /node_modules/,
       };
+      conf = config(false);
       break;
     default:
   }
 
-  settings.plugins.unshift(new webpack.DefinePlugin(config(PRINT_MODE)));
+  settings.plugins.unshift(new webpack.DefinePlugin(conf));
   settings.module.rules[2].use.push({
     loader: require.resolve('sass-loader'),
     options: {
       sourceMap: false,
-      data: `$background:${config(PRINT_MODE).BACKGROUND_COLOR};$text-color:${
-        config(PRINT_MODE).TEXT_COLOR
-      };`,
+      data: `$background:${conf.BACKGROUND_COLOR};$text-color:${conf.TEXT_COLOR};`,
     },
   });
 

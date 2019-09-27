@@ -77,8 +77,8 @@ time = "2019"
 roles = [
   "Developed an artificial intelligence to compete in the Battlesnake programming competition",
   "Designed a simulation-based algorithm that assesses future game states and selects the most appropriate move",
-  "Created a simple analytics engine that monitors the moves of other snakes, looking for patterns in their behavior. The output of the engine is fed into the main simulation to increase its accuracy.",
   "Implemented a variety of other common algorithms to provide more realistic simulation branches for the main AI",
+  "Created a simple analytics engine that monitors the moves of other snakes, looking for patterns in their behavior. The output of the engine is fed into the main simulation to increase its accuracy.",
   "Created a simple HTTP server to respond to POST requests from the main game server"
 ]
 
