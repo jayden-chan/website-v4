@@ -42,22 +42,22 @@ const p = (print: string, noprint: string) => {
 const wrapper = [
   'pr-10',
   'pl-10',
+  'w-full',
+  np('items-center'),
   p('mt-5', 'mt-10'),
   p('mb-64', 'mb-32'),
+  'fadein',
+  'resume',
+  'lg:w-5/6',
+  `${plg}pr-0`,
+  `lg:pl-0`,
 ].join(' ');
 
 const cols = [
   'flex',
   np('flex-col'),
-  'fadein',
-  'resume',
-  'w-full',
-  np('items-center'),
   `lg:items-start`,
   `${plg}flex-row-reverse`,
-  `${plg}pr-0`,
-  `lg:pl-0`,
-  'lg:w-5/6',
 ].join(' ');
 
 const headingbase = [

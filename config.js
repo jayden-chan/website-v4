@@ -1,8 +1,8 @@
 const config = print_mode => {
   return {
     URL: JSON.stringify('jayden-chan.me'),
-    CSS_BASE: JSON.stringify('.'),
-    R_CSS_BASE: JSON.stringify('..'),
+    CSS_BASE: JSON.stringify('https://jayden-chan.me'),
+    R_CSS_BASE: JSON.stringify('https://jayden-chan.me'),
     OUTPUT_DIR: JSON.stringify('./build'),
     PRINT_MODE: JSON.stringify(print_mode),
     TEXT_COLOR: print_mode ? 'black' : 'white',
