@@ -58,12 +58,12 @@ roles = [
 
 [[projects]]
 print = true
-title = "YARR"
+title = "Nit"
 stack = "Rust"
-github = "yarr"
+github = "nit"
 time = "2019"
 roles = [
-  "YARR is a physically-based raytracer built with Rust",
+  "Nit is a physically-based raytracer built with Rust",
   "A Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",
   "Supports matte, reflective and glass surfaces",
   "Axis-aligned bounding box-based BVH for accelerating collision detections"
