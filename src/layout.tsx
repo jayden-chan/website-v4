@@ -2,6 +2,7 @@ import React from 'react';
 
 import Home from './pages/Home';
 import Resume from './pages/Resume';
+import CoverLetter from './pages/CoverLetter';
 import About from './pages/About';
 import Cheat from './pages/cheat/index';
 import Programming from './pages/cheat/Programming';
@@ -20,6 +21,13 @@ export const SITE_LAYOUT = {
       title: 'Resume - Jayden Chan',
       template: 'resume',
       component: <Resume />,
+      subpages: [],
+    },
+    {
+      relativePath: 'coverletter/',
+      title: 'Cover Letter',
+      template: 'resume',
+      component: <CoverLetter />,
       subpages: [],
     },
     {
