@@ -14,25 +14,13 @@ const headingbase = [
   'sm:tracking-widest',
 ];
 
-const np = (text: string) => {
-  return !PRINT_MODE ? text : '';
-};
-
-const p = (print: string, noprint: string) => {
-  return PRINT_MODE ? print : noprint;
-};
-
-const major = headingbase
-  .concat([p('text-2xl', 'text-3xl'), 'mt-12'])
-  .join(' ');
-
+const major = headingbase.concat(['text-3xl', 'mt-12']).join(' ');
 const info = ['pr-12'].join(' ');
-
-const pspace = ['mb-6'].join(' ');
+const pspace = ['mb-6 font-light'].join(' ');
 
 const CoverLetter: React.FC = () => {
   return (
-    <div className="w-1/2">
+    <div className="w-1/2 mb-64">
       <h1 className={major}>Jayden Chan</h1>
       <div className="flex flex-row">
         <h4 className={info}>515-3381 Whittier Avenue Victoria, BC</h4>
