@@ -152,6 +152,7 @@ export default async function main() {
   copyFile('content/images/headshot.png', 'build/headshot.png', err =>
     throwIfErr(err),
   );
+  copyFile('content/images/sig.png', 'build/sig.png', err => throwIfErr(err));
 
   const sitemap = await renderPromise;
   writeFileSync(

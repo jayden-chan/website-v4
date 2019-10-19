@@ -93,7 +93,9 @@ const skill = 'mt-1';
 const Resume: React.FC = () => {
   return (
     <div className={wrapper}>
-      <h1 className={`${name}`}>Jayden Chan</h1>
+      <h1 className={`${name}`} style={{marginBottom: -20}}>
+        Jayden Chan
+      </h1>
       <div className={cols}>
         <div className={`flex-shrink-0`}>
           <h1 className={major}>
@@ -249,7 +251,7 @@ const Resume: React.FC = () => {
                     {proj.roles.map((r, idx) => {
                       if (
                         PRINT_MODE &&
-                        r.startsWith('Implemented a variety of other')
+                        r.startsWith('Designed a simulation-based')
                       ) {
                         return (
                           <li className="pb-20" key={idx}>
