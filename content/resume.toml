@@ -120,6 +120,11 @@ desc = "UVic Engineering Competition (Programming)"
 
 [[awards]]
 result = "Winner"
+time = "2018"
+desc = "UVic ENGR 120 Design Competition"
+
+[[awards]]
+result = "Winner"
 time = "2016"
 desc = "Western Canada Regional Robotics Competition"
 

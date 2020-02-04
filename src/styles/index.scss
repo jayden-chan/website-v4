@@ -1,8 +1,8 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import '../../node_modules/highlight.js/styles/gruvbox-dark.css';
+@import "../../node_modules/highlight.js/styles/gruvbox-dark.css";
 
 body {
   @media print {
@@ -10,15 +10,13 @@ body {
   }
 
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: "Source Sans Pro";
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

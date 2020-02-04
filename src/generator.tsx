@@ -3,9 +3,10 @@ declare const URL: string;
 declare const OUTPUT_DIR: string;
 declare const CSS_BASE: string;
 declare const R_CSS_BASE: string;
+declare const PRINT_MODE: boolean;
 
-import {ReactElement} from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { ReactElement } from "react";
+import ReactDOMServer from "react-dom/server";
 
 import {
   readFile,
@@ -13,17 +14,22 @@ import {
   readFileSync,
   writeFileSync,
   copyFile,
-  mkdir,
-} from 'fs';
+  mkdir
+} from "fs";
 
-import {sync as rmdir} from 'rimraf';
+import { sync as rmdir } from "rimraf";
 
-import {config} from '@fortawesome/fontawesome-svg-core';
+import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import {throwIfErr, dirStat, templateReplace} from './utils';
-import {SITE_LAYOUT} from './layout';
-import './styles/index.scss';
+import { throwIfErr, dirStat, templateReplace } from "./utils";
+import { SITE_LAYOUT } from "./layout";
+import "./styles/index.scss";
+
+const CSS_FONT_LINK = `<link
+  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap"
+  rel="stylesheet"
+/>`;
 
 function log(...args: any[]): void {
   if (args.length === 0) {
@@ -51,41 +57,45 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
   return new Promise((resolve, reject) => {
     readFile(
       `./templates/${page.template}.html`,
-      {encoding: 'UTF-8'},
+      { encoding: "UTF-8" },
       (err, template) => {
         if (err) {
           reject(err);
         }
 
         const html = ReactDOMServer.renderToStaticMarkup(page.component);
-        const outputPath = [...pathStack, page.relativePath].join('');
+        const outputPath = [...pathStack, page.relativePath].join("");
 
-        mkdir(outputPath, {recursive: true}, err => {
+        mkdir(outputPath, { recursive: true }, err => {
           if (err) {
             reject(err);
           }
 
           const toReplace = [
             {
-              key: '{{content}}',
-              content: html,
+              key: "{{content}}",
+              content: html
             },
             {
-              key: '{{baseurl}}',
-              content: CSS_BASE,
+              key: "{{baseurl}}",
+              content: CSS_BASE
             },
             {
-              key: '{{resumecssbase}}',
-              content: R_CSS_BASE,
+              key: "{{cssfontlink}}",
+              content: !PRINT_MODE ? CSS_FONT_LINK : ""
             },
             {
-              key: '{{title}}',
-              content: page.title,
+              key: "{{resumecssbase}}",
+              content: R_CSS_BASE
             },
             {
-              key: '_onkeyup',
-              content: 'onkeyup',
+              key: "{{title}}",
+              content: page.title
             },
+            {
+              key: "_onkeyup",
+              content: "onkeyup"
+            }
           ];
 
           writeFile(
@@ -99,71 +109,71 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
               const wg: Promise<SiteMap>[] = [];
               const sitemap = `<url><loc>https%3A//${URL}${[
                 ...pathStack.slice(1),
-                page.relativePath,
-              ].join('')}</loc></url>`;
+                page.relativePath
+              ].join("")}</loc></url>`;
 
               page.subpages.forEach(subpage => {
                 wg.push(render(subpage, [...pathStack, page.relativePath]));
               });
 
-              const returnedSitemap = (await Promise.all(wg)).join('\n');
+              const returnedSitemap = (await Promise.all(wg)).join("\n");
               resolve(`${sitemap}\n${returnedSitemap}`);
-            },
+            }
           );
         });
-      },
+      }
     );
   });
 }
 
 export default async function main() {
-  console.time('Time');
-  log('Building website');
-  log('Clearing old files');
+  console.time("Time");
+  log("Building website");
+  log("Clearing old files");
 
   rmdir(OUTPUT_DIR);
 
-  log('Rendering');
+  log("Rendering");
   await mkdir(OUTPUT_DIR, err => throwIfErr(err));
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
   writeFile(
-    'build/robots.txt',
-    templateReplace(readFileSync('templates/robots.txt').toString(), [
-      {key: '{{URL}}', content: URL},
+    "build/robots.txt",
+    templateReplace(readFileSync("templates/robots.txt").toString(), [
+      { key: "{{URL}}", content: URL }
     ]),
-    err => throwIfErr(err),
+    err => throwIfErr(err)
   );
 
   writeFile(
-    'build/404.html',
-    templateReplace(readFileSync('templates/404.html').toString(), [
+    "build/404.html",
+    templateReplace(readFileSync("templates/404.html").toString(), [
       {
-        key: '{{baseurl}}',
-        content: CSS_BASE,
-      },
+        key: "{{baseurl}}",
+        content: CSS_BASE
+      }
     ]),
-    err => throwIfErr(err),
+    err => throwIfErr(err)
   );
 
-  copyFile('dist/generator.css', 'build/styles.css', err => throwIfErr(err));
-  copyFile('templates/CNAME', 'build/CNAME', err => throwIfErr(err));
-  copyFile('content/images/headshot.png', 'build/headshot.png', err =>
-    throwIfErr(err),
+  copyFile("dist/generator.css", "build/styles.css", err => throwIfErr(err));
+  copyFile("templates/CNAME", "build/CNAME", err => throwIfErr(err));
+  copyFile("content/images/headshot.png", "build/headshot.png", err =>
+    throwIfErr(err)
   );
-  copyFile('content/images/sig.png', 'build/sig.png', err => throwIfErr(err));
+  copyFile("content/images/sig.png", "build/sig.png", err => throwIfErr(err));
 
   const sitemap = await renderPromise;
   writeFileSync(
-    'build/sitemap.xml',
-    templateReplace(readFileSync('templates/sitemap.xml').toString(), [
-      {key: '{{content}}', content: sitemap},
-    ]),
+    "build/sitemap.xml",
+    templateReplace(readFileSync("templates/sitemap.xml").toString(), [
+      { key: "{{content}}", content: sitemap }
+    ])
   );
 
-  log('Finished.\n');
-  console.timeEnd('Time');
+  log("Finished.\n");
+  console.timeEnd("Time");
 
   log();
   dirStat(OUTPUT_DIR);
