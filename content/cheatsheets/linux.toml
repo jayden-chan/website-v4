@@ -1,6 +1,21 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Linux] Remap caps lock to escape"
+code = """
+xmodmap -e "clear lock"
+xmodmap -e "keysym Caps_Lock = Escape"
+"""
+language = "bash"
+tags = [ "linux" ]
+
+[[cards]]
+title = "[Linux] Change key repeat rate and delay"
+code = "xset r rate 270 35"
+language = "bash"
+tags = [ "linux" ]
+
+[[cards]]
 title = "[Linux] Setting up CUPS"
 code = """
 yay -S cups
