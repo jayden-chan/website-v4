@@ -65,7 +65,6 @@ time = "2019"
 roles = [
   "Nit is a physically-based raytracer built with Rust",
   "Uses a Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",
-  "Supports matte, reflective and glass surfaces",
   "Implements a sub-linear collision detection algorithm with a Bounding-Volume Hierarchy",
   "Supports loading polygon meshes from STL files",
   "Parallelized across any number of CPU cores"

@@ -5,12 +5,12 @@ declare const GITHUB: string;
 declare const EMAIL: string;
 declare const PHONE: string;
 
-import React from 'react';
-import {faGithub} from '@fortawesome/free-brands-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React from "react";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // @ts-ignore -- complains about toml import
-import * as resume from '../../content/resume.toml';
+import * as resume from "../../content/resume.toml";
 
 import {
   faEnvelope,
@@ -23,15 +23,15 @@ import {
   faTrophy,
   faVoicemail,
   faWrench,
-  faMugHot,
-} from '@fortawesome/free-solid-svg-icons';
+  faMugHot
+} from "@fortawesome/free-solid-svg-icons";
 
-const plg = PRINT_MODE ? '' : 'lg:';
+const plg = PRINT_MODE ? "" : "lg:";
 // const skipPrint = i => !PRINT_MODE || i.print === true;
 const skipPrint = i => true;
 
 const np = (text: string) => {
-  return !PRINT_MODE ? text : '';
+  return !PRINT_MODE ? text : "";
 };
 
 const p = (print: string, noprint: string) => {
@@ -54,46 +54,46 @@ const wrapper = [
 ].join(' ');
 
 const cols = [
-  'flex',
-  np('flex-col'),
+  "flex",
+  np("flex-col"),
   `lg:items-start`,
-  `${plg}flex-row-reverse`,
-].join(' ');
+  `${plg}flex-row-reverse`
+].join(" ");
 
 const headingbase = [
-  'text-bold',
-  'pb-2',
-  'tracking-wider',
-  'uppercase',
-  'font-bold',
-  'resume-major',
-  'sm:tracking-widest',
+  "text-bold",
+  "pb-2",
+  "tracking-wider",
+  "uppercase",
+  "font-bold",
+  "resume-major",
+  "sm:tracking-widest"
 ];
 
 const major = headingbase
-  .concat(['major', p('text-2xl', 'text-3xl'), p('my-8', 'my-8')])
-  .join(' ');
+  .concat(["major", p("text-2xl", "text-3xl"), p("my-8", "my-8")])
+  .join(" ");
 
-const name = headingbase.concat(['text-3xl', 'mt-4']).join(' ');
+const name = headingbase.concat(["text-3xl", "mt-4"]).join(" ");
 
 const minor = [
-  p('text-xl', 'text-xl'),
-  'tracking-wider',
-  'uppercase',
-  'font-bold',
-].join(' ');
+  p("text-xl", "text-xl"),
+  "tracking-wider",
+  "uppercase",
+  "font-bold"
+].join(" ");
 
-const section = ['block', p('mb-8', 'mb-10')].join(' ');
+const section = ["block", p("mb-8", "mb-10")].join(" ");
 
-const rightFloat = [`${plg}float-right`, 'block', 'text-lg'].join(' ');
-const iconWord = 'text-xl ml-3';
-const iconWordLarge = 'ml-4';
-const skill = 'mt-1';
+const rightFloat = [`${plg}float-right`, "block", "text-lg"].join(" ");
+const iconWord = "text-xl ml-3";
+const iconWordLarge = "ml-4";
+const skill = "mt-1";
 
 const Resume: React.FC = () => {
   return (
     <div className={wrapper}>
-      <h1 className={`${name}`} style={{marginBottom: -20}}>
+      <h1 className={`${name}`} style={{ marginBottom: -20 }}>
         Jayden Chan
       </h1>
       <div className={cols}>
@@ -190,7 +190,7 @@ const Resume: React.FC = () => {
               <section className={section} key={idx}>
                 <header>
                   <div>
-                    <h3 className={minor + ' inline-block'}>{job.title}</h3>
+                    <h3 className={minor + " inline-block"}>{job.title}</h3>
                     <span className={rightFloat}>
                       <FontAwesomeIcon icon={faMapMarkerAlt} />
                       <span className={iconWord}>{job.location}</span>
@@ -223,13 +223,14 @@ const Resume: React.FC = () => {
               <section className={section} key={idx}>
                 <header>
                   <div>
-                    <h3 className={minor + ' inline-block'}>{proj.title}</h3>
+                    <h3 className={minor + " inline-block"}>{proj.title}</h3>
                     {(() => {
                       if (proj.github) {
                         return (
                           <a
                             href={`https://github.com/${GITHUB}/${proj.github}`}
-                            className={iconWord}>
+                            className={iconWord}
+                          >
                             <FontAwesomeIcon icon={faGithub} />
                           </a>
                         );
@@ -251,10 +252,10 @@ const Resume: React.FC = () => {
                     {proj.roles.map((r, idx) => {
                       if (
                         PRINT_MODE &&
-                        r.startsWith('Designed a simulation-based')
+                        r.startsWith("Created a moving-average")
                       ) {
                         return (
-                          <li className="pb-20" key={idx}>
+                          <li className="pb-10" key={idx}>
                             {r}
                           </li>
                         );
@@ -275,7 +276,7 @@ const Resume: React.FC = () => {
           <section className={section}>
             <header>
               <div>
-                <h3 className={minor + ' inline-block'}>
+                <h3 className={minor + " inline-block"}>
                   University of Victoria
                 </h3>
                 <span className={rightFloat}>
@@ -312,7 +313,7 @@ const Resume: React.FC = () => {
                   <section className="block mb-3" key={idx}>
                     <header>
                       <div>
-                        <h3 className={minor + ' inline-block'}>
+                        <h3 className={minor + " inline-block"}>
                           {award.result}
                         </h3>
                       </div>
