@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://jayden-chan.me/styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <script>
       function filterBySearchText() {
         const input = document.getElementById('cheatPageInputID');
@@ -37,7 +37,9 @@
   </head>
 
   <body>
-    <header class="centering-h base-wrapper"><div class="fadein mt-32 w-full md:max-w-5xl"><h1 class="text-5xl font-bold mx-4">Linux / Vim</h1><div style="border-bottom-color:white;border-bottom-width:1px" class="mb-6 mx-4"></div><form class="mx-4"><input type="text" name="search" id="cheatPageInputID" onkeyup="filterBySearchText()" placeholder="Type to search" class="text-black min-w-full mb-6 p-2 rounded-lg"/></form><ul id="cheatPageListID" class="mx-4"><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Setting up CUPS</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2">yay -S cups
+    <header class="centering-h base-wrapper"><div class="fadein mt-32 w-full md:max-w-5xl"><h1 class="text-5xl font-bold mx-4">Linux / Vim</h1><div style="border-bottom-color:white;border-bottom-width:1px" class="mb-6 mx-4"></div><form class="mx-4"><input type="text" name="search" id="cheatPageInputID" onkeyup="filterBySearchText()" placeholder="Type to search" class="text-black min-w-full mb-6 p-2 rounded-lg"/></form><ul id="cheatPageListID" class="mx-4"><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Remap caps lock to escape</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2">xmodmap -e <span class="hljs-string">"clear lock"</span>
+xmodmap -e <span class="hljs-string">"keysym Caps_Lock = Escape"</span>
+</pre><small>Tags:<span class="ml-2">linux</span></small></div></li><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Change key repeat rate and delay</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2">xset r rate 270 35</pre><small>Tags:<span class="ml-2">linux</span></small></div></li><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Setting up CUPS</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2">yay -S cups
 systemctl <span class="hljs-built_in">enable</span> org.cups.cupsd.service
 systemctl start org.cups.cupsd.service
 sudo usermod -a -G sys jayden <span class="hljs-comment"># Prevent forbidden errors</span>
