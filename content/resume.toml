@@ -1,6 +1,6 @@
 interests = [
-  "Cooking",
   "Coffee",
+  "Cooking",
   "Mechanical Keyboards",
   "Gaming",
 ]
@@ -26,8 +26,8 @@ time = "Jan 2019 - present"
 roles = [
   "Developed core logic for the SaaSquatch Growth Automation platform using Contentful and the Auth0 Extend serverless platform.",
   "Implemented a new frontend build process from scratch using Babel & Webpack, enabling the use of TypeScript and reducing build times from ~2 minutes to 400 ms",
-  "Custom-built a command line tool for easily deploying updates to the Contentful & Extend staging environments, as well as for performing monitoring and synchronization.",
-  "Helped migrate the SaaSquatch analytics engine backend from Keen to BigQuery, including data verification / validation and a custom query server to translate Keen API calls into BigQuery SQL queries."
+  "Custom-built a command line tool for easily deploying updates to the Contentful & Extend staging environments",
+  "Helped migrate the SaaSquatch analytics engine backend from Keen to BigQuery, including a custom query server to translate Keen API calls into BigQuery SQL queries."
 ]
 
 [[experience]]
@@ -64,9 +64,11 @@ github = "nit"
 time = "2019"
 roles = [
   "Nit is a physically-based raytracer built with Rust",
-  "A Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",
+  "Uses a Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",
   "Supports matte, reflective and glass surfaces",
-  "Axis-aligned bounding box-based BVH for accelerating collision detections"
+  "Implements a sub-linear collision detection algorithm with a Bounding-Volume Hierarchy",
+  "Supports loading polygon meshes from STL files",
+  "Parallelized across any number of CPU cores"
 ]
 
 [[projects]]
@@ -76,10 +78,9 @@ stack = "Rust / Go"
 time = "2019"
 roles = [
   "Developed an artificial intelligence to compete in the Battlesnake programming competition",
-  "Designed a simulation-based algorithm that assesses future game states and selects the most appropriate move",
-  "Implemented a variety of other common algorithms to provide more realistic simulation branches for the main AI",
-  "Created a simple analytics engine that monitors the moves of other snakes, looking for patterns in their behavior. The output of the engine is fed into the main simulation to increase its accuracy.",
-  "Created a simple HTTP server to respond to POST requests from the main game server"
+  "Uses parallel Monte-Carlo Tree Search for assessing future game states",
+  "Implemented a variety of other common algorithms for use in the Monte-Carlo rollout phase",
+  "Created a moving-average analyzer to match other snakes' behavior to a profile"
 ]
 
 [[projects]]
@@ -107,6 +108,11 @@ roles = [
   "Implemented PID and slew rate controllers for quickly and smoothly driving to the attachment point",
   "Participated in a course-wide competition and placed 1st with an average connection time of 5.99 seconds"
 ]
+
+[[awards]]
+result = "Winner"
+time = "2020"
+desc = "Western Engineering Competition (Programming)"
 
 [[awards]]
 result = "Winner"
