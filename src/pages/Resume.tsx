@@ -56,7 +56,7 @@ const wrapper = [
 const cols = [
   "flex",
   np("flex-col"),
-  `lg:items-start`,
+  "lg:items-start",
   `${plg}flex-row-reverse`
 ].join(" ");
 
@@ -66,7 +66,6 @@ const headingbase = [
   "tracking-wider",
   "uppercase",
   "font-bold",
-  "resume-major",
   "sm:tracking-widest"
 ];
 
@@ -93,11 +92,11 @@ const skill = "mt-1";
 const Resume: React.FC = () => {
   return (
     <div className={wrapper}>
-      <h1 className={`${name}`} style={{ marginBottom: -20 }}>
+      <h1 className={name} style={{ marginBottom: -20 }}>
         Jayden Chan
       </h1>
       <div className={cols}>
-        <div className={`flex-shrink-0`}>
+        <div className={`flex-grow-0 flex-shrink-0`}>
           <h1 className={major}>
             <FontAwesomeIcon icon={faVoicemail} />
             <span className={iconWordLarge}>Contact</span>
@@ -179,7 +178,7 @@ const Resume: React.FC = () => {
           </div>
         </div>
 
-        <div className={`${plg}mr-10`}>
+        <div className={`${plg}mr-10 flex-auto`}>
           <h1 className={major}>
             <FontAwesomeIcon icon={faSuitcase} />
             <span className={iconWordLarge}>Experience</span>
