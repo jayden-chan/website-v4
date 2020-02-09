@@ -189,14 +189,14 @@ const Resume: React.FC = () => {
               <section className={section} key={idx}>
                 <header>
                   <div>
-                    <h3 className={minor + " inline-block"}>{job.title}</h3>
+                    <h3 className={minor + " inline-block"}>{job.company}</h3>
                     <span className={rightFloat}>
                       <FontAwesomeIcon icon={faMapMarkerAlt} />
                       <span className={iconWord}>{job.location}</span>
                     </span>
                   </div>
                   <div className="mb-4">
-                    <span className="text-lg">{job.company}</span>
+                    <span className="text-lg">{job.title}</span>
                     <span className={`${rightFloat} time`}>{job.time}</span>
                   </div>
                 </header>
