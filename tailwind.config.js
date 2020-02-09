@@ -1,11 +1,11 @@
 module.exports = {
   theme: {
     letterSpacing: {
-      wider: '0.2em',
-      widest: '0.25em',
+      wider: "0.14em",
+      widest: "0.19em"
     },
-    extend: {},
+    extend: {}
   },
   variants: {},
-  plugins: [],
+  plugins: []
 };

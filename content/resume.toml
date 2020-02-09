@@ -6,7 +6,7 @@ interests = [
 ]
 
 [skills]
-lang = [ "JavaScript / TypeScript", "Rust", "Go", "C", "HTML / CSS / SCSS" ]
+lang = [ "JavaScript / TypeScript", "Rust", "C", "Go", "HTML / CSS / SCSS" ]
 tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
 tech = [
   "React / React Native",
@@ -24,10 +24,10 @@ location = "Victoria, Canada"
 company = "Referral SaaSquatch"
 time = "Jan 2019 - present"
 roles = [
-  "Developed core logic for the SaaSquatch Growth Automation platform using Contentful and the Auth0 Extend serverless platform.",
-  "Implemented a new frontend build process from scratch using Babel & Webpack, enabling the use of TypeScript and reducing build times from ~2 minutes to 400 ms",
-  "Custom-built a command line tool for easily deploying updates to the Contentful & Extend staging environments",
-  "Helped migrate the SaaSquatch analytics engine backend from Keen to BigQuery, including a custom query server to translate Keen API calls into BigQuery SQL queries."
+  "Developed core logic for the SaaSquatch Growth Automation platform with using Express, Heroku, and Contentful",
+  "Implemented a new frontend build process from scratch using Babel & Webpack, adding TypeScript support and reducing build times from ~2 minutes to 400 ms",
+  "Helped migrate the SaaSquatch analytics backend from Keen to BigQuery, including a custom query server to translate Keen API calls into BigQuery SQL",
+  "Created a NodeJS command line program for compiling Gherkin specification documents into spreadsheets for manual QA"
 ]
 
 [[experience]]
@@ -38,7 +38,7 @@ company = "Bickert Robotics"
 time = "Apr 2018 - Sep 2018"
 roles = [
   "Developed a software suite to power Bickert Robotics' automated bartender robot",
-  "Implemented a REST API using Go and PostgreSQL to perform CRUD operations on drink recipes, ingredients, robot configurations, and customer credentials",
+  "Implemented a REST API using Go and PostgreSQL for managing drink recipes, ingredients, robot configurations, and customer credentials",
   "Developed an Android app for directly controlling the robot using Java and the Android SDK",
   "Designed a web app for viewing / editing drinks, users, and tanks using React. Included page for viewing the drink queue on the robot's embedded display",
   "Wrote embedded Python code to receive user input and autonomously pour drinks based on JSON recipe data"
@@ -71,7 +71,7 @@ roles = [
 ]
 
 [[projects]]
-print = true
+print = false
 title = "Battlesnake"
 stack = "Rust / Go"
 time = "2019"

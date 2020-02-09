@@ -254,7 +254,7 @@ const Resume: React.FC = () => {
                         r.startsWith("Created a moving-average")
                       ) {
                         return (
-                          <li className="pb-10" key={idx}>
+                          <li className="pb-8" key={idx}>
                             {r}
                           </li>
                         );
