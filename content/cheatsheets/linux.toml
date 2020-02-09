@@ -1,6 +1,12 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Linux] Show disk space usage for current folder"
+code = "du -sch *  | sort -h"
+language = "bash"
+tags = [ "linux" ]
+
+[[cards]]
 title = "[Linux] Remap caps lock to escape"
 code = """
 xmodmap -e "clear lock"
