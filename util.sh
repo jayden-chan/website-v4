@@ -27,6 +27,7 @@ case $1 in
         ls -lAh build
         mv build ..
         git checkout master
+        git pull
         rm -rf docs
         mv ../build ./docs
         git add --all
