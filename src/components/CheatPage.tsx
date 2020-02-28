@@ -1,5 +1,5 @@
-import React from 'react';
-import CheatCard from './CheatCard';
+import React from "react";
+import CheatCard from "./CheatCard";
 
 interface CheatPageProps {
   title: string;
@@ -12,7 +12,7 @@ interface CheatPageProps {
   }[];
 }
 
-const mx = 'mx-4';
+const mx = "mx-4";
 
 const CheatPage: React.FC<CheatPageProps> = props => {
   return (
@@ -20,8 +20,8 @@ const CheatPage: React.FC<CheatPageProps> = props => {
       <h1 className="text-5xl font-bold mx-4">{props.title}</h1>
       <div
         style={{
-          borderBottomColor: 'white',
-          borderBottomWidth: 1,
+          borderBottomColor: "white",
+          borderBottomWidth: 1
         }}
         className="mb-6 mx-4"
       />

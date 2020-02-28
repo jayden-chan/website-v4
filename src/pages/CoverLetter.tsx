@@ -2,23 +2,23 @@ declare const PRINT_MODE: boolean;
 declare const EMAIL: string;
 declare const PHONE: string;
 
-import React from 'react';
+import React from "react";
 
-import Sig from '../../content/images/sig.png';
+import Sig from "../../content/images/sig.png";
 
 const headingbase = [
-  'text-bold',
-  'pb-2',
-  'tracking-wider',
-  'uppercase',
-  'font-bold',
-  'resume-major',
-  'sm:tracking-widest',
+  "text-bold",
+  "pb-2",
+  "tracking-wider",
+  "uppercase",
+  "font-bold",
+  "resume-major",
+  "sm:tracking-widest"
 ];
 
-const major = headingbase.concat(['text-4xl', 'mt-12']).join(' ');
-const info = ['pr-12', 'text-xl'].join(' ');
-const pspace = ['mb-6 font-light text-xl'].join(' ');
+const major = headingbase.concat(["text-4xl", "mt-12"]).join(" ");
+const info = ["pr-12", "text-xl"].join(" ");
+const pspace = ["mb-6 font-light text-xl"].join(" ");
 
 const CoverLetter: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ const CoverLetter: React.FC = () => {
       <h1 className={major}>Jayden Chan</h1>
       <div className="flex flex-row">
         <h4 className={info}>515-3381 Whittier Avenue Victoria, BC</h4>
-        <h4 className={info} style={{textTransform: 'initial'}}>
+        <h4 className={info} style={{ textTransform: "initial" }}>
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </h4>
         <h4 className={info}>{PHONE}</h4>
@@ -64,13 +64,14 @@ const CoverLetter: React.FC = () => {
         Thank you for your time and kind consideration, I look forward to
         hearing from you soon.
       </p>
-      <p className={pspace} style={{marginBottom: '10px'}}>
+      <p className={pspace} style={{ marginBottom: "10px" }}>
         Sincerely,
       </p>
       <img
         src="../sig.png"
-        style={{width: '100px', marginBottom: '3px'}}
-        alt="signature"></img>
+        style={{ width: "100px", marginBottom: "3px" }}
+        alt="signature"
+      ></img>
       <p className="text-xl">Jayden Chan</p>
       <div className="mb-64" />
     </div>
