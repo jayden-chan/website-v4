@@ -22,7 +22,7 @@ print = true
 title = "Software Developer"
 location = "Victoria, Canada"
 company = "Referral SaaSquatch"
-time = "Jan 2019 - present"
+time = "Jan 2019 - Apr 2020"
 roles = [
   "Developed core logic for the SaaSquatch Growth Automation platform with using Express, Heroku, and Contentful",
   "Implemented a new frontend build process from scratch using Babel & Webpack, adding TypeScript support and reducing build times from ~2 minutes to 400 ms",

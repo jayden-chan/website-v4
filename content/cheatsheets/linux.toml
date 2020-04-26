@@ -1,22 +1,28 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Linux] Pipe command output to clipboard"
+code = "command | xclip -selection c"
+language = "bash"
+tags = [ "linux", "clipboard", "pipe", "command" ]
+
+[[cards]]
 title = "[Linux] Convert JPGs to PDF"
 code = "convert 1.jpg 2.jpg -rotate 90 -page Letter -quality 50 out.pdf"
 language = "bash"
-tags = [ "linux" ]
+tags = [ "linux", "convert" ]
 
 [[cards]]
 title = "[Linux] Concatenate PDFs"
 code = "pdftk one.pdf two.pdf cat output combined.pdf"
 language = "bash"
-tags = [ "linux" ]
+tags = [ "linux", "concat" ]
 
 [[cards]]
 title = "[Linux] Show disk space usage for current folder"
 code = "du -sch *  | sort -h"
 language = "bash"
-tags = [ "linux" ]
+tags = [ "linux", "disk" ]
 
 [[cards]]
 title = "[Linux] Remap caps lock to escape"
