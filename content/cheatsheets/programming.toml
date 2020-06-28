@@ -1,6 +1,14 @@
 title = "Programming"
 
 [[cards]]
+title = "[JavaScript] Regex one-liner"
+code = """
+const [match, group1, group2, group3] = myString.match(/regex/) ?? [];
+"""
+language = "javascript"
+tags = [ "js/ts", "regex" ]
+
+[[cards]]
 title = "[JavaScript] Get all regex matches"
 code = """
 const regex = /the_regex/g;
