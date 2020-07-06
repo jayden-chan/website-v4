@@ -61,7 +61,7 @@ print = true
 title = "Nit"
 stack = "Rust"
 github = "nit"
-time = "2019-present"
+time = "2019"
 roles = [
   "Nit is a physically-based raytracer built with Rust",
   "Uses a Monte-Carlo path-tracing approach to rendering realistic scenes based on the physical properties of light",

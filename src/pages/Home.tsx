@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div className="fadein">
       <h1 className="text-5xl font-bold">Jayden Chan</h1>
       <p className="text-3xl">
-        3A Software Engineering |
+        3B Software Engineering |
         <a href="https://uvic.ca"> University of Victoria</a>
       </p>
       <a href="about" className={link}>
