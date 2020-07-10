@@ -1,5 +1,6 @@
 import React from "react";
 import { highlight } from "highlight.js";
+import { htmlEscape } from "../utils";
 
 interface CheatCardProps {
   title: string;
@@ -9,11 +10,11 @@ interface CheatCardProps {
   language?: string;
 }
 
-const CheatCard: React.FC<CheatCardProps> = (props: CheatCardProps) => {
+const CheatCard = (props: CheatCardProps) => {
   const highlighted = props.language
     ? highlight(props.language, props.code)
     : {
-        value: props.code
+        value: htmlEscape(props.code),
       };
 
   return (
@@ -25,10 +26,10 @@ const CheatCard: React.FC<CheatCardProps> = (props: CheatCardProps) => {
         className="text-base my-4 rounded-lg p-3 overflow-x-auto"
         style={{
           backgroundColor: "#1D2021",
-          color: "#EBDBB2"
+          color: "#EBDBB2",
         }}
         dangerouslySetInnerHTML={{
-          __html: highlighted.value
+          __html: highlighted.value,
         }}
       />
 

@@ -5,7 +5,7 @@ declare const CSS_BASE: string;
 declare const R_CSS_BASE: string;
 declare const PRINT_MODE: boolean;
 
-import { ReactElement } from "react";
+import React from "react";
 import ReactDOMServer from "react-dom/server";
 
 import {
@@ -14,7 +14,7 @@ import {
   readFileSync,
   writeFileSync,
   copyFile,
-  mkdir
+  mkdir,
 } from "fs";
 
 import { sync as rmdir } from "rimraf";
@@ -35,15 +35,14 @@ function log(...args: any[]): void {
   if (args.length === 0) {
     console.log();
   }
-  args.forEach(a => console.log(`[generator]: ${a}`));
+  args.forEach((a) => console.log(`[generator]: ${a}`));
 }
 
-type Page = {
+export type Page = {
   relativePath: string;
   title: string;
   template: string;
-  component: ReactElement;
-  reactsrc?: string;
+  component: React.FC;
   subpages: Page[];
 };
 
@@ -63,10 +62,10 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
           reject(err);
         }
 
-        const html = ReactDOMServer.renderToStaticMarkup(page.component);
+        const html = ReactDOMServer.renderToStaticMarkup(<page.component />);
         const outputPath = [...pathStack, page.relativePath].join("");
 
-        mkdir(outputPath, { recursive: true }, err => {
+        mkdir(outputPath, { recursive: true }, (err) => {
           if (err) {
             reject(err);
           }
@@ -74,34 +73,34 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
           const toReplace = [
             {
               key: "{{content}}",
-              content: html
+              content: html,
             },
             {
               key: "{{baseurl}}",
-              content: CSS_BASE
+              content: CSS_BASE,
             },
             {
               key: "{{cssfontlink}}",
-              content: !PRINT_MODE ? CSS_FONT_LINK : ""
+              content: !PRINT_MODE ? CSS_FONT_LINK : "",
             },
             {
               key: "{{resumecssbase}}",
-              content: R_CSS_BASE
+              content: R_CSS_BASE,
             },
             {
               key: "{{title}}",
-              content: page.title
+              content: page.title,
             },
             {
               key: "_onkeyup",
-              content: "onkeyup"
-            }
+              content: "onkeyup",
+            },
           ];
 
           writeFile(
             `${outputPath}index.html`,
             templateReplace(template, toReplace),
-            async err => {
+            async (err) => {
               if (err) {
                 reject(err);
               }
@@ -109,15 +108,15 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
               const wg: Promise<SiteMap>[] = [];
               const sitemap = `<url><loc>https%3A//${URL}${[
                 ...pathStack.slice(1),
-                page.relativePath
+                page.relativePath,
               ].join("")}</loc></url>`;
 
-              page.subpages.forEach(subpage => {
+              page.subpages.forEach((subpage) => {
                 wg.push(render(subpage, [...pathStack, page.relativePath]));
               });
 
-              const returnedSitemap = (await Promise.all(wg)).join("\n");
-              resolve(`${sitemap}\n${returnedSitemap}`);
+              const childSiteMap = (await Promise.all(wg)).join("\n");
+              resolve(`${sitemap}\n${childSiteMap}`);
             }
           );
         });
@@ -134,16 +133,16 @@ export default async function main() {
   rmdir(OUTPUT_DIR);
 
   log("Rendering");
-  await mkdir(OUTPUT_DIR, err => throwIfErr(err));
+  mkdir(OUTPUT_DIR, (err) => throwIfErr(err));
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
   writeFile(
     "build/robots.txt",
     templateReplace(readFileSync("templates/robots.txt").toString(), [
-      { key: "{{URL}}", content: URL }
+      { key: "{{URL}}", content: URL },
     ]),
-    err => throwIfErr(err)
+    (err) => throwIfErr(err)
   );
 
   writeFile(
@@ -151,24 +150,24 @@ export default async function main() {
     templateReplace(readFileSync("templates/404.html").toString(), [
       {
         key: "{{baseurl}}",
-        content: CSS_BASE
-      }
+        content: CSS_BASE,
+      },
     ]),
-    err => throwIfErr(err)
+    (err) => throwIfErr(err)
   );
 
-  copyFile("dist/generator.css", "build/styles.css", err => throwIfErr(err));
-  copyFile("templates/CNAME", "build/CNAME", err => throwIfErr(err));
-  copyFile("content/images/headshot.png", "build/headshot.png", err =>
+  copyFile("dist/generator.css", "build/styles.css", (err) => throwIfErr(err));
+  copyFile("templates/CNAME", "build/CNAME", (err) => throwIfErr(err));
+  copyFile("content/images/headshot.png", "build/headshot.png", (err) =>
     throwIfErr(err)
   );
-  copyFile("content/images/sig.png", "build/sig.png", err => throwIfErr(err));
+  copyFile("content/images/sig.png", "build/sig.png", (err) => throwIfErr(err));
 
   const sitemap = await renderPromise;
   writeFileSync(
     "build/sitemap.xml",
     templateReplace(readFileSync("templates/sitemap.xml").toString(), [
-      { key: "{{content}}", content: sitemap }
+      { key: "{{content}}", content: sitemap },
     ])
   );
 

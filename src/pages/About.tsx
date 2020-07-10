@@ -6,7 +6,7 @@ import React from "react";
 const pStyle = "mb-5";
 const aStyle = "underline";
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <div className="fadein mx-5 md:max-w-3xl">
       <h1 className="text-5xl font-bold major mb-6">About</h1>

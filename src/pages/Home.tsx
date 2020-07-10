@@ -4,7 +4,7 @@ declare const GITHUB: string;
 import React from "react";
 
 const link = "underline mr-4";
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className="fadein">
       <h1 className="text-5xl font-bold">Jayden Chan</h1>

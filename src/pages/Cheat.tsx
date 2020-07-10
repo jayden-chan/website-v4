@@ -8,11 +8,8 @@ import { cards as oneliners } from "../../content/cheatsheets/oneliners.toml";
 // @ts-ignore
 import { cards as programming } from "../../content/cheatsheets/programming.toml";
 
-const Cheat: React.FC = () => {
-  const cards = []
-    .concat(linux)
-    .concat(oneliners)
-    .concat(programming);
+const Cheat = () => {
+  const cards = [].concat(linux).concat(oneliners).concat(programming);
   return <CheatPage items={cards} title="Cheatsheet" />;
 };
 

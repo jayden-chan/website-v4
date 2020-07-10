@@ -1,4 +1,3 @@
-declare const PRINT_MODE: boolean;
 declare const EMAIL: string;
 declare const PHONE: string;
 
@@ -13,14 +12,14 @@ const headingbase = [
   "uppercase",
   "font-bold",
   "resume-major",
-  "sm:tracking-widest"
+  "sm:tracking-widest",
 ];
 
 const major = headingbase.concat(["text-4xl", "mt-12"]).join(" ");
 const info = ["pr-12", "text-xl"].join(" ");
 const pspace = ["mb-6 font-light text-xl"].join(" ");
 
-const CoverLetter: React.FC = () => {
+const CoverLetter = () => {
   return (
     <div className="w-5/6 mb-64">
       <h1 className={major}>Jayden Chan</h1>

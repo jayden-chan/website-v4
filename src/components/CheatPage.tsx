@@ -14,24 +14,23 @@ interface CheatPageProps {
 
 const mx = "mx-4";
 
-const CheatPage: React.FC<CheatPageProps> = props => {
+const CheatPage = (props: CheatPageProps) => {
   return (
     <div className="fadein mt-32 w-full md:max-w-5xl">
       <h1 className="text-5xl font-bold mx-4">{props.title}</h1>
       <div
         style={{
           borderBottomColor: "white",
-          borderBottomWidth: 1
+          borderBottomWidth: 1,
         }}
         className="mb-6 mx-4"
       />
       <form className={mx}>
-        {/*
-        // @ts-ignore */}
         <input
           type="text"
           name="search"
           id="cheatPageInputID"
+          // @ts-ignore
           _onkeyup="filterBySearchText()"
           placeholder="Type to search"
           className="text-black min-w-full mb-6 p-2 rounded-lg"

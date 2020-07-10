@@ -23,12 +23,12 @@ import {
   faTrophy,
   faVoicemail,
   faWrench,
-  faMugHot
+  faMugHot,
 } from "@fortawesome/free-solid-svg-icons";
 
 const plg = PRINT_MODE ? "" : "lg:";
 // const skipPrint = i => !PRINT_MODE || i.print === true;
-const skipPrint = i => true;
+const skipPrint = (i) => true;
 
 const np = (text: string) => {
   return !PRINT_MODE ? text : "";
@@ -57,7 +57,7 @@ const cols = [
   "flex",
   np("flex-col"),
   "lg:items-start",
-  `${plg}flex-row-reverse`
+  `${plg}flex-row-reverse`,
 ].join(" ");
 
 const headingbase = [
@@ -66,7 +66,7 @@ const headingbase = [
   "tracking-wider",
   "uppercase",
   "font-bold",
-  "sm:tracking-widest"
+  "sm:tracking-widest",
 ];
 
 const major = headingbase
@@ -79,7 +79,7 @@ const minor = [
   p("text-xl", "text-xl"),
   "tracking-wider",
   "uppercase",
-  "font-bold"
+  "font-bold",
 ].join(" ");
 
 const section = ["block", p("mb-8", "mb-10")].join(" ");
@@ -89,7 +89,7 @@ const iconWord = "text-xl ml-3";
 const iconWordLarge = "ml-4";
 const skill = "mt-1";
 
-const Resume: React.FC = () => {
+const Resume = () => {
   return (
     <div className={wrapper}>
       <h1 className={name} style={{ marginBottom: -20 }}>

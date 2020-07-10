@@ -1,5 +1,14 @@
 import { readdirSync, lstatSync } from "fs";
 
+export function htmlEscape(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export function throwIfErr(err: Error | null): void {
   if (err) throw err;
 }
@@ -40,7 +49,7 @@ function bold(s: string): string {
 function dirStatRecurse(dir: string, depth: number, s: DirStats): DirStats {
   const files = readdirSync(dir);
 
-  files.slice(0, depth === 0 ? files.length : 10).forEach(f => {
+  files.slice(0, depth === 0 ? files.length : 10).forEach((f) => {
     const fullPath = `${dir}/${f}`;
     const stats = lstatSync(fullPath);
 
@@ -68,32 +77,29 @@ export function dirStat(dir: string): void {
   const stats = dirStatRecurse(dir, 0, {
     assets: ["Asset"],
     sizes: ["Size"],
-    times: ["Last Modified"]
+    times: ["Last Modified"],
   });
 
   const maxAssetWidth = stats.assets
-    .map(r => r.length)
+    .map((r) => r.length)
     .reduce((prev, curr) => {
       return curr > prev ? curr : prev;
     });
 
   const maxSizeWidth = stats.sizes
-    .map(r => r.length)
+    .map((r) => r.length)
     .reduce((prev, curr) => {
       return curr > prev ? curr : prev;
     });
 
   const maxTimeWidth = stats.times
-    .map(r => r.length)
+    .map((r) => r.length)
     .reduce((prev, curr) => {
       return curr > prev ? curr : prev;
     });
 
-  // @ts-ignore -- shift() can never return null in this case
   const asset = bold(stats.assets.shift().padEnd(maxAssetWidth, " "));
-  // @ts-ignore -- shift() can never return null in this case
   const size = bold(stats.sizes.shift().padStart(maxSizeWidth, " "));
-  // @ts-ignore -- shift() can never return null in this case
   const time = bold(stats.times.shift().padStart(maxTimeWidth, " "));
   const dirHeader = bold("Location".padStart(dir.length, " "));
 
