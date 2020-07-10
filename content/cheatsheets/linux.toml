@@ -1,6 +1,11 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Vim] Paste contents of macro into command line"
+code = ":ctrl-r ctrl-r <register>"
+tags = [ "vim", "macro" ]
+
+[[cards]]
 title = "[Linux] Pipe command output to clipboard"
 code = "command | xclip -selection c"
 language = "bash"
