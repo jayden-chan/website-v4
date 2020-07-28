@@ -1,6 +1,27 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Linux] Rename a user"
+language = "bash"
+code = """
+# Create a new temp account with sudo rights
+sudo adduser temp
+sudo adduser temp sudo
+
+# Log out from your current account and back in with the temp account on a new TTY
+# Rename user and home dir
+sudo usermod -l new-username -m -d /home/new-username old-username
+
+# Rename your username default's group:
+sudo groupmod -n new-username old-username
+
+# Log out from temp account and log back into your account with new-username.
+# Remove temp account
+sudo userdel -r temp
+"""
+tags = [ "linux", "user" ]
+
+[[cards]]
 title = "[Vim] Paste contents of macro into command line"
 code = ":ctrl-r ctrl-r <register>"
 tags = [ "vim", "macro" ]
