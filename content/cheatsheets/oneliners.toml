@@ -1,6 +1,11 @@
 title = "One-liners"
 
 [[cards]]
+title = "[Markdown] Image"
+code = '![Desc](img/image.png "Desc")'
+tags = [ "oneliners", "markdown", "image" ]
+
+[[cards]]
 title = "[JavaScript] Array with numbers 0..n"
 code = "[...Array(n).keys()].map(e => ...)"
 language = "javascript"
