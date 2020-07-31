@@ -20,6 +20,7 @@ const teammates = [
 ];
 
 const headers = [
+  "",
   "Player Name",
   "Avg Combat Score",
   "K",
@@ -30,6 +31,13 @@ const headers = [
   "Plants",
   "Defuses",
 ];
+
+const TH_STYLE = {
+  padding: 15,
+  borderWidth: 2,
+  borderStyle: "none none solid none",
+  borderColor: "#EBDBB2",
+};
 
 const CheatCard = (props: ValorantCardProps) => {
   return (
@@ -43,13 +51,12 @@ const CheatCard = (props: ValorantCardProps) => {
 
       {props.url ? (
         <h3>
-          Link:{" "}
           <a target="_blank" href={props.url} style={{ color: "#3366BB" }}>
             {props.url}
           </a>
         </h3>
       ) : (
-        <h3>No Link Available</h3>
+        <h3>No recording available</h3>
       )}
 
       <pre
@@ -66,28 +73,20 @@ const CheatCard = (props: ValorantCardProps) => {
         >
           <tr>
             {headers.map((header) => {
-              return (
-                <th
-                  style={{
-                    padding: 15,
-                    borderWidth: 2,
-                    borderStyle: "none none solid none",
-                    borderColor: "#EBDBB2",
-                  }}
-                >
-                  {header}
-                </th>
-              );
+              return <th style={TH_STYLE}>{header}</th>;
             })}
           </tr>
           {props.scoreboard.map((row, idx) => {
             return (
               <tr key={idx}>
-                {row.map((val, idx2) => (
+                <td>
+                  <img src={`/agents/${row[0]}.png`} />
+                </td>
+                {row.slice(1).map((val, idx2) => (
                   <td
                     style={{
                       textAlign: idx2 === 0 ? "left" : "center",
-                      backgroundColor: teammates.includes(row[0])
+                      backgroundColor: teammates.includes(row[1])
                         ? "#5f998d"
                         : "#9c5c60",
                       verticalAlign: "middle",

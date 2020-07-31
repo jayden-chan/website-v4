@@ -8,6 +8,20 @@ declare const PRINT_MODE: boolean;
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
+const agents = [
+  "breach",
+  "brimstone",
+  "cypher",
+  "jett",
+  "omen",
+  "phoenix",
+  "raze",
+  "reyna",
+  "sage",
+  "sova",
+  "viper",
+];
+
 import {
   readFile,
   writeFile,
@@ -15,6 +29,7 @@ import {
   writeFileSync,
   copyFile,
   mkdir,
+  mkdirSync,
 } from "fs";
 
 import { sync as rmdir } from "rimraf";
@@ -133,7 +148,8 @@ export default async function main() {
   rmdir(OUTPUT_DIR);
 
   log("Rendering");
-  mkdir(OUTPUT_DIR, (err) => throwIfErr(err));
+  mkdirSync(OUTPUT_DIR);
+  mkdirSync(`${OUTPUT_DIR}/agents`);
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
@@ -142,7 +158,7 @@ export default async function main() {
     templateReplace(readFileSync("templates/robots.txt").toString(), [
       { key: "{{URL}}", content: URL },
     ]),
-    (err) => throwIfErr(err)
+    throwIfErr
   );
 
   writeFile(
@@ -153,15 +169,21 @@ export default async function main() {
         content: CSS_BASE,
       },
     ]),
-    (err) => throwIfErr(err)
+    throwIfErr
   );
 
-  copyFile("dist/generator.css", "build/styles.css", (err) => throwIfErr(err));
-  copyFile("templates/CNAME", "build/CNAME", (err) => throwIfErr(err));
-  copyFile("content/images/headshot.png", "build/headshot.png", (err) =>
-    throwIfErr(err)
+  copyFile("dist/generator.css", "build/styles.css", throwIfErr);
+  copyFile("templates/CNAME", "build/CNAME", throwIfErr);
+  copyFile("content/images/headshot.png", "build/headshot.png", throwIfErr);
+  copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
+
+  agents.forEach((agent) =>
+    copyFile(
+      `content/images/agents/${agent}.png`,
+      `build/agents/${agent}.png`,
+      throwIfErr
+    )
   );
-  copyFile("content/images/sig.png", "build/sig.png", (err) => throwIfErr(err));
 
   const sitemap = await renderPromise;
   writeFileSync(
