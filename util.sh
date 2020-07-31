@@ -14,6 +14,7 @@ case $1 in
         pdftk build/coverletter.pdf build/resume.pdf cat output build/combined.pdf
         rm build/temp_resume.pdf build/temp_cover.pdf
         ;;
+
     deploy-surge)
         npm run build
         npm run clean-css
