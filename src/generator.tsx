@@ -28,6 +28,7 @@ import {
   readFileSync,
   writeFileSync,
   copyFile,
+  copyFileSync,
   mkdir,
   mkdirSync,
 } from "fs";
@@ -178,10 +179,9 @@ export default async function main() {
   copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
 
   agents.forEach((agent) =>
-    copyFile(
+    copyFileSync(
       `content/images/agents/${agent}.png`,
-      `build/agents/${agent}.png`,
-      throwIfErr
+      `build/agents/${agent}.png`
     )
   );
 
