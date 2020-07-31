@@ -9,13 +9,23 @@ export interface ValorantCardProps {
   scoreboard: string[][];
 }
 
+const teammates = [
+  "ATQMIC",
+  "LithiumFrost",
+  "Eung Coconut",
+  "Wild West",
+  "HonestPretzels",
+  "Pax1",
+  "Jakyb",
+];
+
 const headers = [
   "Player Name",
   "Avg Combat Score",
   "K",
   "D",
   "A",
-  "Avg Econ Score",
+  "Econ Rating",
   "First Bloods",
   "Plants",
   "Defuses",
@@ -45,8 +55,8 @@ const CheatCard = (props: ValorantCardProps) => {
       <pre
         className="text-base my-4 rounded-lg overflow-x-auto"
         style={{
-          backgroundColor: "#1D2021",
-          color: "#EBDBB2",
+          backgroundColor: "#5a5b6b",
+          color: "#fff",
         }}
       >
         <table
@@ -77,8 +87,14 @@ const CheatCard = (props: ValorantCardProps) => {
                   <td
                     style={{
                       textAlign: idx2 === 0 ? "left" : "center",
+                      backgroundColor: teammates.includes(row[0])
+                        ? "#5f998d"
+                        : "#9c5c60",
                       verticalAlign: "middle",
-                      padding: 10,
+                      paddingLeft: 10,
+                      paddingRight: 10,
+                      paddingTop: 3,
+                      paddingBottom: 3,
                       margin: 10,
                     }}
                     key={idx2}
