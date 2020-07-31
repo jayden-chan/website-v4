@@ -28,7 +28,6 @@ import {
   readFileSync,
   writeFileSync,
   copyFile,
-  copyFileSync,
   mkdir,
   mkdirSync,
 } from "fs";
@@ -154,13 +153,6 @@ export default async function main() {
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
-  agents.forEach((agent) =>
-    copyFileSync(
-      `content/images/agents/${agent}.png`,
-      `build/agents/${agent}.png`
-    )
-  );
-
   writeFile(
     "build/robots.txt",
     templateReplace(readFileSync("templates/robots.txt").toString(), [
@@ -184,6 +176,13 @@ export default async function main() {
   copyFile("templates/CNAME", "build/CNAME", throwIfErr);
   copyFile("content/images/headshot.png", "build/headshot.png", throwIfErr);
   copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
+  agents.forEach((agent) =>
+    copyFile(
+      `content/images/agents/${agent}.png`,
+      `build/agents/${agent}.png`,
+      throwIfErr
+    )
+  );
 
   const sitemap = await renderPromise;
   writeFileSync(
