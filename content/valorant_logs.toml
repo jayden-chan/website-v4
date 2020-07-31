@@ -3,6 +3,7 @@ date = "Jul 30. 2020"
 map = "Haven"
 score = [ 13, 0 ]
 time = "24:17"
+url = "https://www.youtube.com/watch?v=aN7kK0vym5Q"
 scoreboard = [
   [ "breach", "ATQMIC", "482", "25", "6", "4", "131", "3", "0", "0" ],
   [ "phoenix", "stotz", "347", "14", "13", "3", "72", "0", "0", "0" ],
