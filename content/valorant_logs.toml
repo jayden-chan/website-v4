@@ -22,6 +22,7 @@ date = "Jul 30. 2020"
 map = "Split"
 score = [ 6, 13 ]
 time = "39:31"
+url = "https://www.youtube.com/watch?v=YsbT0IVeceg"
 scoreboard = [
   [ "raze", "ATQMIC", "380", "25", "12", "5", "106", "5", "2", "0" ],
   [ "phoenix", "stotz", "339", "21", "14", "7", "93", "6", "3", "0" ],
