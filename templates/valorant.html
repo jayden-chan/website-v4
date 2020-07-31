@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-158503713-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-158503713-1");
+    </script>
+    <meta charset="utf-8" />
+
+    <title>{{title}}</title>
+    <meta
+      name="description"
+      content="3A Software Engineering Student at the University of Victoria"
+    />
+    <meta name="author" content="Jayden Chan" />
+
+    {{cssfontlink}}
+    <link rel="stylesheet" href="{{baseurl}}/styles.css" />
+    <script>
+      function filterBySearchText() {
+        const input = document.getElementById("cheatPageInputID");
+        const text = input.value.toUpperCase();
+        const ul = document.getElementById("cheatPageListID");
+        const li = ul.getElementsByTagName("li");
+
+        let a, txtValue;
+        for (let i = 0; i < li.length; i++) {
+          b = li[i].getElementsByTagName("h3")[0];
+          a = li[i].getElementsByTagName("span")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(text) != -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="centering-h base-wrapper">{{content}}</header>
+  </body>
+</html>

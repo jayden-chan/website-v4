@@ -1,9 +1,9 @@
-
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 import CoverLetter from "./pages/CoverLetter";
 import About from "./pages/About";
 import Cheat from "./pages/Cheat";
+import Valorant from "./pages/Valorant";
 import { Page } from "./generator";
 
 export const SITE_LAYOUT: Page = {
@@ -38,6 +38,13 @@ export const SITE_LAYOUT: Page = {
       title: "Cheatsheet",
       template: "cheat",
       component: Cheat,
+      subpages: [],
+    },
+    {
+      relativePath: "valorant/",
+      title: "Valorant Logs",
+      template: "valorant",
+      component: Valorant,
       subpages: [],
     },
   ],
