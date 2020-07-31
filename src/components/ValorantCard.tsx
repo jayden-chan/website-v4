@@ -31,12 +31,16 @@ const CheatCard = (props: ValorantCardProps) => {
         }] (${props.score[0] < props.score[1] ? "DEFEAT" : "VICTORY"})`}
       </h3>
 
-      <h3>
-        Link:{" "}
-        <a target="_blank" href={props.url} style={{ color: "#3366BB" }}>
-          {props.url}
-        </a>
-      </h3>
+      {props.url ? (
+        <h3>
+          Link:{" "}
+          <a target="_blank" href={props.url} style={{ color: "#3366BB" }}>
+            {props.url}
+          </a>
+        </h3>
+      ) : (
+        <h3>No Link Available</h3>
+      )}
 
       <pre
         className="text-base my-4 rounded-lg overflow-x-auto"
