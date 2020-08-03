@@ -7,20 +7,7 @@ declare const PRINT_MODE: boolean;
 
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-
-const agents = [
-  "breach",
-  "brimstone",
-  "cypher",
-  "jett",
-  "omen",
-  "phoenix",
-  "raze",
-  "reyna",
-  "sage",
-  "sova",
-  "viper",
-];
+import { AGENTS } from "./constants";
 
 import {
   readFile,
@@ -176,7 +163,7 @@ export default async function main() {
   copyFile("templates/CNAME", "build/CNAME", throwIfErr);
   copyFile("content/images/headshot.png", "build/headshot.png", throwIfErr);
   copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
-  agents.forEach((agent) =>
+  AGENTS.forEach((agent) =>
     copyFile(
       `content/images/agents/${agent}.png`,
       `build/agents/${agent}.png`,

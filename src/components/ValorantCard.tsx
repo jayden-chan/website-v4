@@ -1,4 +1,5 @@
 import React from "react";
+import { SCOREBOARD_HEADERS, TEAMMATES } from "../constants";
 
 export interface ValorantCardProps {
   date: string;
@@ -8,36 +9,6 @@ export interface ValorantCardProps {
   url: string;
   scoreboard: string[][];
 }
-
-const teammates = [
-  "ATQMIC",
-  "LithiumFrost",
-  "Eung Coconut",
-  "Wild West",
-  "HonestPretzels",
-  "Pax1",
-  "Jakyb",
-];
-
-const headers = [
-  "",
-  "Player Name",
-  "Avg Combat Score",
-  "K",
-  "D",
-  "A",
-  "Econ Rating",
-  "First Bloods",
-  "Plants",
-  "Defuses",
-];
-
-const TH_STYLE = {
-  padding: 15,
-  borderWidth: 2,
-  borderStyle: "none none solid none",
-  borderColor: "#EBDBB2",
-};
 
 const CheatCard = (props: ValorantCardProps) => {
   return (
@@ -59,21 +30,11 @@ const CheatCard = (props: ValorantCardProps) => {
         <h3>No recording available</h3>
       )}
 
-      <pre
-        className="text-base my-4 rounded-lg overflow-x-auto"
-        style={{
-          backgroundColor: "#5a5b6b",
-          color: "#fff",
-        }}
-      >
-        <table
-          style={{
-            borderCollapse: "collapse",
-          }}
-        >
+      <pre className="text-base my-4 rounded-lg overflow-x-auto game-card">
+        <table className="scrbd">
           <tr>
-            {headers.map((header) => {
-              return <th style={TH_STYLE}>{header}</th>;
+            {SCOREBOARD_HEADERS.map((header) => {
+              return <th className="scrbd-head">{header}</th>;
             })}
           </tr>
           {props.scoreboard.map((row, idx) => {
@@ -84,18 +45,11 @@ const CheatCard = (props: ValorantCardProps) => {
                 </td>
                 {row.slice(1).map((val, idx2) => (
                   <td
-                    style={{
-                      textAlign: idx2 === 0 ? "left" : "center",
-                      backgroundColor: teammates.includes(row[1])
-                        ? "#5f998d"
-                        : "#9c5c60",
-                      verticalAlign: "middle",
-                      paddingLeft: 10,
-                      paddingRight: 10,
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                      margin: 10,
-                    }}
+                    className={`scrbd-cell ${
+                      idx2 === 0 ? "scrbd-name" : "scrbd-num"
+                    } ${
+                      TEAMMATES.includes(row[1]) ? "scrbd-team" : "scrbd-enemy"
+                    }`}
                     key={idx2}
                   >
                     {idx2 === 0 ? <b>{val}</b> : val}

@@ -24,6 +24,48 @@ a {
   outline: none;
 }
 
+.scrbd {
+  border-collapse: collapse;
+}
+
+.game-card {
+  background-color: #5a5b6b;
+  color: #fff;
+}
+
+.scrbd-team {
+  background-color: #5f998d;
+}
+
+.scrbd-enemy {
+  background-color: #9c5c60;
+}
+
+.scrbd-name {
+  text-align: left;
+}
+
+.scrbd-num {
+  text-align: center;
+}
+
+.scrbd-cell {
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 10px;
+}
+
+.scrbd-head {
+  padding: 15px;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: none none solid none;
+  border-color: #EBDBB2;
+}
+
 .base-wrapper {
   background-color: $background;
   min-height: 100vh;
