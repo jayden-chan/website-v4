@@ -31,15 +31,15 @@ const CheatCard = (props: ValorantCardProps) => {
       )}
 
       <pre className="text-base my-4 rounded-lg overflow-x-auto game-card">
-        <table id={`${props.date}${props.map}${props.time}`} className="scrbd">
+        <table id={`${props.date}${props.map}${props.time}`} className="sbd">
           <tr>
-            <th key="Icon" className="scrbd-head-blank"></th>
-            <th key="Player Name" className="scrbd-head-name">
+            <th key="Icon" className="sbd-h-blank"></th>
+            <th key="Player Name" className="sbd-h-name">
               Player Name
             </th>
             {NUMERICAL_COLS.map((header) => {
               return (
-                <th key={header} className="scrbd-head">
+                <th key={header} className="sbd-head">
                   {header}
                 </th>
               );
@@ -53,11 +53,9 @@ const CheatCard = (props: ValorantCardProps) => {
                 </td>
                 {row.slice(1).map((val, idx2) => (
                   <td
-                    className={`scrbd-cell ${
-                      idx2 === 0 ? "scrbd-name" : "scrbd-num"
-                    } ${
-                      TEAMMATES.includes(row[1]) ? "scrbd-team" : "scrbd-enemy"
-                    }`}
+                    className={`sbd-cell ${
+                      idx2 === 0 ? "sbd-name" : "sbd-num"
+                    } ${TEAMMATES.includes(row[1]) ? "sbd-team" : "sbd-enemy"}`}
                     key={idx2}
                   >
                     {idx2 === 0 ? <b>{val}</b> : val}

@@ -24,7 +24,7 @@ a {
   outline: none;
 }
 
-.scrbd {
+.sbd {
   border-collapse: collapse;
 }
 
@@ -33,23 +33,23 @@ a {
   color: #fff;
 }
 
-.scrbd-team {
+.sbd-team {
   background-color: #5f998d;
 }
 
-.scrbd-enemy {
+.sbd-enemy {
   background-color: #9c5c60;
 }
 
-.scrbd-name {
+.sbd-name {
   text-align: left;
 }
 
-.scrbd-num {
+.sbd-num {
   text-align: center;
 }
 
-.scrbd-cell {
+.sbd-cell {
   vertical-align: middle;
   padding-left: 10px;
   padding-right: 10px;
@@ -58,21 +58,21 @@ a {
   margin: 10px;
 }
 
-.scrbd-head {
+.sbd-head {
   padding: 15px;
   cursor: pointer;
   border-width: 2px;
   border-style: none none solid none;
   border-color: #ebdbb2;
 }
-.scrbd-head-name {
+.sbd-h-name {
   padding: 15px;
   cursor: pointer;
   border-width: 2px;
   border-style: none none solid none;
   border-color: #ebdbb2;
 }
-.scrbd-head-blank {
+.sbd-h-blank {
   padding: 15px;
   cursor: pointer;
   border-width: 2px;

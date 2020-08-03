@@ -57,7 +57,7 @@
     const getCellValue = (tr, idx) =>
       tr.children[idx].innerText || tr.children[idx].textContent;
     const isTeamMate = (tr, idx) =>
-      tr.children[idx].classList.contains("scrbd-team");
+      tr.children[idx].classList.contains("sbd-team");
 
     const teamSorts = {};
     const lastSortIndexes = {};
@@ -78,7 +78,7 @@
           : v1.toString().localeCompare(v2);
       })(getCellValue(!asc ? a : b, idx), getCellValue(!asc ? b : a, idx));
 
-    document.querySelectorAll(".scrbd-head").forEach((th) => {
+    document.querySelectorAll(".sbd-head").forEach((th) => {
       th.addEventListener("click", function () {
         const table = th.closest("table");
         const sortIndex = Array.from(th.parentNode.children).indexOf(th);
@@ -89,7 +89,7 @@
       });
     });
 
-    document.querySelectorAll(".scrbd-head-name").forEach((th) => {
+    document.querySelectorAll(".sbd-h-name").forEach((th) => {
       th.addEventListener("click", function () {
         const table = th.closest("table");
         const sortIndex = lastSortIndexes[table.id] || 2;
