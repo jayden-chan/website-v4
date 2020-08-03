@@ -1,5 +1,5 @@
 import React from "react";
-import { SCOREBOARD_HEADERS, TEAMMATES } from "../constants";
+import { NUMERICAL_COLS, TEAMMATES } from "../constants";
 
 export interface ValorantCardProps {
   date: string;
@@ -31,10 +31,18 @@ const CheatCard = (props: ValorantCardProps) => {
       )}
 
       <pre className="text-base my-4 rounded-lg overflow-x-auto game-card">
-        <table className="scrbd">
+        <table id={`${props.date}${props.map}${props.time}`} className="scrbd">
           <tr>
-            {SCOREBOARD_HEADERS.map((header) => {
-              return <th className="scrbd-head">{header}</th>;
+            <th key="Icon" className="scrbd-head-blank"></th>
+            <th key="Player Name" className="scrbd-head-name">
+              Player Name
+            </th>
+            {NUMERICAL_COLS.map((header) => {
+              return (
+                <th key={header} className="scrbd-head">
+                  {header}
+                </th>
+              );
             })}
           </tr>
           {props.scoreboard.map((row, idx) => {

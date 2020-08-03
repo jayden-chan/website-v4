@@ -6,11 +6,9 @@ export const TEAMMATES = [
   "HonestPretzels",
   "Pax1",
   "Jakyb",
-]
+];
 
-export const SCOREBOARD_HEADERS = [
-  "",
-  "Player Name",
+export const NUMERICAL_COLS = [
   "Avg Combat Score",
   "K",
   "D",
@@ -19,7 +17,7 @@ export const SCOREBOARD_HEADERS = [
   "First Bloods",
   "Plants",
   "Defuses",
-]
+];
 
 export const AGENTS = [
   "breach",
