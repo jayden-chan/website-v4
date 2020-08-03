@@ -25,7 +25,7 @@ case $1 in
     deploy)
         npm run build
         npm run clean-css
-        ls -lAh build
+        exa -lah --tree build
         mv build ..
         git checkout master
         git pull
