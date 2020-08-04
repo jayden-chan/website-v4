@@ -51,6 +51,12 @@ export type Page = {
 
 type SiteMap = string;
 
+const templateTable = {
+  baseurl: CSS_BASE,
+  cssfontlink: !PRINT_MODE ? CSS_FONT_LINK : "",
+  resumecssbase: R_CSS_BASE,
+};
+
 /**
  * Recursively render the pages defined in the site layout into
  * static HTML
@@ -73,12 +79,10 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
             reject(err);
           }
 
-          const templateTable = {
+          const templateTableLocal = {
             content: html,
-            baseurl: CSS_BASE,
-            cssfontlink: !PRINT_MODE ? CSS_FONT_LINK : "",
-            resumecssbase: R_CSS_BASE,
             title: page.title,
+            ...templateTable,
           };
 
           const toReplace = [
@@ -93,7 +97,7 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
             },
             {
               key: /{{\s*(\w+)\s*}}/g,
-              content: (_, p1) => templateTable[p1],
+              content: (_, p1) => templateTableLocal[p1],
             },
           ];
 
@@ -159,8 +163,8 @@ export default async function main() {
     "build/404.html",
     templateReplace(readFileSync("templates/404.html").toString(), [
       {
-        key: /{{\s*baseurl\s*}}/g,
-        content: () => CSS_BASE,
+        key: /{{\s*(\w+)\s*}}/g,
+        content: (_, p1) => templateTable[p1],
       },
     ]),
     throwIfErr
