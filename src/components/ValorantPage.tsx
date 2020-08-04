@@ -10,7 +10,7 @@ const mx = "mx-4";
 
 const Valorant = (props: ValorantPageProps) => {
   return (
-    <div style={{ minWidth: "50%" }} className="fadein mt-32">
+    <div style={{ minWidth: "50%", maxWidth: "95%" }} className="fadein mt-32">
       <h1 className="text-5xl font-bold mx-4">{props.title}</h1>
       <div
         style={{

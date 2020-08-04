@@ -3,36 +3,14 @@
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158503713-1"></script>
     <script>{{script:gtag}}</script>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
-    <title>{{title}}</title>
-    <meta
-      name="description"
-      content="3A Software Engineering Student at the University of Victoria"
-    />
-    <meta name="author" content="Jayden Chan" />
+    <title>{{title}}</title>{{desc}}
+    <meta name="author" content="Jayden Chan"/>
 
     {{cssfontlink}}
-    <link rel="stylesheet" href="{{baseurl}}/styles.css" />
-    <script>
-      function filterBySearchText() {
-        const input = document.getElementById('cheatPageInputID');
-        const text = input.value.toUpperCase();
-        const ul = document.getElementById('cheatPageListID');
-        const li = ul.getElementsByTagName('li');
-
-        let a, txtValue;
-        for (let i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName('h3')[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(text) > -1) {
-            li[i].style.display = '';
-          } else {
-            li[i].style.display = 'none';
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="{{baseurl}}/styles.css"/>
+    <script>{{script:filterCheat}}</script>
   </head>
 
   <body>

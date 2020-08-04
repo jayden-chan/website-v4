@@ -25,7 +25,7 @@ import { sync as rmdir } from "rimraf";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import { throwIfErr, dirStat, templateReplace } from "./utils";
+import { throwIfErr, dirStat, templateReplace, htmlEscape } from "./utils";
 import { SITE_LAYOUT } from "./layout";
 import "./styles/index.scss";
 
@@ -44,6 +44,7 @@ function log(...args: any[]): void {
 export type Page = {
   relativePath: string;
   title: string;
+  desc?: string;
   template: string;
   component: React.FC;
   subpages: Page[];
@@ -82,6 +83,11 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
           const templateTableLocal = {
             content: html,
             title: page.title,
+            desc: page.desc
+              ? `\n    <meta name="description" content="${htmlEscape(
+                  page.desc
+                )}"/>`
+              : "",
             ...templateTable,
           };
 

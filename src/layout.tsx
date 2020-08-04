@@ -1,3 +1,6 @@
+// Webpack injected variables
+declare const TERM: string;
+
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 import CoverLetter from "./pages/CoverLetter";
@@ -15,6 +18,7 @@ export const SITE_LAYOUT: Page = {
     {
       relativePath: "resume/",
       title: "Resume - Jayden Chan",
+      desc: "Resume - Jayden Chan",
       template: "resume",
       component: Resume,
       subpages: [],
@@ -29,6 +33,7 @@ export const SITE_LAYOUT: Page = {
     {
       relativePath: "about/",
       title: "About - Jayden Chan",
+      desc: `${TERM} Software Engineering Student at the University of Victoria`,
       template: "about",
       component: About,
       subpages: [],
@@ -36,6 +41,7 @@ export const SITE_LAYOUT: Page = {
     {
       relativePath: "cheat/",
       title: "Cheatsheet",
+      desc: "Programming/Linux Cheatsheet",
       template: "cheat",
       component: Cheat,
       subpages: [],
@@ -43,6 +49,7 @@ export const SITE_LAYOUT: Page = {
     {
       relativePath: "valorant/",
       title: "Valorant Logs",
+      desc: "Valorant Scrim Match History",
       template: "valorant",
       component: Valorant,
       subpages: [],

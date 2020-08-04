@@ -16,7 +16,7 @@ const mx = "mx-4";
 
 const CheatPage = (props: CheatPageProps) => {
   return (
-    <div className="fadein mt-32 w-full md:max-w-5xl">
+    <div style={{ minWidth: "50%", maxWidth: "95%" }} className="fadein mt-32">
       <h1 className="text-5xl font-bold mx-4">{props.title}</h1>
       <div
         style={{
