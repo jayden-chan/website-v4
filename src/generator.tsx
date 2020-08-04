@@ -98,12 +98,12 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
                 readFileSync(`dist/scripts/${p1}.js`, { encoding: "utf8" }),
             },
             {
-              key: /_onkeyup/g,
-              content: () => "onkeyup",
-            },
-            {
               key: /{{\s*(\w+)\s*}}/g,
               content: (_, p1) => templateTableLocal[p1],
+            },
+            {
+              key: /_onkeyup/g,
+              content: () => "onkeyup",
             },
           ];
 
