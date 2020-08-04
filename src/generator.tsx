@@ -7,7 +7,7 @@ declare const PRINT_MODE: boolean;
 
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { AGENTS } from "./constants";
+import { minify } from "terser";
 
 import {
   readFile,
@@ -17,6 +17,7 @@ import {
   copyFile,
   mkdir,
   mkdirSync,
+  readdirSync,
 } from "fs";
 
 import { sync as rmdir } from "rimraf";
@@ -72,30 +73,27 @@ async function render(page: Page, pathStack: string[]): Promise<SiteMap> {
             reject(err);
           }
 
+          const templateTable = {
+            content: html,
+            baseurl: CSS_BASE,
+            cssfontlink: !PRINT_MODE ? CSS_FONT_LINK : "",
+            resumecssbase: R_CSS_BASE,
+            title: page.title,
+          };
+
           const toReplace = [
             {
-              key: "{{content}}",
-              content: html,
+              key: /{{\s*script:(\w+)\s*}}/g,
+              content: (_, p1) =>
+                readFileSync(`dist/scripts/${p1}.js`, { encoding: "utf8" }),
             },
             {
-              key: "{{baseurl}}",
-              content: CSS_BASE,
+              key: /_onkeyup/g,
+              content: () => "onkeyup",
             },
             {
-              key: "{{cssfontlink}}",
-              content: !PRINT_MODE ? CSS_FONT_LINK : "",
-            },
-            {
-              key: "{{resumecssbase}}",
-              content: R_CSS_BASE,
-            },
-            {
-              key: "{{title}}",
-              content: page.title,
-            },
-            {
-              key: "_onkeyup",
-              content: "onkeyup",
+              key: /{{\s*(\w+)\s*}}/g,
+              content: (_, p1) => templateTable[p1],
             },
           ];
 
@@ -133,17 +131,26 @@ export default async function main() {
   log("Clearing old files");
 
   rmdir(OUTPUT_DIR);
+  rmdir("dist/scripts");
 
   log("Rendering");
   mkdirSync(OUTPUT_DIR);
   mkdirSync(`${OUTPUT_DIR}/agents`);
+  mkdirSync("dist/scripts");
+
+  for (const script of readdirSync("templates/scripts")) {
+    const minified = await minify(
+      readFileSync(`templates/scripts/${script}`, { encoding: "utf8" })
+    );
+    writeFileSync(`dist/scripts/${script}`, minified.code);
+  }
 
   const renderPromise = render(SITE_LAYOUT, [OUTPUT_DIR]);
 
   writeFile(
     "build/robots.txt",
     templateReplace(readFileSync("templates/robots.txt").toString(), [
-      { key: "{{URL}}", content: URL },
+      { key: /{{\s*URL\s*}}/g, content: () => URL },
     ]),
     throwIfErr
   );
@@ -152,8 +159,8 @@ export default async function main() {
     "build/404.html",
     templateReplace(readFileSync("templates/404.html").toString(), [
       {
-        key: "{{baseurl}}",
-        content: CSS_BASE,
+        key: /{{\s*baseurl\s*}}/g,
+        content: () => CSS_BASE,
       },
     ]),
     throwIfErr
@@ -163,19 +170,20 @@ export default async function main() {
   copyFile("templates/CNAME", "build/CNAME", throwIfErr);
   copyFile("content/images/headshot.png", "build/headshot.png", throwIfErr);
   copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
-  AGENTS.forEach((agent) =>
+
+  for (const agent of readdirSync("content/images/agents")) {
     copyFile(
-      `content/images/agents/${agent}.png`,
-      `build/agents/${agent}.png`,
+      `content/images/agents/${agent}`,
+      `build/agents/${agent}`,
       throwIfErr
-    )
-  );
+    );
+  }
 
   const sitemap = await renderPromise;
   writeFileSync(
     "build/sitemap.xml",
     templateReplace(readFileSync("templates/sitemap.xml").toString(), [
-      { key: "{{content}}", content: sitemap },
+      { key: /{{\s*content\s*}}/g, content: () => sitemap },
     ])
   );
 

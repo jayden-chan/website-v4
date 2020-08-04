@@ -15,12 +15,15 @@ export function throwIfErr(err: Error | null): void {
 
 export function templateReplace(
   template: string,
-  fields: { key: string; content: string }[]
+  fields: {
+    key: RegExp;
+    content: (substring: string, ...args: any[]) => string;
+  }[]
 ): string {
   let output = template;
 
   fields.forEach(({ key, content }) => {
-    output = output.replace(new RegExp(key, "g"), content);
+    output = output.replace(key, content);
   });
 
   return output;

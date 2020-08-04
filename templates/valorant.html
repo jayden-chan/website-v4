@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-158503713-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-158503713-1");
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158503713-1"></script>
+    <script>{{script:gtag}}</script>
     <meta charset="utf-8" />
 
     <title>{{title}}</title>
@@ -26,78 +14,12 @@
 
     {{cssfontlink}}
     <link rel="stylesheet" href="{{resumecssbase}}/styles.css" />
-    <script>
-      function filterBySearchText() {
-        const input = document.getElementById("cheatPageInputID");
-        const text = input.value.toUpperCase();
-        const ul = document.getElementById("cheatPageListID");
-        const li = ul.getElementsByTagName("li");
-
-        let a, txtValue;
-        for (let i = 0; i < li.length; i++) {
-          b = li[i].getElementsByTagName("h3")[0];
-          a = li[i].getElementsByTagName("span")[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(text) != -1) {
-            li[i].style.display = "";
-          } else {
-            li[i].style.display = "none";
-          }
-        }
-      }
-    </script>
+    <script>{{script:filterValorant}}</script>
   </head>
 
   <body>
     <div class="centering-h base-wrapper">{{content}}</div>
   </body>
 
-  <!-- Make the tables sortable -->
-  <script>
-    const getCellValue = (tr, idx) =>
-      tr.children[idx].innerText || tr.children[idx].textContent;
-    const isTeamMate = (tr, idx) =>
-      tr.children[idx].classList.contains("sbd-team");
-
-    const teamSorts = {};
-    const lastSortIndexes = {};
-
-    const comparer = (idx, asc, teamSort) => (a, b) =>
-      ((v1, v2) => {
-        if (teamSort) {
-          if (isTeamMate(a, 1) && !isTeamMate(b, 1)) {
-            return -1;
-          }
-          if (isTeamMate(b, 1) && !isTeamMate(a, 1)) {
-            return 1;
-          }
-        }
-
-        return v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2)
-          ? v1 - v2
-          : v1.toString().localeCompare(v2);
-      })(getCellValue(!asc ? a : b, idx), getCellValue(!asc ? b : a, idx));
-
-    document.querySelectorAll(".sbd-head").forEach((th) => {
-      th.addEventListener("click", function () {
-        const table = th.closest("table");
-        const sortIndex = Array.from(th.parentNode.children).indexOf(th);
-        lastSortIndexes[table.id] = sortIndex;
-        Array.from(table.querySelectorAll("tr:nth-child(n+2)"))
-          .sort(comparer(sortIndex, this.asc = !this.asc, teamSorts[table.id]))
-          .forEach((tr) => table.appendChild(tr));
-      });
-    });
-
-    document.querySelectorAll(".sbd-h-name").forEach((th) => {
-      th.addEventListener("click", function () {
-        const table = th.closest("table");
-        const sortIndex = lastSortIndexes[table.id] || 2;
-        teamSorts[table.id] = teamSorts[table.id] ? !teamSorts[table.id] : true;
-        Array.from(table.querySelectorAll("tr:nth-child(n+2)"))
-          .sort(comparer(sortIndex, true, teamSorts[table.id]))
-          .forEach((tr) => table.appendChild(tr));
-      });
-    });
-  </script>
+  <script>{{script:tableSortValorant}}</script>
 </html>

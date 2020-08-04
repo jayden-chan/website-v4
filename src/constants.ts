@@ -18,17 +18,3 @@ export const NUMERICAL_COLS = [
   "Plants",
   "Defuses",
 ];
-
-export const AGENTS = [
-  "breach",
-  "brimstone",
-  "cypher",
-  "jett",
-  "omen",
-  "phoenix",
-  "raze",
-  "reyna",
-  "sage",
-  "sova",
-  "viper",
-];
