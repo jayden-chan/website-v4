@@ -3,43 +3,22 @@
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158503713-1"></script>
     <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-158503713-1");</script>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
     <title>Cheatsheet</title>
-    <meta
-      name="description"
-      content="3A Software Engineering Student at the University of Victoria"
-    />
-    <meta name="author" content="Jayden Chan" />
+    <meta name="description" content="Programming/Linux Cheatsheet"/>
+    <meta name="author" content="Jayden Chan"/>
 
     <link
   href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap"
   rel="stylesheet"
 />
-    <link rel="stylesheet" href="/styles.css" />
-    <script>
-      function filterBySearchText() {
-        const input = document.getElementById('cheatPageInputID');
-        const text = input.value.toUpperCase();
-        const ul = document.getElementById('cheatPageListID');
-        const li = ul.getElementsByTagName('li');
-
-        let a, txtValue;
-        for (let i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName('h3')[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(text) > -1) {
-            li[i].style.display = '';
-          } else {
-            li[i].style.display = 'none';
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="/styles.css"/>
+    <script>function filterBySearchText(){const e=document.getElementById("cheatPageInputID").value.toUpperCase(),t=document.getElementById("cheatPageListID").getElementsByTagName("li");let n,a;for(let l=0;l<t.length;l++)n=t[l].getElementsByTagName("h3")[0],a=n.textContent||n.innerText,a.toUpperCase().indexOf(e)>-1?t[l].style.display="":t[l].style.display="none"}</script>
   </head>
 
   <body>
-    <header class="centering-h base-wrapper"><div class="fadein mt-32 w-full md:max-w-5xl"><h1 class="text-5xl font-bold mx-4">Cheatsheet</h1><div style="border-bottom-color:white;border-bottom-width:1px" class="mb-6 mx-4"></div><form class="mx-4"><input type="text" name="search" id="cheatPageInputID" _onkeyup="filterBySearchText()" placeholder="Type to search" class="text-black min-w-full mb-6 p-2 rounded-lg"/></form><ul id="cheatPageListID" class="mx-4"><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Shell] Check if variable is empty or unset</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2"><span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"<span class="hljs-variable">$variable</span>"</span> ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"blank"</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"not blank"</span>; <span class="hljs-keyword">fi</span></pre><small>Tags:<span class="ml-2">shell,</span><span class="ml-2">variable</span></small></div></li><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Rename a user</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2"><span class="hljs-comment"># Create a new temp account with sudo rights</span>
+    <header class="centering-h base-wrapper"><div style="min-width:50%;max-width:95%" class="fadein mt-32"><h1 class="text-5xl font-bold mx-4">Cheatsheet</h1><div style="border-bottom-color:white;border-bottom-width:1px" class="mb-6 mx-4"></div><form class="mx-4"><input type="text" name="search" id="cheatPageInputID" onkeyup="filterBySearchText()" placeholder="Type to search" class="text-black min-w-full mb-6 p-2 rounded-lg"/></form><ul id="cheatPageListID" class="mx-4"><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Shell] Check if variable is empty or unset</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2"><span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"<span class="hljs-variable">$variable</span>"</span> ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"blank"</span>; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"not blank"</span>; <span class="hljs-keyword">fi</span></pre><small>Tags:<span class="ml-2">shell,</span><span class="ml-2">variable</span></small></div></li><li><div class="rounded-lg bg-white p-8 mb-6" style="color:#1B1F22"><h3 class="font-bold text-3xl">[Linux] Rename a user</h3><p class="text-lg"></p><pre class="text-base my-4 rounded-lg p-3 overflow-x-auto" style="background-color:#1D2021;color:#EBDBB2"><span class="hljs-comment"># Create a new temp account with sudo rights</span>
 sudo adduser temp
 sudo adduser temp sudo
 
