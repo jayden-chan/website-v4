@@ -23,6 +23,7 @@ case $1 in
         ;;
 
     deploy)
+        git push
         npm run build
         npm run clean-css
         exa -lah --tree build
