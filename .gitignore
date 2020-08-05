@@ -3,3 +3,4 @@ dist
 node_modules
 docs
 content/images/sig.png
+src/pages/CoverLetter.tsx
