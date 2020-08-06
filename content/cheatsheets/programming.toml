@@ -6,7 +6,7 @@ code = """
 convert image.png -crop <size_x>x<size_y>+<position_x>+<position_y> out.png
 """
 language = "bash"
-tags = [ "imagemagick", "convert" ]
+tags = [ "imagemagick", "convert", "cut" ]
 
 [[cards]]
 title = "[ImageMagick] Scale"
@@ -14,7 +14,7 @@ code = """
 convert image.png -resize 200% out.png
 """
 language = "bash"
-tags = [ "imagemagick", "convert" ]
+tags = [ "imagemagick", "convert", "resize" ]
 
 [[cards]]
 title = "[ImageMagick] Retain pixels over a certain brightness threshold"
@@ -22,7 +22,7 @@ code = """
 convert image.png -threshold 80% out.png
 """
 language = "bash"
-tags = [ "imagemagick", "convert" ]
+tags = [ "imagemagick", "convert", "pixel" ]
 
 [[cards]]
 title = "[ImageMagick] Invert"
@@ -30,7 +30,7 @@ code = """
 convert image.png -negate out.png
 """
 language = "bash"
-tags = [ "imagemagick", "convert" ]
+tags = [ "imagemagick", "convert", "negate" ]
 
 [[cards]]
 title = "[JavaScript] Regex one-liner"
@@ -38,7 +38,7 @@ code = """
 const [match, group1, group2, group3] = myString.match(/regex/) ?? [];
 """
 language = "javascript"
-tags = [ "js/ts", "regex" ]
+tags = [ "regex", "javascript", "js", "typescript", "ts" ]
 
 [[cards]]
 title = "[JavaScript] Get all regex matches"
@@ -55,7 +55,7 @@ do {
 } while (m !== null);
 """
 language = "javascript"
-tags = [ "js/ts", "regex" ]
+tags = [ "regex", "javascript", "js", "typescript", "ts" ]
 
 [[cards]]
 title = "[Rust] Connect to a postgres db with SSL and an r2d2 connection pool"

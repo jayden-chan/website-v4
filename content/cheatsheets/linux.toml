@@ -25,7 +25,7 @@ sudo groupmod -n new-username old-username
 # Remove temp account
 sudo userdel -r temp
 """
-tags = [ "linux", "user" ]
+tags = [ "linux", "user", "rename", "adduser", "usermod" ]
 
 [[cards]]
 title = "[Vim] Paste contents of macro into command line"
@@ -42,7 +42,7 @@ tags = [ "linux", "clipboard", "pipe", "command" ]
 title = "[Linux] Convert JPGs to PDF"
 code = "convert 1.jpg 2.jpg -rotate 90 -page Letter -quality 50 out.pdf"
 language = "bash"
-tags = [ "linux", "convert" ]
+tags = [ "linux", "convert", "imagemagick" ]
 
 [[cards]]
 title = "[Linux] Concatenate PDFs"
@@ -54,7 +54,7 @@ tags = [ "linux", "concat" ]
 title = "[Linux] Show disk space usage for current folder"
 code = "du -sch *  | sort -h"
 language = "bash"
-tags = [ "linux", "disk" ]
+tags = [ "linux", "disk", "storage" ]
 
 [[cards]]
 title = "[Linux] Remap caps lock to escape"
@@ -63,13 +63,13 @@ xmodmap -e "clear lock"
 xmodmap -e "keysym Caps_Lock = Escape"
 """
 language = "bash"
-tags = [ "linux" ]
+tags = [ "linux", "keyboard", "xmodmap" ]
 
 [[cards]]
 title = "[Linux] Change key repeat rate and delay"
 code = "xset r rate 270 35"
 language = "bash"
-tags = [ "linux" ]
+tags = [ "linux", "keyboard", "xset" ]
 
 [[cards]]
 title = "[Linux] Setting up CUPS"
@@ -90,11 +90,6 @@ code = "lspci -vnn | rg VGA -A 12"
 tags = [ "linux", "sysinfo" ]
 
 [[cards]]
-title = "[Git] Show the total number of commits"
-code = "git rev-list --count --all"
-tags = [ "git" ]
-
-[[cards]]
 title = "[Vim] Retain all lines matching a pattern"
 code = """
 :v/pattern/d
@@ -111,4 +106,4 @@ tags = [ "vim", "command", "regex" ]
 [[cards]]
 title = "[Linux] Change the timezone"
 code = "timedatectl set-timezone Canada/Mountain"
-tags = [ "oneliners", "linux" ]
+tags = [ "oneliners", "linux", "timedatectl" ]

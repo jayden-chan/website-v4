@@ -3,13 +3,13 @@ title = "One-liners"
 [[cards]]
 title = "[Markdown] Image"
 code = '![Desc](img/image.png "Desc")'
-tags = [ "oneliners", "markdown", "image" ]
+tags = [ "oneliners", "markdown", "image", "md" ]
 
 [[cards]]
 title = "[JavaScript] Array with numbers 0..n"
 code = "[...Array(n).keys()].map(e => ...)"
 language = "javascript"
-tags = [ "oneliners", "js/ts" ]
+tags = [ "oneliners", "javascript", "typescript", "js", "ts" ]
 
 [[cards]]
 title = "[Git] Show the total number of commits"

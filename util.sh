@@ -23,6 +23,7 @@ case $1 in
         ;;
 
     deploy)
+        branch=$(git branch --show-current)
         git push
         npm run build
         npm run clean-css
@@ -35,6 +36,7 @@ case $1 in
         git add --all
         git commit -m "JC: Deploy"
         git push
+        git checkout $branch
         ;;
     *)
         echo "invalid command"
