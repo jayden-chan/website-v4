@@ -28,6 +28,7 @@ config.autoAddCss = false;
 import { throwIfErr, dirStat, templateReplace, htmlEscape } from "./utils";
 import { SITE_LAYOUT } from "./layout";
 import "./styles/index.scss";
+import { spawnSync } from "child_process";
 
 const CSS_FONT_LINK = `<link
   href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap"
@@ -201,8 +202,11 @@ export default async function main() {
   console.timeEnd("Time");
 
   log();
-  dirStat(OUTPUT_DIR);
-  log();
+  const exa = spawnSync("exa", ["-lah", "--tree", OUTPUT_DIR], {
+    stdio: "pipe",
+  });
+
+  console.log(exa.stdout.toString());
 }
 
 main();

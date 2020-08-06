@@ -1,43 +1,43 @@
-const path = require('path');
-const glob = require('glob');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackHookPlugin = require('webpack-hook-plugin');
+const path = require("path");
+const glob = require("glob");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackHookPlugin = require("webpack-hook-plugin");
 
-const config = require('./config');
+const config = require("./config");
 
 const settings = {
   module: {
     rules: [
       {
         test: /\.toml$/,
-        use: {loader: 'toml-loader'},
+        use: { loader: "toml-loader" },
       },
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        include: [path.resolve(__dirname, 'src')],
+        include: [path.resolve(__dirname, "src")],
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
               babelrc: false,
               presets: [
                 [
-                  '@babel/preset-env',
+                  "@babel/preset-env",
                   {
                     forceAllTransforms: true,
                     targets: {
-                      node: 'current',
+                      node: "current",
                     },
-                    useBuiltIns: 'usage',
+                    useBuiltIns: "usage",
                     modules: false,
                     loose: true,
                     corejs: 3,
                   },
                 ],
-                '@babel/preset-react',
+                "@babel/preset-react",
                 [
-                  '@babel/preset-typescript',
+                  "@babel/preset-typescript",
                   {
                     isTSX: true,
                     allExtensions: true,
@@ -45,19 +45,19 @@ const settings = {
                 ],
               ],
               plugins: [
-                '@babel/plugin-proposal-class-properties',
+                "@babel/plugin-proposal-class-properties",
                 [
-                  'babel-plugin-transform-react-remove-prop-types',
-                  {removeImport: true},
+                  "babel-plugin-transform-react-remove-prop-types",
+                  { removeImport: true },
                 ],
                 [
-                  '@babel/plugin-transform-runtime',
+                  "@babel/plugin-transform-runtime",
                   {
                     helpers: false,
                     regenerator: true,
                   },
                 ],
-                '@babel/plugin-syntax-dynamic-import',
+                "@babel/plugin-syntax-dynamic-import",
               ],
             },
           },
@@ -70,27 +70,27 @@ const settings = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../',
+              publicPath: "../",
             },
           },
           {
-            loader: require.resolve('css-loader'),
-            options: {importLoaders: 2, sourceMap: false},
+            loader: require.resolve("css-loader"),
+            options: { importLoaders: 2, sourceMap: false },
           },
           {
-            loader: require.resolve('postcss-loader'),
+            loader: require.resolve("postcss-loader"),
             options: {
-              ident: 'postcss',
+              ident: "postcss",
               plugins: () => [
-                require('tailwindcss'),
-                require('postcss-flexbugs-fixes'),
-                require('postcss-preset-env')({
+                require("tailwindcss"),
+                require("postcss-flexbugs-fixes"),
+                require("postcss-preset-env")({
                   autoprefixer: {
-                    flexbox: 'no-2009',
+                    flexbox: "no-2009",
                   },
                   stage: 3,
                 }),
-                require('postcss-import'),
+                require("postcss-import"),
               ],
               sourceMap: false,
             },
@@ -104,34 +104,35 @@ const settings = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: "[name].css",
+      chunkFilename: "[id].css",
       ignoreOrder: false,
     }),
     new WebpackHookPlugin({
-      onBuildExit: ['node dist/generator.js'],
+      onBuildExit: ["node dist/generator.js"],
     }),
   ],
 
   externals: {
-    fs: 'commonjs fs',
-    path: 'commonjs path',
+    fs: "commonjs fs",
+    path: "commonjs path",
+    child_process: "commonjs child_process",
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, "dist"),
   },
 
   entry: {
-    generator: ['./src/generator.tsx'],
+    generator: ["./src/generator.tsx"],
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css', '.json'],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".scss", ".css", ".json"],
   },
 
   bail: true,
-  mode: 'development',
+  mode: "development",
   optimization: {
     removeAvailableModules: false,
     removeEmptyChunks: false,
@@ -139,13 +140,13 @@ const settings = {
   },
 };
 
-module.exports = env => {
+module.exports = (env) => {
   let conf;
   switch (env) {
-    case 'resume':
+    case "resume":
       conf = config(true);
       break;
-    case 'dev':
+    case "dev":
       settings.watch = true;
       settings.watchOptions = {
         ignored: /node_modules/,
@@ -159,7 +160,7 @@ module.exports = env => {
 
   settings.plugins.unshift(new webpack.DefinePlugin(conf));
   settings.module.rules[2].use.push({
-    loader: require.resolve('sass-loader'),
+    loader: require.resolve("sass-loader"),
     options: {
       sourceMap: false,
       data: `$background:${conf.BACKGROUND_COLOR};$text-color:${conf.TEXT_COLOR};`,
