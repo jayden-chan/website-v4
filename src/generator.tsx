@@ -182,14 +182,6 @@ export default async function main() {
   copyFile("content/images/headshot.png", "build/headshot.png", throwIfErr);
   copyFile("content/images/sig.png", "build/sig.png", throwIfErr);
 
-  for (const agent of readdirSync("content/images/agents")) {
-    copyFile(
-      `content/images/agents/${agent}`,
-      `build/agents/${agent}`,
-      throwIfErr
-    );
-  }
-
   const sitemap = await renderPromise;
   writeFileSync(
     "build/sitemap.xml",
