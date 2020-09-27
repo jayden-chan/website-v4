@@ -52,7 +52,7 @@ tags = [ "linux", "concat" ]
 
 [[cards]]
 title = "[Linux] Show disk space usage for current folder"
-code = "du -sch *  | sort -h"
+code = "du -sch $(\ls -A) | sort -h"
 language = "bash"
 tags = [ "linux", "disk", "storage" ]
 
