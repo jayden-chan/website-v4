@@ -7,7 +7,7 @@ udisksctl unmount -b /dev/sdxn
 udisksctl power-off -b /dev/sdx
 """
 language = "bash"
-tags = [ "hard", "safe", "unmount", "detach", "eject" ]
+tags = [ "hard drive", "safe", "unmount", "detach", "eject" ]
 
 [[cards]]
 title = "[Shell] Check if variable is empty or unset"
