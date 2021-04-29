@@ -27,8 +27,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const plg = PRINT_MODE ? "" : "lg:";
-// const skipPrint = i => !PRINT_MODE || i.print === true;
-const skipPrint = (i) => true;
+const skipPrint = (i) => !PRINT_MODE || i.print === true;
 
 const np = (text: string) => {
   return !PRINT_MODE ? text : "";
@@ -189,7 +188,15 @@ const Resume = () => {
               <section className={section} key={idx}>
                 <header>
                   <div>
-                    <h3 className={minor + " inline-block"}>{job.company}</h3>
+                    {job.website ? (
+                      <a href={job.website} target="_blank">
+                        <h3 className={minor + " inline-block"}>
+                          {job.company}
+                        </h3>
+                      </a>
+                    ) : (
+                      <h3 className={minor + " inline-block"}>{job.company}</h3>
+                    )}
                     <span className={rightFloat}>
                       <FontAwesomeIcon icon={faMapMarkerAlt} />
                       <span className={iconWord}>{job.location}</span>
@@ -251,7 +258,7 @@ const Resume = () => {
                     {proj.roles.map((r, idx) => {
                       if (
                         PRINT_MODE &&
-                        r.startsWith("Created a moving-average")
+                        r.startsWith("Parallelized across any")
                       ) {
                         return (
                           <li className="pb-8" key={idx}>
@@ -294,38 +301,26 @@ const Resume = () => {
             </header>
           </section>
 
-          {(() => {
-            if (true) {
-              return (
-                <h1 className={major}>
-                  <FontAwesomeIcon icon={faTrophy} />
-                  <span className={iconWordLarge}>Awards</span>
-                </h1>
-              );
-            }
-          })()}
+          <h1 className={major}>
+            <FontAwesomeIcon icon={faTrophy} />
+            <span className={iconWordLarge}>Awards</span>
+          </h1>
 
-          {(() => {
-            if (true) {
-              return resume.awards.map((award, idx) => {
-                return (
-                  <section className="block mb-3" key={idx}>
-                    <header>
-                      <div>
-                        <h3 className={minor + " inline-block"}>
-                          {award.result}
-                        </h3>
-                      </div>
-                      <div>
-                        <span className={`time text-lg`}>{award.desc}</span>
-                        <span className={rightFloat}>{award.time}</span>
-                      </div>
-                    </header>
-                  </section>
-                );
-              });
-            }
-          })()}
+          {resume.awards.filter(skipPrint).map((award, idx) => {
+            return (
+              <section className="block mb-3" key={idx}>
+                <header>
+                  <div>
+                    <h3 className={minor + " inline-block"}>{award.result}</h3>
+                  </div>
+                  <div>
+                    <span className={`time text-lg`}>{award.desc}</span>
+                    <span className={rightFloat}>{award.time}</span>
+                  </div>
+                </header>
+              </section>
+            );
+          })}
         </div>
       </div>
     </div>

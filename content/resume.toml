@@ -10,7 +10,7 @@ lang = [ "JavaScript / TypeScript", "Rust", "C", "Go", "HTML / CSS / SCSS" ]
 tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
 tech = [
   "React / React Native",
-  "Webpack",
+  "OpenCV",
   "Heroku",
   "Google Cloud Platform",
   "PostgreSQL / MySQL / MariaDB",
@@ -20,9 +20,24 @@ tech = [
 [[experience]]
 print = true
 title = "Software Developer"
+location = "Calgary, Canada"
+company = "Launchcode"
+time = "Sep 2020 - Apr 2021"
+website = "https://lc.dev"
+roles = [
+  "Developed core business logic for the PatronScan ID Scanner product",
+  "Implemented a faster and more reliable ID detection algorithm using OpenCV and Rust",
+  "Built a responsive web frontend for Launchcode's \"Enjoyn\" product using React & Chakra",
+  "Implemented core video and audio conferencing features for the Enjoyn Android app"
+]
+
+[[experience]]
+print = true
+title = "Software Developer"
 location = "Victoria, Canada"
 company = "Referral SaaSquatch"
 time = "Jan 2019 - Apr 2020"
+website = "https://www.saasquatch.com"
 roles = [
   "Developed core logic for the SaaSquatch Growth Automation platform with using Express, Heroku, and Contentful",
   "Implemented a new frontend build process from scratch using Babel & Webpack, adding TypeScript support and reducing build times from ~2 minutes to 400 ms",
@@ -36,6 +51,7 @@ title = "Robotics Software Technician"
 location = "Calgary, Canada"
 company = "Bickert Robotics"
 time = "Apr 2018 - Sep 2018"
+website = "https://bickertrobotics.com"
 roles = [
   "Developed a software suite to power Bickert Robotics' automated bartender robot",
   "Implemented a REST API using Go and PostgreSQL for managing drink recipes, ingredients, robot configurations, and customer credentials",
@@ -71,7 +87,7 @@ roles = [
 ]
 
 [[projects]]
-print = false
+print = true
 title = "Battlesnake"
 stack = "Rust / Go"
 time = "2019"
@@ -96,7 +112,7 @@ roles = [
 ]
 
 [[projects]]
-print = false
+print = true
 title = "UVic ENGR 120 Design Project"
 stack = "C"
 github = "ENGR120-Vex"
@@ -109,31 +125,37 @@ roles = [
 ]
 
 [[awards]]
+print = true
 result = "Winner"
 time = "2020"
 desc = "Western Engineering Competition (Programming)"
 
 [[awards]]
+print = true
 result = "Winner"
 time = "2018, 2019"
 desc = "UVic Engineering Competition (Programming)"
 
 [[awards]]
+print = true
 result = "Winner"
 time = "2018"
 desc = "UVic ENGR 120 Design Competition"
 
 [[awards]]
+print = true
 result = "Winner"
 time = "2016"
 desc = "Western Canada Regional Robotics Competition"
 
 [[awards]]
+print = false
 result = "Winner"
 time = "2016"
 desc = "China Robotics Challenge"
 
 [[awards]]
+print = false
 result = "Innovation in Control Award"
 time = "2015, 2016"
 desc = "Western Canada Regional Robotics Competition"

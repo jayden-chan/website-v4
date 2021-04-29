@@ -2,8 +2,8 @@ const config = (print_mode) => {
   return {
     PRINT_MODE: print_mode,
     TEXT_COLOR: print_mode ? "black" : "white",
-    BACKGROUND_COLOR: print_mode ? "#e8e6e3" : "#1B1F22",
-    // BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#1B1F22",
+    // BACKGROUND_COLOR: print_mode ? "#e8e6e3" : "#1B1F22",
+    BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#1B1F22",
     ...Object.fromEntries(
       Object.entries({
         URL: "jayden-chan.me",
