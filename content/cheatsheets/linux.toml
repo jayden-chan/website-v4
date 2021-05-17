@@ -1,6 +1,11 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Vim] Take a diff between splits"
+code = ":windo diffthis"
+tags = [ "vim", "diff", "splits" ]
+
+[[cards]]
 title = "[Linux] Safely disconnect external drive"
 code = """
 udisksctl unmount -b /dev/sdxn
