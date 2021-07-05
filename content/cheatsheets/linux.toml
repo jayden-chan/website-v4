@@ -1,6 +1,18 @@
 title = "Linux / Vim"
 
 [[cards]]
+title = "[Linux] Archive Dev folder"
+code = """
+# Select the files to be archived
+fd . './Folder1' './Folder2' > files.txt
+
+# Perform the compression (takes a long time)
+compress dev-YYYY-MM-DD.tar.xz -T files.txt
+"""
+language = "bash"
+tags = [ "dev", "compress", "archive", "tar", "xz", "fd" ]
+
+[[cards]]
 title = "[Vim] Take a diff between splits"
 code = ":windo diffthis"
 tags = [ "vim", "diff", "splits" ]
