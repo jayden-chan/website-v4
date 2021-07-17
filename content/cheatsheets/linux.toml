@@ -27,12 +27,6 @@ language = "bash"
 tags = [ "hard drive", "safe", "unmount", "detach", "eject" ]
 
 [[cards]]
-title = "[Shell] Check if variable is empty or unset"
-code = 'if [ -z "$variable" ]; then echo "blank"; else echo "not blank"; fi'
-language = "bash"
-tags = [ "shell", "variable" ]
-
-[[cards]]
 title = "[Linux] Rename a user"
 language = "bash"
 code = """

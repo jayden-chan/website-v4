@@ -1,6 +1,61 @@
 title = "Programming"
 
 [[cards]]
+title = "[Shell] Check if variable is empty or unset"
+code = 'if [ -z "$variable" ]; then echo "blank"; else echo "not blank"; fi'
+language = "bash"
+tags = [ "shell", "variable" ]
+
+[[cards]]
+title = "[Shell] Glob pattern to array"
+code = 'my_pngs=(./folder/**/*.png)'
+language = "bash"
+tags = [ "shell", "variable", "glob", "array" ]
+
+[[cards]]
+title = "[Shell] Push to array"
+code = 'my_array+=( "$item" )'
+language = "bash"
+tags = [ "shell", "variable", "push", "append" ]
+
+[[cards]]
+title = "[Shell] Print path without extension/just file name"
+code = """
+path="/path/to/the/file.txt"
+echo ${path:t}
+# file.txt
+echo ${path:r}
+# /path/to/the/file
+echo ${path:t:r}
+# file
+"""
+language = "bash"
+tags = [ "shell", "print", "variable", "ext", "path" ]
+
+[[cards]]
+title = "[Shell] Check exit code of last command"
+code = '[[ "$?" = "0" ]] && echo "Ok" || echo "fail"'
+language = "bash"
+tags = [ "shell", "variable", "exit", "status", "result", "previous" ]
+
+[[cards]]
+title = "[Shell] Iterate arguments"
+code = """
+while test $# -gt 0
+do
+    case "$1" in
+        --flag) echo "flag"
+            ;;
+        *) echo "parameter"
+            ;;
+    esac
+    shift
+done
+"""
+language = "bash"
+tags = [ "shell", "arguments", "args" ]
+
+[[cards]]
 title = "[ImageMagick] Crop"
 code = """
 convert image.png -crop <size_x>x<size_y>+<position_x>+<position_y> out.png
