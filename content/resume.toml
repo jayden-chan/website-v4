@@ -74,19 +74,19 @@ roles = [
 #   "Participated in and won the annual China Robotics Challenge in 2016. Provided mentorship and advice to rookie Chinese teams before the competition"
 # ]
 
-[[projects]]
-print = true
-title = "Axial"
-stack = "TypeScript / Rust"
-github = "axial"
-time = "2021"
-roles = [
-  "Axial is a lightweight web server for Git",
-  "Supports exploring the file tree for all branches, tags, and individual commits",
-  "Renders markdown README files and supports syntax highlighting when viewing code",
-  "Capable of showing a diff between two commits or between two branches in the repository",
-  "Deployable with no runtime dependencies other than a web server/libSSL and Git"
-]
+#[[projects]]
+#print = true
+#title = "Axial"
+#stack = "TypeScript / Rust"
+#github = "axial"
+#time = "2021"
+#roles = [
+#  "Axial is a lightweight web server for Git",
+#  "Supports exploring the file tree for all branches, tags, and individual commits",
+#  "Renders markdown README files and supports syntax highlighting when viewing code",
+#  "Capable of showing a diff between two commits or between two branches in the repository",
+#  "Deployable with no runtime dependencies other than a web server/libSSL and Git"
+#]
 
 [[projects]]
 print = true
