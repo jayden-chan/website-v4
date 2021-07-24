@@ -1,5 +1,6 @@
 // Webpack injected
 declare const GITHUB: string;
+declare const URL: string;
 
 import React from "react";
 
@@ -41,7 +42,7 @@ const About = () => {
 
         <p className={pStyle}>
           You can check out my resume{" "}
-          <a className={aStyle} href={"https://jayden-chan.me/resume"}>
+          <a className={aStyle} href={`https://${URL}/resume`}>
             here
           </a>
           .
