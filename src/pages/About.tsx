@@ -15,7 +15,7 @@ const About = () => {
         <span className="hidden sm:inline float-left w-1/3 mr-6">
           <img className="w-full" src="/headshot.png" />
         </span>
-        <p className={pStyle}>Hello there!</p>
+        <p className={pStyle}>Hey!</p>
 
         <p className={pStyle}>
           My name is Jayden Chan. I am a Software Engineering student at the

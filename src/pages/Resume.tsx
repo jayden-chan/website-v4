@@ -3,7 +3,6 @@ declare const PRINT_MODE: boolean;
 declare const URL: string;
 declare const GITHUB: string;
 declare const EMAIL: string;
-declare const PHONE: string;
 
 import React from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -120,10 +119,6 @@ const Resume = () => {
                 <a href={`https://${URL}`} className={iconWord}>
                   {URL}
                 </a>
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faPhone} />
-                <span className={iconWord}>{PHONE}</span>
               </li>
               <li>References available upon request</li>
             </ul>
@@ -242,7 +237,14 @@ const Resume = () => {
                         );
                       } else {
                         return (
-                          <span className="time text-lg"> (closed source)</span>
+                          <span className="time text-lg">
+                            {" "}
+                            (
+                            {proj.source_msg
+                              ? proj.source_msg
+                              : "closed source"}
+                            )
+                          </span>
                         );
                       }
                     })()}
