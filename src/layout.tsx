@@ -30,14 +30,6 @@ export const SITE_LAYOUT: Page = {
       subpages: [],
     },
     {
-      relativePath: "about/",
-      title: "About - Jayden Chan",
-      desc: `${TERM} Software Engineering Student at the University of Victoria`,
-      template: "about",
-      component: About,
-      subpages: [],
-    },
-    {
       relativePath: "cheat/",
       title: "Cheatsheet",
       desc: "Programming/Linux Cheatsheet",

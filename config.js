@@ -3,7 +3,7 @@ const config = (print_mode) => {
     PRINT_MODE: print_mode,
     TEXT_COLOR: print_mode ? "black" : "white",
     // BACKGROUND_COLOR: print_mode ? "#e8e6e3" : "#1B1F22",
-    BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#1B1F22",
+    BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#101010",
     ...Object.fromEntries(
       Object.entries({
         URL: "jaydenchan.xyz",

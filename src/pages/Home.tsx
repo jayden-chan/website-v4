@@ -13,9 +13,6 @@ const Home = () => {
         {TERM} Software Engineering |
         <a href="https://uvic.ca"> University of Victoria</a>
       </p>
-      <a href="about" className={link}>
-        about
-      </a>
       <a href={`https://github.com/${GITHUB}`} className={link}>
         github
       </a>

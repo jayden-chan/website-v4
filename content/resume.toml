@@ -92,8 +92,7 @@ roles = [
 print = true
 title = "bblp"
 stack = "Rust"
-# github = "bblp"
-source_msg = "pending release"
+github = "bblp"
 time = "2021"
 roles = [
   "bblp is an implementation of the Revised Simplex Method for solving Linear Programs",
