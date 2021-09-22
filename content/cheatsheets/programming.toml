@@ -22,6 +22,8 @@ tags = [ "shell", "variable", "push", "append" ]
 title = "[Shell] Print path without extension/just file name"
 code = """
 path="/path/to/the/file.txt"
+echo ${path:h}
+# /path/to/the
 echo ${path:t}
 # file.txt
 echo ${path:r}
