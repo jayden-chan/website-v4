@@ -24,6 +24,8 @@ case $1 in
 
     deploy)
         branch=$(git branch --show-current)
+        cp ../CoverLetter.tsx src/pages/
+        cp ~/Pictures/Profile\ Pics/GitHub.png content/images/headshot.png
         git push
         npm run build
         npm run clean-css
