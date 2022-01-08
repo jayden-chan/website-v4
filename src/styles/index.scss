@@ -4,6 +4,12 @@
 
 @import "../../node_modules/highlight.js/styles/gruvbox-dark.css";
 
+html {
+  font-family: "Source Sans Pro";
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
 body {
   @media print {
     background: $background !important;
@@ -16,8 +22,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, monospace;
 }
 
 a {

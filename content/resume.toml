@@ -13,7 +13,6 @@ tech = [
   "React / React Native",
   "Docker / docker-compose",
   "Kubernetes / Rancher",
-  "Heroku / GCP",
   "nginx",
   "PostgreSQL / MySQL / MariaDB",
   "REST / GraphQL",
@@ -27,9 +26,9 @@ company = "Dyspatch"
 time = "Sep 2021 - present"
 website = "https://www.dyspatch.io/"
 roles = [
-  "Implemented an improved version of Dyspatch's internal one-click Kubernetes deployment tool",
+  "Implemented an improved version of Dyspatch's internal one-click Kubernetes deployment & monitoring tool",
   "Connected Rancher, GitHub, S3, DynamoDB, and Slack APIs for a cohesive and polished deployment experience",
-  "Reverse engineered Rancher API to enable making Kubernetes deployments through their API",
+  "Reverse engineered Rancher CLI to enable making Kubernetes deployments through their un-documented API",
   "Implemented high-availability distributed GraphQL subscriptions with Apollo and Redis"
 ]
 

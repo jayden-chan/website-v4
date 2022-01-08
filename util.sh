@@ -6,7 +6,9 @@ set -e
 
 case $1 in
     resume)
+        cp ../CoverLetter.tsx src/pages/
         npx webpack --progress --env=resume
+        npm run clean-css
         wkhtmltopdf --enable-local-file-access -L 0 -R 0 -T 0 -B 0 -s Letter build/resume/index.html build/temp_resume.pdf
         pdftk build/temp_resume.pdf cat 1-r$max_pages output build/resume.pdf
         wkhtmltopdf --enable-local-file-access -L 0 -R 0 -T 0 -B 0 -s Letter build/coverletter/index.html build/temp_cover.pdf

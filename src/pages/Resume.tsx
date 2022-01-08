@@ -259,7 +259,7 @@ const Resume = () => {
                     {proj.roles.map((r, idx) => {
                       if (
                         PRINT_MODE &&
-                        r.startsWith("Parallelized across any")
+                        r.startsWith("Implements the largest")
                       ) {
                         return (
                           <li className="pb-8" key={idx}>
