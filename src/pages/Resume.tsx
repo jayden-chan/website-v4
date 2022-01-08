@@ -17,7 +17,6 @@ import {
   faGlobeAmericas,
   faGraduationCap,
   faMapMarkerAlt,
-  faPhone,
   faSuitcase,
   faTrophy,
   faVoicemail,
@@ -46,7 +45,7 @@ const wrapper = [
   p('mb-64', 'mb-32'),
   'fadein',
   'resume',
-  'lg:w-5/6',
+  p('lg:w-5/6', 'lg:w-2/3'),
   `${plg}pr-0`,
   `lg:pl-0`,
 ].join(' ');

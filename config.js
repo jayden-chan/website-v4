@@ -6,13 +6,13 @@ const config = (print_mode) => {
     BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#101010",
     ...Object.fromEntries(
       Object.entries({
-        URL: "jaydenchan.xyz",
+        URL: "jayden.codes",
         TERM: "4A",
         CSS_BASE: "",
         R_CSS_BASE: "..",
         OUTPUT_DIR: "./build",
         LINKEDIN: "jaydencn7",
-        EMAIL: "hello@jaydenchan.xyz",
+        EMAIL: "jaydencn7@gmail.com",
         GITHUB: "jayden-chan",
       }).map(([key, val]) => [key, `"${val}"`])
     ),

@@ -1,22 +1,36 @@
 interests = [
-  "Coffee",
-  "Cooking",
-  "Mechanical Keyboards",
+  "Coffee / cooking",
+  "Free Software / self-hosting",
+  "Mechanical keyboards",
   "Gaming",
   "Formula 1",
 ]
 
 [skills]
-lang = [ "JavaScript / TypeScript", "Rust", "C", "Go", "HTML / CSS / SCSS" ]
+lang = [ "JavaScript / TypeScript", "Rust", "C", "HTML / CSS / SCSS", "Go" ]
 tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
 tech = [
   "React / React Native",
-  "OpenCV",
-  "Heroku",
-  "Google Cloud Platform",
+  "Docker / docker-compose",
+  "Kubernetes / Rancher",
+  "Heroku / GCP",
   "nginx",
   "PostgreSQL / MySQL / MariaDB",
   "REST / GraphQL",
+]
+
+[[experience]]
+print = true
+title = "Software Developer"
+location = "Victoria, Canada"
+company = "Dyspatch"
+time = "Sep 2021 - present"
+website = "https://www.dyspatch.io/"
+roles = [
+  "Implemented an improved version of Dyspatch's internal one-click Kubernetes deployment tool",
+  "Connected Rancher, GitHub, S3, DynamoDB, and Slack APIs for a cohesive and polished deployment experience",
+  "Reverse engineered Rancher API to enable making Kubernetes deployments through their API",
+  "Implemented high-availability distributed GraphQL subscriptions with Apollo and Redis"
 ]
 
 [[experience]]
@@ -48,7 +62,7 @@ roles = [
 ]
 
 [[experience]]
-print = true
+print = false
 title = "Robotics Software Technician"
 location = "Calgary, Canada"
 company = "Bickert Robotics"
@@ -61,32 +75,6 @@ roles = [
   "Designed a web app for viewing / editing drinks, users, and tanks using React. Included page for viewing the drink queue on the robot's embedded display",
   "Wrote embedded Python code to receive user input and autonomously pour drinks based on JSON recipe data"
 ]
-
-# [[experience]]
-# print = false
-# title = "Programming Team Leader"
-# location = "Calgary, Canada"
-# company = "Alberta Tech Alliance Association"
-# time = "Oct 2015 - Oct 2016"
-# roles = [
-#   "Led a team of developers in the creation of embedded robot code for the F.I.R.S.T Robotics Competition",
-#   "Developed robust and performant software using Java, C# and the WPI robotics libraries",
-#   "Participated in and won the annual China Robotics Challenge in 2016. Provided mentorship and advice to rookie Chinese teams before the competition"
-# ]
-
-#[[projects]]
-#print = true
-#title = "Axial"
-#stack = "TypeScript / Rust"
-#github = "axial"
-#time = "2021"
-#roles = [
-#  "Axial is a lightweight web server for Git",
-#  "Supports exploring the file tree for all branches, tags, and individual commits",
-#  "Renders markdown README files and supports syntax highlighting when viewing code",
-#  "Capable of showing a diff between two commits or between two branches in the repository",
-#  "Deployable with no runtime dependencies other than a web server/libSSL and Git"
-#]
 
 [[projects]]
 print = true
