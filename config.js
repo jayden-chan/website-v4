@@ -6,8 +6,8 @@ const config = (print_mode) => {
     BACKGROUND_COLOR: print_mode ? "#FFFFFF" : "#101010",
     ...Object.fromEntries(
       Object.entries({
-        URL: "jayden.codes",
-        TERM: "4A",
+        URL: "https://jayden.codes",
+        TERM: "4B",
         CSS_BASE: "",
         R_CSS_BASE: "..",
         OUTPUT_DIR: "./build",

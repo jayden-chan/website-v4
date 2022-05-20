@@ -3,9 +3,10 @@ declare const PRINT_MODE: boolean;
 declare const URL: string;
 declare const GITHUB: string;
 declare const EMAIL: string;
+declare const LINKEDIN: string;
 
 import React from "react";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // @ts-ignore -- complains about toml import
@@ -114,8 +115,17 @@ const Resume = () => {
                 </a>
               </li>
               <li>
+                <FontAwesomeIcon icon={faLinkedin} />
+                <a
+                  href={`https://www.linkedin.com/in/${LINKEDIN}`}
+                  className={iconWord}
+                >
+                  {LINKEDIN}
+                </a>
+              </li>
+              <li>
                 <FontAwesomeIcon icon={faGlobeAmericas} />
-                <a href={`https://${URL}`} className={iconWord}>
+                <a href={URL} className={iconWord}>
                   {URL}
                 </a>
               </li>
@@ -138,16 +148,16 @@ const Resume = () => {
               ))}
             </ul>
             <ul className="mb-10">
-              <h3 className={minor}>Tools</h3>
-              {resume.skills.tools.map((e, idx) => (
+              <h3 className={minor}>Technologies</h3>
+              {resume.skills.tech.map((e, idx) => (
                 <li className={skill} key={idx}>
                   {e}
                 </li>
               ))}
             </ul>
             <ul className="mb-10">
-              <h3 className={minor}>Technologies</h3>
-              {resume.skills.tech.map((e, idx) => (
+              <h3 className={minor}>Tools</h3>
+              {resume.skills.tools.map((e, idx) => (
                 <li className={skill} key={idx}>
                   {e}
                 </li>
@@ -257,12 +267,9 @@ const Resume = () => {
                 <div>
                   <ul className="list-disc ml-5">
                     {proj.roles.map((r, idx) => {
-                      if (
-                        PRINT_MODE &&
-                        r.startsWith("Implements the largest")
-                      ) {
+                      if (PRINT_MODE && r.startsWith("Includes a")) {
                         return (
-                          <li className="pb-8" key={idx}>
+                          <li className="pb-16" key={idx}>
                             {r}
                           </li>
                         );

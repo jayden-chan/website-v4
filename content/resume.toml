@@ -8,7 +8,7 @@ interests = [
 
 [skills]
 lang = [ "JavaScript / TypeScript", "Rust", "C/C++", "HTML / CSS / SCSS", "Go" ]
-tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
+tools = [ "Git", "Linux", "Vim", "LaTeX" ]
 tech = [
   "React / React Native",
   "Docker / docker-compose",
@@ -77,6 +77,20 @@ roles = [
 
 [[projects]]
 print = true
+title = "puggies"
+stack = "Go / React"
+github = "puggies"
+time = "2022"
+roles = [
+  "Puggies is a self-hosted CS:GO demo analyzer and statistics platform",
+  "Automatically parses CS:GO demos to extract statistics such as k/a/d, K/D, ADR, HS%, HLTV, RWS and many more",
+  "Supports demos from Valve MM, FACEIT, ESEA, and pugsetup",
+  "Uses docker-first containerized deployment method for easy setup and upgrades",
+  "Includes a beautiful and fast interface designed with React and Chakra"
+]
+
+[[projects]]
+print = true
 title = "bblp"
 stack = "Rust"
 github = "bblp"
@@ -128,7 +142,7 @@ roles = [
 # ]
 
 [[projects]]
-print = true
+print = false
 title = "UVic ENGR 120 Design Project"
 stack = "C"
 github = "ENGR120-Vex"
