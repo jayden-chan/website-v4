@@ -7,7 +7,7 @@ interests = [
 ]
 
 [skills]
-lang = [ "JavaScript / TypeScript", "Rust", "C", "HTML / CSS / SCSS", "Go" ]
+lang = [ "JavaScript / TypeScript", "Rust", "C/C++", "HTML / CSS / SCSS", "Go" ]
 tools = [ "Git", "Linux", "bash / zsh", "Vim", "LaTeX" ]
 tech = [
   "React / React Native",
@@ -23,7 +23,7 @@ print = true
 title = "Software Developer"
 location = "Victoria, Canada"
 company = "Dyspatch"
-time = "Sep 2021 - present"
+time = "Sep 2021 - Apr 2022"
 website = "https://www.dyspatch.io/"
 roles = [
   "Implemented an improved version of Dyspatch's internal one-click Kubernetes deployment & monitoring tool",
