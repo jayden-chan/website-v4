@@ -1,6 +1,33 @@
 title = "Programming"
 
 [[cards]]
+title = "[JavaScript] Parse command line arguments & flags"
+code = """
+const args = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+const flags = Object.fromEntries(
+  process.argv
+    .filter((a) => a.startsWith("--"))
+    .map((a) => {
+      const [, flag, arg] = a.match(/--(\w+)=(.*)/) ?? [
+        null,
+        a.slice(2),
+        true,
+      ];
+      return [flag, arg];
+    })
+);
+
+/**
+ * @param {string} param
+ * @param {string} deflt
+ * @returns {string}
+ */
+const getParam = (param, deflt) => flags[param] ?? deflt;
+"""
+language = "javascript"
+tags = [ "parse", "command", "arg", "get", "yarg" ]
+
+[[cards]]
 title = "[Shell] Check if variable is empty or unset"
 code = 'if [ -z "$variable" ]; then echo "blank"; else echo "not blank"; fi'
 language = "bash"
