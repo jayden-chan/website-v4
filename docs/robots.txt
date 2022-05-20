@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://jayden.codes/sitemap.xml
+Sitemap: https://https://jayden.codes/sitemap.xml
